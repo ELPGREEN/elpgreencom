@@ -23,12 +23,23 @@ const getSavedLanguage = () => {
     return saved;
   }
   
-  const browserLang = navigator.language.split('-')[0];
-  if (['en', 'pt', 'es', 'zh', 'it'].includes(browserLang)) {
-    return browserLang;
+  // Detect browser language with extended matching
+  const browserLang = navigator.language.toLowerCase();
+  const primaryLang = browserLang.split('-')[0];
+  
+  // Check for exact matches first (e.g., pt-BR, es-MX, zh-CN)
+  if (browserLang.startsWith('pt')) return 'pt';
+  if (browserLang.startsWith('es')) return 'es';
+  if (browserLang.startsWith('zh')) return 'zh';
+  if (browserLang.startsWith('it')) return 'it';
+  if (browserLang.startsWith('en')) return 'en';
+  
+  // Fallback check for primary language
+  if (['en', 'pt', 'es', 'zh', 'it'].includes(primaryLang)) {
+    return primaryLang;
   }
   
-  return 'en'; // Default to English for international audience
+  return 'pt'; // Default to Portuguese (company is Brazilian)
 };
 
 i18n
