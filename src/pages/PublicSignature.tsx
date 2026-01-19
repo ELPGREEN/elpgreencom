@@ -306,9 +306,7 @@ export default function PublicSignature() {
   // Load document from URL param - auto-navigate to signature step if document loads successfully
   useEffect(() => {
     if (documentIdParam) {
-      loadDocument(documentIdParam).then(() => {
-        // Navigation to step 3 happens after document is loaded in loadDocument
-      });
+      loadDocument(documentIdParam, true);
     }
   }, [documentIdParam]);
 
@@ -361,14 +359,30 @@ export default function PublicSignature() {
     };
   }, [step, signatureMode]);
 
-  const loadDocument = async (docId: string) => {
+  const loadDocument = async (docId: string, autoNavigate = false) => {
     setDocumentLoading(true);
     try {
-      const { data, error } = await supabase
+      // Try to find document by exact ID first
+      let { data, error } = await supabase
         .from('generated_documents')
         .select('*')
         .eq('id', docId)
         .single();
+
+      // If not found, try partial match (user might have copied only part of the ID)
+      if (error || !data) {
+        const { data: partialData, error: partialError } = await supabase
+          .from('generated_documents')
+          .select('*')
+          .ilike('id', `${docId}%`)
+          .limit(1)
+          .single();
+        
+        if (!partialError && partialData) {
+          data = partialData;
+          error = null;
+        }
+      }
 
       if (error || !data) {
         toast({
@@ -376,7 +390,8 @@ export default function PublicSignature() {
           description: t.noDocumentDesc,
           variant: 'destructive',
         });
-        return;
+        setDocumentLoading(false);
+        return false;
       }
 
       // Check if document is already signed
@@ -387,6 +402,8 @@ export default function PublicSignature() {
             ? `Este documento foi assinado em ${format(new Date(data.signed_at), "dd/MM/yyyy 'às' HH:mm")} por ${data.signer_name}` 
             : `This document was signed on ${format(new Date(data.signed_at), "yyyy-MM-dd 'at' HH:mm")} by ${data.signer_name}`,
         });
+        setDocumentLoading(false);
+        return false;
       }
 
       setDocument({
@@ -411,15 +428,26 @@ export default function PublicSignature() {
         company: companyFromFields || prev.company,
       }));
 
-      // If coming from URL with doc ID and document loaded successfully, go to step 1 for identification
-      // but pre-fill data for faster completion
-      if (documentIdParam && !data.is_signed) {
-        // If we have name and email from document, can proceed faster
-        if ((data.signer_name || signerNameFromFields) && (data.signer_email || signerEmailFromFields)) {
-          // Auto-fill completed, user can go directly to signature
-          setStep(1); // Still start at identification but with pre-filled data
+      toast({
+        title: lang === 'pt' ? 'Documento carregado!' : 'Document loaded!',
+        description: data.document_name,
+      });
+
+      // If auto-navigate or has pre-filled data, go to next logical step
+      if (autoNavigate || documentIdParam) {
+        // If we have name and email, go directly to signature step
+        const hasName = data.signer_name || signerNameFromFields;
+        const hasEmail = data.signer_email || signerEmailFromFields;
+        
+        if (hasName && hasEmail) {
+          setStep(3); // Go directly to signature
+        } else {
+          setStep(1); // Go to identification to fill missing data
         }
       }
+
+      setDocumentLoading(false);
+      return true;
 
     } catch (err) {
       console.error('Error loading document:', err);
@@ -428,14 +456,17 @@ export default function PublicSignature() {
         description: t.noDocumentDesc,
         variant: 'destructive',
       });
-    } finally {
       setDocumentLoading(false);
+      return false;
     }
   };
 
-  const handleLoadDocument = () => {
+  const handleLoadDocument = async () => {
     if (documentIdInput.trim()) {
-      loadDocument(documentIdInput.trim());
+      const success = await loadDocument(documentIdInput.trim(), true);
+      if (success) {
+        // Document loaded successfully, navigation is handled in loadDocument
+      }
     }
   };
 
