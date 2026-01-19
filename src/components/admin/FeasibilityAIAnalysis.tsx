@@ -10,13 +10,11 @@ import {
   TrendingUp, 
   TrendingDown,
   RefreshCw,
-  Zap,
   Crown
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -59,15 +57,12 @@ interface AIAnalysisProps {
   onAnalysisComplete?: (analysis: string) => void;
 }
 
-type AnalysisModel = 'flash' | 'pro';
-
 export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisProps) {
   const { t, i18n } = useTranslation();
   const { toast } = useToast();
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [selectedModel, setSelectedModel] = useState<AnalysisModel>('flash');
 
   const getViabilityBadge = () => {
     const roi = study.roi_percentage || 0;
@@ -99,7 +94,7 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
             country: study.country || ''
           },
           language: i18n.language,
-          model: selectedModel
+          model: 'pro'
         }
       });
 
@@ -111,16 +106,12 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
         if (data?.error) {
           const isRateLimited = data.error.includes('Rate limit') || data.recommended_model;
           if (isRateLimited) {
-            const recommendedModel = data.recommended_model || (selectedModel === 'flash' ? 'pro' : 'flash');
-            setError(t('admin.feasibility.ai.rateLimited', 'Rate limit reached. Please wait a moment and try again, or switch to another model.'));
+            setError(t('admin.feasibility.ai.rateLimited', 'Rate limit reached. Please wait a moment and try again.'));
             toast({
               title: t('admin.feasibility.ai.analysisFailed'),
-              description: t('admin.feasibility.ai.rateLimitedSuggestion', {
-                defaultValue: `Rate limit reached. Try switching to ${recommendedModel === 'pro' ? 'Complete (Pro)' : 'Quick (Flash)'} model.`
-              }),
+              description: t('admin.feasibility.ai.rateLimitedWait', 'Rate limit reached. Please wait a moment and try again.'),
               variant: 'destructive'
             });
-            setSelectedModel(recommendedModel as 'flash' | 'pro');
             return;
           }
           throw new Error(data.error);
@@ -207,41 +198,11 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
           </div>
         </div>
 
-        {/* Model Selector */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-muted-foreground">
-            {t('admin.feasibility.ai.selectModel', 'Select Analysis Type')}
-          </label>
-          <Select value={selectedModel} onValueChange={(v) => setSelectedModel(v as AnalysisModel)}>
-            <SelectTrigger className="w-full">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="flash">
-                <div className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-amber-500" />
-                  <div>
-                    <span className="font-medium">{t('admin.feasibility.ai.flashAnalysis', 'Quick Analysis (Flash)')}</span>
-                    <span className="text-xs text-muted-foreground ml-2">~10s</span>
-                  </div>
-                </div>
-              </SelectItem>
-              <SelectItem value="pro">
-                <div className="flex items-center gap-2">
-                  <Crown className="h-4 w-4 text-primary" />
-                  <div>
-                    <span className="font-medium">{t('admin.feasibility.ai.proAnalysis', 'Complete Analysis (Pro)')}</span>
-                    <span className="text-xs text-muted-foreground ml-2">~30s</span>
-                  </div>
-                </div>
-              </SelectItem>
-            </SelectContent>
-          </Select>
-          <p className="text-xs text-muted-foreground">
-            {selectedModel === 'flash' 
-              ? t('admin.feasibility.ai.flashDesc', 'Faster analysis with key insights. Best for quick evaluations.')
-              : t('admin.feasibility.ai.proDesc', 'Comprehensive analysis with detailed regulatory and strategic insights.')}
-          </p>
+        {/* Analysis Type Info */}
+        <div className="flex items-center gap-2 p-2 bg-primary/5 rounded-lg border border-primary/10">
+          <Crown className="h-4 w-4 text-primary" />
+          <span className="text-sm font-medium">{t('admin.feasibility.ai.proAnalysis', 'Complete Analysis (Pro)')}</span>
+          <span className="text-xs text-muted-foreground">~30s</span>
         </div>
 
         {/* AI Analysis Button */}
