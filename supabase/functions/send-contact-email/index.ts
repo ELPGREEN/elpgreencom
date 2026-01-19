@@ -142,7 +142,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <!-- Header with Logo -->
           <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary}); padding: 30px; ${!isReturningPartner && !isOTR && !isFromPdf ? 'border-radius: 12px 12px 0 0;' : ''} text-align: center;">
-            <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 15px;" />
+            <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 15px;" />
             <h1 style="color: ${colors.white}; margin: 0; font-size: 24px; font-weight: 600;">${priorityBadge}</h1>
             <p style="color: rgba(255,255,255,0.85); margin: 8px 0 0 0; font-size: 14px;">${isFromPdf ? 'Parceiro escaneou QR Code do PDF de Viabilidade' : 'Via formulário do site elpgreen.com'}</p>
           </div>
@@ -216,7 +216,7 @@ const handler = async (req: Request): Promise<Response> => {
               <a href="mailto:${email}?subject=Re: ${subject || 'Seu contato'} - ELP Green Technology" style="background: ${colors.secondary}; color: ${colors.white}; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; box-shadow: 0 4px 12px rgba(37,99,235,0.3); margin-right: 10px;">
                 ✉️ Responder Email
               </a>
-              <a href="https://nexus-eco-spark.lovable.app/admin" style="background: ${colors.white}; color: ${colors.secondary}; padding: 14px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; border: 2px solid ${colors.secondary};">
+              <a href="https://elpgreencom.lovable.app/admin" style="background: ${colors.white}; color: ${colors.secondary}; padding: 14px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; border: 2px solid ${colors.secondary};">
                 📂 Ver Pasta do Parceiro
               </a>
             </div>
@@ -279,7 +279,7 @@ const handler = async (req: Request): Promise<Response> => {
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.white};">
           <!-- Header -->
           <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary}); padding: 40px 30px; border-radius: 12px 12px 0 0; text-align: center;">
-            <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
+            <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
             <h1 style="color: ${colors.white}; margin: 0; font-size: 26px; font-weight: 600;">${isReturningPartner ? 'Bem-vindo de Volta!' : 'Obrigado pelo Contato!'}</h1>
             <p style="color: rgba(255,255,255,0.9); margin: 12px 0 0 0; font-size: 15px;">${isReturningPartner ? 'Sua mensagem foi adicionada ao seu histórico' : 'Recebemos sua mensagem com sucesso'}</p>
           </div>

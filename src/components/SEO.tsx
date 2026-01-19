@@ -11,7 +11,7 @@ interface SEOProps {
 export function SEO({ 
   title, 
   description, 
-  image = 'https://elpgreen12.lovable.app/og-image.jpg',
+  image = 'https://elpgreencom.lovable.app/og-image.jpg',
   url,
   type = 'website'
 }: SEOProps) {
