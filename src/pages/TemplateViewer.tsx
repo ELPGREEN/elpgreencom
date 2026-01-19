@@ -20,6 +20,10 @@ import {
   Pen,
   Shield,
   Lock,
+  Upload,
+  X,
+  File,
+  CheckSquare,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -29,6 +33,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { SEO } from '@/components/SEO';
@@ -94,8 +99,11 @@ export default function TemplateViewer() {
 
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'pt');
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
+  const [checkboxValues, setCheckboxValues] = useState<Record<string, boolean>>({});
+  const [uploadedFiles, setUploadedFiles] = useState<Record<string, { file: File; name: string }>>({});
   const [previewContent, setPreviewContent] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
   
   // Signature states
   const [signatureDialogOpen, setSignatureDialogOpen] = useState(false);
@@ -106,6 +114,7 @@ export default function TemplateViewer() {
   const [signerEmail, setSignerEmail] = useState('');
   const signatureCanvasRef = useRef<HTMLCanvasElement>(null);
   const signaturePadRef = useRef<SignaturePad | null>(null);
+  const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   // Initialize signature pad
   useEffect(() => {
@@ -356,12 +365,21 @@ export default function TemplateViewer() {
         signatureHash = await generateHash(JSON.stringify(signatureData));
       }
       
+      // Combine all field values including checkboxes
+      const allFieldValues = {
+        ...fieldValues,
+        ...Object.fromEntries(
+          Object.entries(checkboxValues).map(([k, v]) => [k, v ? 'Sim / Yes ✓' : 'Não / No'])
+        ),
+        uploadedFiles: Object.keys(uploadedFiles),
+      };
+
       // Save to generated_documents
       const { data: insertedDoc, error } = await supabase.from('generated_documents').insert({
         template_id: template.id,
         document_name: `${template.name} - ${fieldValues.razao_social || fieldValues.company_name || 'Preenchido'}`,
         document_type: template.type,
-        field_values: fieldValues,
+        field_values: allFieldValues,
         language: selectedLanguage,
         is_signed: !!signatureData,
         signed_at: signatureData?.timestamp || null,
@@ -373,6 +391,14 @@ export default function TemplateViewer() {
       }).select('id').single();
       
       if (error) throw error;
+
+      // Upload files to storage if any
+      if (Object.keys(uploadedFiles).length > 0 && insertedDoc) {
+        for (const [fieldName, fileData] of Object.entries(uploadedFiles)) {
+          const filePath = `${insertedDoc.id}/${fieldName}_${fileData.name}`;
+          await supabase.storage.from('lead-documents').upload(filePath, fileData.file);
+        }
+      }
 
       // Log signature
       if (signatureData && insertedDoc) {
@@ -425,15 +451,48 @@ export default function TemplateViewer() {
     setFieldValues(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    // Validate required fields
-    const requiredFields = template?.fields?.filter(f => f.required) || [];
-    const missingFields = requiredFields.filter(f => !fieldValues[f.name]);
+  const handleCheckboxChange = (name: string, checked: boolean) => {
+    setCheckboxValues(prev => ({ ...prev, [name]: checked }));
+  };
+
+  const handleFileChange = (name: string, file: File | null) => {
+    if (file) {
+      setUploadedFiles(prev => ({ ...prev, [name]: { file, name: file.name } }));
+    } else {
+      setUploadedFiles(prev => {
+        const newFiles = { ...prev };
+        delete newFiles[name];
+        return newFiles;
+      });
+    }
+  };
+
+  const handleRemoveFile = (name: string) => {
+    setUploadedFiles(prev => {
+      const newFiles = { ...prev };
+      delete newFiles[name];
+      return newFiles;
+    });
+    if (fileInputRefs.current[name]) {
+      fileInputRefs.current[name]!.value = '';
+    }
+  };
+
+  const handleSubmit = async () => {
+    // Validate required text fields
+    const requiredTextFields = template?.fields?.filter(f => f.required && f.type !== 'checkbox' && f.type !== 'file') || [];
+    const missingTextFields = requiredTextFields.filter(f => !fieldValues[f.name]);
     
-    if (missingFields.length > 0) {
+    // Validate required checkboxes
+    const requiredCheckboxFields = template?.fields?.filter(f => f.required && f.type === 'checkbox') || [];
+    const uncheckedRequiredBoxes = requiredCheckboxFields.filter(f => !checkboxValues[f.name]);
+    
+    const allMissing = [...missingTextFields, ...uncheckedRequiredBoxes];
+    
+    if (allMissing.length > 0) {
       toast({
         title: t('templateViewer.fillRequired', 'Preencha os campos obrigatórios'),
-        description: missingFields.map(f => f.label).join(', '),
+        description: allMissing.map(f => f.label).join(', '),
         variant: 'destructive',
       });
       return;
@@ -445,7 +504,7 @@ export default function TemplateViewer() {
   const openSignatureDialog = () => {
     // Pre-fill from form fields
     setSignerName(fieldValues.representante || fieldValues.contact_name || '');
-    setSignerEmail(fieldValues.email || '');
+    setSignerEmail(fieldValues.email || fieldValues.contact_email || '');
     setSignatureDialogOpen(true);
   };
 
@@ -597,14 +656,15 @@ export default function TemplateViewer() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {fieldsToShow.map((field) => (
+                {/* Text Fields Section */}
+                {fieldsToShow.filter(f => f.type !== 'checkbox' && f.type !== 'file').map((field) => (
                   <div key={field.name} className="space-y-2">
                     <Label htmlFor={field.name} className="flex items-center gap-1">
                       {field.type === 'email' && <Mail className="h-3 w-3" />}
                       {field.type === 'tel' && <Phone className="h-3 w-3" />}
-                      {field.name.includes('endereco') && <MapPin className="h-3 w-3" />}
-                      {field.name.includes('razao') && <Building2 className="h-3 w-3" />}
-                      {field.name.includes('representante') && <User className="h-3 w-3" />}
+                      {field.name.includes('endereco') || field.name.includes('address') ? <MapPin className="h-3 w-3" /> : null}
+                      {field.name.includes('razao') || field.name.includes('company') ? <Building2 className="h-3 w-3" /> : null}
+                      {field.name.includes('representante') || field.name.includes('contact_name') ? <User className="h-3 w-3" /> : null}
                       {field.label}
                       {field.required && <span className="text-destructive">*</span>}
                     </Label>
@@ -643,6 +703,86 @@ export default function TemplateViewer() {
                     )}
                   </div>
                 ))}
+
+                {/* Checkbox Fields Section - Document Checklist */}
+                {fieldsToShow.filter(f => f.type === 'checkbox').length > 0 && (
+                  <div className="border-t border-border/50 pt-4 mt-4">
+                    <Label className="flex items-center gap-2 text-base font-semibold mb-4">
+                      <CheckSquare className="h-4 w-4" />
+                      {t('templateViewer.documentChecklist', 'Checklist de Documentos / Document Checklist')}
+                    </Label>
+                    <div className="space-y-3 bg-muted/20 rounded-lg p-4">
+                      {fieldsToShow.filter(f => f.type === 'checkbox').map((field) => (
+                        <div key={field.name} className="flex items-start space-x-3">
+                          <Checkbox
+                            id={field.name}
+                            checked={checkboxValues[field.name] || false}
+                            onCheckedChange={(checked) => handleCheckboxChange(field.name, checked as boolean)}
+                            className="mt-0.5"
+                          />
+                          <Label 
+                            htmlFor={field.name} 
+                            className="text-sm font-normal cursor-pointer leading-tight flex-1"
+                          >
+                            {field.label}
+                            {field.required && <span className="text-destructive ml-1">*</span>}
+                          </Label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* File Upload Section */}
+                {fieldsToShow.filter(f => f.type === 'file').length > 0 && (
+                  <div className="border-t border-border/50 pt-4 mt-4">
+                    <Label className="flex items-center gap-2 text-base font-semibold mb-4">
+                      <Upload className="h-4 w-4" />
+                      {t('templateViewer.attachDocuments', 'Anexar Documentos / Attach Documents')}
+                    </Label>
+                    <div className="space-y-3">
+                      {fieldsToShow.filter(f => f.type === 'file').map((field) => (
+                        <div key={field.name} className="space-y-2">
+                          <Label htmlFor={field.name} className="text-sm flex items-center gap-1">
+                            <File className="h-3 w-3" />
+                            {field.label}
+                            {field.required && <span className="text-destructive">*</span>}
+                          </Label>
+                          <div className="flex items-center gap-2">
+                            <Input
+                              ref={(el) => { fileInputRefs.current[field.name] = el; }}
+                              id={field.name}
+                              type="file"
+                              accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                              onChange={(e) => handleFileChange(field.name, e.target.files?.[0] || null)}
+                              className="flex-1"
+                            />
+                            {uploadedFiles[field.name] && (
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleRemoveFile(field.name)}
+                                className="h-8 w-8 text-destructive hover:text-destructive"
+                              >
+                                <X className="h-4 w-4" />
+                              </Button>
+                            )}
+                          </div>
+                          {uploadedFiles[field.name] && (
+                            <div className="flex items-center gap-2 text-xs text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded">
+                              <CheckCircle2 className="h-3 w-3" />
+                              {uploadedFiles[field.name].name}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-3">
+                      {t('templateViewer.acceptedFormats', 'Formatos aceitos: PDF, DOC, DOCX, JPG, PNG (máx. 10MB cada)')}
+                    </p>
+                  </div>
+                )}
 
                 {/* Signature Section */}
                 <div className="border-t border-border/50 pt-4 mt-4">
