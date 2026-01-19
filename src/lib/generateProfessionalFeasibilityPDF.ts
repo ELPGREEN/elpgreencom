@@ -173,7 +173,7 @@ export async function generateProfessionalFeasibilityPDF(
   const logoBase64 = await loadLogoAsBase64();
   
   // Generate QR Code for partner form (configurable URL)
-  const partnershipFormUrl = qrCodeUrl || "https://nexus-eco-spark.lovable.app/otr-sources";
+  const partnershipFormUrl = qrCodeUrl || "https://elpgreencom.lovable.app/otr-sources";
   const qrCodeBase64 = await generateQRCode(partnershipFormUrl);
   
   // Get country-specific ESG data

@@ -206,16 +206,20 @@ export function FeasibilityStudyCalculator() {
   const [qrCodeLinkType, setQrCodeLinkType] = useState<string>('otr-sources');
   const [customQrCodeUrl, setCustomQrCodeUrl] = useState<string>('');
   
+  // Base URL for the site
+  const siteBaseUrl = 'https://elpgreencom.lovable.app';
+  
   // Available form links for QR Code - with PDF source tracking
   const qrCodeFormOptions = [
-    { value: 'otr-sources', label: t('admin.feasibility.qrForms.otrSources', 'OTR Source Indication'), url: 'https://nexus-eco-spark.lovable.app/otr-sources?source=pdf_feasibility' },
-    { value: 'marketplace', label: t('admin.feasibility.qrForms.marketplace', 'Marketplace Registration'), url: 'https://nexus-eco-spark.lovable.app/marketplace?source=pdf_feasibility' },
-    { value: 'quote', label: t('admin.feasibility.qrForms.quote', 'Request Quote'), url: 'https://nexus-eco-spark.lovable.app/request-quote?source=pdf_feasibility' },
-    { value: 'contact', label: t('admin.feasibility.qrForms.contact', 'Contact Form'), url: 'https://nexus-eco-spark.lovable.app/contact?source=pdf_feasibility' },
-    { value: 'template-kyc', label: t('admin.feasibility.qrForms.dueDiligenceChecklist', 'Due Diligence Checklist (KYC)'), url: 'https://nexus-eco-spark.lovable.app/documents/template/8b202afd-f0d3-44cd-a83f-b5587abcc656?source=pdf_feasibility' },
-    { value: 'template-nda', label: t('admin.feasibility.qrForms.nda', 'NDA - Confidentiality Agreement'), url: 'https://nexus-eco-spark.lovable.app/documents/template/6ecfacbb-2830-4e55-8f2d-c2f34df20fc6?source=pdf_feasibility' },
-    { value: 'template-jv', label: t('admin.feasibility.qrForms.jointVenture', 'Joint Venture Agreement'), url: 'https://nexus-eco-spark.lovable.app/documents/template/9ba74dd1-b6a4-48f1-8509-421345b9e2f2?source=pdf_feasibility' },
-    { value: 'template-lgpd', label: t('admin.feasibility.qrForms.lgpdConsent', 'LGPD/GDPR Consent'), url: 'https://nexus-eco-spark.lovable.app/documents/template/92dd0f04-f28a-4308-ac96-3863d4389c5e?source=pdf_feasibility' },
+    { value: 'otr-sources', label: t('admin.feasibility.qrForms.otrSources', 'OTR Source Indication'), url: `${siteBaseUrl}/otr-sources?source=pdf_feasibility` },
+    { value: 'marketplace', label: t('admin.feasibility.qrForms.marketplace', 'Marketplace Registration'), url: `${siteBaseUrl}/marketplace?source=pdf_feasibility` },
+    { value: 'quote', label: t('admin.feasibility.qrForms.quote', 'Request Quote'), url: `${siteBaseUrl}/request-quote?source=pdf_feasibility` },
+    { value: 'contact', label: t('admin.feasibility.qrForms.contact', 'Contact Form'), url: `${siteBaseUrl}/contact?source=pdf_feasibility` },
+    { value: 'template-kyc', label: t('admin.feasibility.qrForms.dueDiligenceChecklist', 'Due Diligence Checklist (KYC)'), url: `${siteBaseUrl}/documents/template/8b202afd-f0d3-44cd-a83f-b5587abcc656?source=pdf_feasibility` },
+    { value: 'template-nda', label: t('admin.feasibility.qrForms.nda', 'NDA - Confidentiality Agreement'), url: `${siteBaseUrl}/documents/template/6ecfacbb-2830-4e55-8f2d-c2f34df20fc6?source=pdf_feasibility` },
+    { value: 'template-jv', label: t('admin.feasibility.qrForms.jointVenture', 'Joint Venture Agreement'), url: `${siteBaseUrl}/documents/template/9ba74dd1-b6a4-48f1-8509-421345b9e2f2?source=pdf_feasibility` },
+    { value: 'template-lgpd', label: t('admin.feasibility.qrForms.lgpdConsent', 'LGPD/GDPR Consent'), url: `${siteBaseUrl}/documents/template/92dd0f04-f28a-4308-ac96-3863d4389c5e?source=pdf_feasibility` },
+    { value: 'digital-signature', label: t('admin.feasibility.qrForms.digitalSignature', 'Digital Signature Portal'), url: `${siteBaseUrl}/admin?tab=signature` },
     { value: 'custom', label: t('admin.feasibility.qrForms.customLink', 'Custom Link'), url: '' }
   ];
   
@@ -223,7 +227,7 @@ export function FeasibilityStudyCalculator() {
   const getQrCodeUrl = (): string => {
     if (qrCodeLinkType === 'custom') {
       // Add tracking to custom URL if not already present
-      const customUrl = customQrCodeUrl || 'https://nexus-eco-spark.lovable.app/otr-sources';
+      const customUrl = customQrCodeUrl || `${siteBaseUrl}/otr-sources`;
       if (!customUrl.includes('source=')) {
         const separator = customUrl.includes('?') ? '&' : '?';
         return `${customUrl}${separator}source=pdf_feasibility`;
@@ -231,7 +235,7 @@ export function FeasibilityStudyCalculator() {
       return customUrl;
     }
     const option = qrCodeFormOptions.find(o => o.value === qrCodeLinkType);
-    return option?.url || 'https://nexus-eco-spark.lovable.app/otr-sources?source=pdf_feasibility';
+    return option?.url || `${siteBaseUrl}/otr-sources?source=pdf_feasibility`;
   };
 
   // Fetch studies

@@ -54,7 +54,7 @@ const handler = async (req: Request): Promise<Response> => {
         emailHtml = `
           <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.white};">
             <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary}); padding: 40px 30px; border-radius: 12px 12px 0 0; text-align: center;">
-              <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
+              <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
               <h1 style="color: ${colors.white}; margin: 0; font-size: 24px;">📄 Documento Recebido</h1>
             </div>
             
@@ -100,7 +100,7 @@ const handler = async (req: Request): Promise<Response> => {
         emailHtml = `
           <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.white};">
             <div style="background: linear-gradient(135deg, ${colors.success}, #059669); padding: 40px 30px; border-radius: 12px 12px 0 0; text-align: center;">
-              <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
+              <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
               <h1 style="color: ${colors.white}; margin: 0; font-size: 24px;">✅ Documento Assinado</h1>
             </div>
             
@@ -132,7 +132,7 @@ const handler = async (req: Request): Promise<Response> => {
         emailHtml = `
           <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.white};">
             <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary}); padding: 40px 30px; border-radius: 12px 12px 0 0; text-align: center;">
-              <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
+              <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
               <h1 style="color: ${colors.white}; margin: 0; font-size: 24px;">🔄 Novo Envio Recebido</h1>
             </div>
             
@@ -173,7 +173,7 @@ const handler = async (req: Request): Promise<Response> => {
         emailHtml = `
           <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.white};">
             <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary}); padding: 40px 30px; border-radius: 12px 12px 0 0; text-align: center;">
-              <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
+              <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 20px;" />
               <h1 style="color: ${colors.white}; margin: 0; font-size: 24px;">ELP Green Technology</h1>
               <p style="color: rgba(255,255,255,0.8); margin: 10px 0 0 0;">
                 ${replyType === 'marketplace' ? 'Marketplace B2B' : 'Mensagem da Equipe'}

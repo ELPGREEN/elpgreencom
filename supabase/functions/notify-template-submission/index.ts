@@ -94,7 +94,7 @@ const handler = async (req: Request): Promise<Response> => {
         
         <!-- Header -->
         <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary}); padding: 30px; text-align: center; ${!isSigned ? 'border-radius: 12px 12px 0 0;' : ''}">
-          <img src="https://nexus-eco-spark.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 15px;" />
+          <img src="https://elpgreencom.lovable.app/assets/logo-elp-new-Dup3XDQY.png" alt="ELP Green Technology" style="height: 50px; margin-bottom: 15px;" />
           <h1 style="color: ${colors.white}; margin: 0; font-size: 22px; font-weight: 600;">📄 Novo Template Preenchido</h1>
           <p style="color: rgba(255,255,255,0.85); margin: 8px 0 0 0; font-size: 14px;">Um cliente/parceiro preencheu um documento</p>
         </div>
@@ -162,7 +162,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <!-- Action Buttons -->
           <div style="text-align: center; margin-top: 25px;">
-            <a href="https://nexus-eco-spark.lovable.app/admin" style="background: ${colors.secondary}; color: ${colors.white}; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; box-shadow: 0 4px 12px rgba(37,99,235,0.3); margin-right: 10px;">
+            <a href="https://elpgreencom.lovable.app/admin" style="background: ${colors.secondary}; color: ${colors.white}; padding: 14px 35px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; box-shadow: 0 4px 12px rgba(37,99,235,0.3); margin-right: 10px;">
               📂 Ver no Painel Admin
             </a>
             <a href="mailto:${email}?subject=Re: ${templateName} - ELP Green Technology" style="background: ${colors.white}; color: ${colors.secondary}; padding: 14px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; border: 2px solid ${colors.secondary};">
