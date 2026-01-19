@@ -681,10 +681,31 @@ export default function TemplateViewer() {
                 {/* Checkbox Fields Section - Document Checklist */}
                 {fieldsToShow.filter(f => f.type === 'checkbox').length > 0 && (
                   <div className="border-t border-border/50 pt-4 mt-4">
-                    <Label className="flex items-center gap-2 text-base font-semibold mb-4">
-                      <CheckSquare className="h-4 w-4" />
-                      {t('templateViewer.documentChecklist', 'Checklist de Documentos / Document Checklist')}
-                    </Label>
+                    <div className="flex items-center justify-between mb-4">
+                      <Label className="flex items-center gap-2 text-base font-semibold">
+                        <CheckSquare className="h-4 w-4" />
+                        {t('templateViewer.documentChecklist', 'Checklist de Documentos / Document Checklist')}
+                      </Label>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          const checkboxFields = fieldsToShow.filter(f => f.type === 'checkbox');
+                          const allChecked = checkboxFields.every(f => checkboxValues[f.name]);
+                          const newValues: Record<string, boolean> = {};
+                          checkboxFields.forEach(f => {
+                            newValues[f.name] = !allChecked;
+                          });
+                          setCheckboxValues(prev => ({ ...prev, ...newValues }));
+                        }}
+                        className="text-xs"
+                      >
+                        {fieldsToShow.filter(f => f.type === 'checkbox').every(f => checkboxValues[f.name])
+                          ? t('templateViewer.uncheckAll', 'Desmarcar Todos')
+                          : t('templateViewer.checkAll', 'Marcar Todos')}
+                      </Button>
+                    </div>
                     <div className="space-y-3 bg-muted/20 rounded-lg p-4">
                       {fieldsToShow.filter(f => f.type === 'checkbox').map((field) => (
                         <div key={field.name} className="flex items-start space-x-3">
