@@ -399,18 +399,26 @@ export default function TemplateViewer() {
   const handleSubmit = async () => {
     // Validate required text fields
     const requiredTextFields = template?.fields?.filter(f => f.required && f.type !== 'checkbox' && f.type !== 'file') || [];
-    const missingTextFields = requiredTextFields.filter(f => !fieldValues[f.name]);
+    const missingTextFields = requiredTextFields.filter(f => !fieldValues[f.name]?.trim());
     
     // Validate required checkboxes
     const requiredCheckboxFields = template?.fields?.filter(f => f.required && f.type === 'checkbox') || [];
     const uncheckedRequiredBoxes = requiredCheckboxFields.filter(f => !checkboxValues[f.name]);
     
-    const allMissing = [...missingTextFields, ...uncheckedRequiredBoxes];
-    
-    if (allMissing.length > 0) {
+    // Show separate messages for text fields and checkboxes
+    if (missingTextFields.length > 0) {
       toast({
         title: t('templateViewer.fillRequired', 'Preencha os campos obrigatórios'),
-        description: allMissing.map(f => f.label).join(', '),
+        description: missingTextFields.map(f => f.label.split(' / ')[0]).join(', '),
+        variant: 'destructive',
+      });
+      return;
+    }
+    
+    if (uncheckedRequiredBoxes.length > 0) {
+      toast({
+        title: t('templateViewer.checkRequired', 'Marque os itens obrigatórios no checklist'),
+        description: t('templateViewer.checkRequiredDesc', 'Você precisa marcar todos os documentos obrigatórios (marcados com *)'),
         variant: 'destructive',
       });
       return;
