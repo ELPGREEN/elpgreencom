@@ -1184,8 +1184,12 @@ export function DocumentGenerator() {
       await supabase.functions.invoke('send-reply-email', {
         body: {
           to: email,
+          toName: doc.signer_name || email.split('@')[0],
           subject: `${t('admin.documentGenerator.share.documentSubject', 'Documento')}: ${doc.document_name}${doc.is_signed ? ` (${t('admin.documentGenerator.submissions.signedFilter', 'Assinado')})` : ''}`,
           message: `${t('admin.documentGenerator.share.attachedDocument', 'Segue em anexo o documento')} ${doc.document_name}.${doc.is_signed ? `\n\n✓ ${t('admin.documentGenerator.share.validSignature', 'Este documento possui assinatura digital válida conforme Lei 14.063/2020.')}` : ''}\n\n${t('admin.documentGenerator.share.regards', 'Atenciosamente')},\nELP Green Technology`,
+          replyType: doc.is_signed ? 'document_signed' : 'document_received',
+          documentName: doc.document_name,
+          documentType: doc.document_type,
         },
       });
 

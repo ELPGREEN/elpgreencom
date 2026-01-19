@@ -223,7 +223,13 @@ export function EmailInbox() {
 
       // Send via edge function
       const { error: sendError } = await supabase.functions.invoke('send-reply-email', {
-        body: { to, subject, message: body },
+        body: { 
+          to, 
+          toName: to.split('@')[0], // Use email prefix as name fallback
+          subject, 
+          message: body,
+          replyType: 'custom',
+        },
       });
       if (sendError) throw sendError;
 
