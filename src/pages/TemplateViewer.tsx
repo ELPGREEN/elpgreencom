@@ -38,9 +38,9 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { SEO } from '@/components/SEO';
 import logoElp from '@/assets/logo-elp.png';
-import jsPDF from 'jspdf';
 import { format } from 'date-fns';
 import SignaturePad from 'signature_pad';
+import { generateTemplateDocumentPDF, type TemplateDocumentData } from '@/lib/generateTemplateDocumentPDF';
 
 interface TemplateField {
   name: string;
@@ -98,12 +98,12 @@ export default function TemplateViewer() {
   const { toast } = useToast();
 
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'pt');
+  const [downloadLanguage, setDownloadLanguage] = useState(i18n.language || 'pt');
   const [fieldValues, setFieldValues] = useState<Record<string, string>>({});
   const [checkboxValues, setCheckboxValues] = useState<Record<string, boolean>>({});
   const [uploadedFiles, setUploadedFiles] = useState<Record<string, { file: File; name: string }>>({});
   const [previewContent, setPreviewContent] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
   
   // Signature states
   const [signatureDialogOpen, setSignatureDialogOpen] = useState(false);
@@ -193,105 +193,23 @@ export default function TemplateViewer() {
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   };
 
-  // Generate PDF with signature
-  const generatePDF = (signature?: SignatureData | null, signatureHash?: string) => {
+  // Generate PDF with professional design
+  const generatePDF = async (signature?: SignatureData | null, signatureHash?: string | null) => {
     if (!template || !previewContent) return;
     
-    const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const margin = 20;
-    const contentWidth = pageWidth - 2 * margin;
+    const documentData: TemplateDocumentData = {
+      templateName: template.name,
+      templateType: template.type,
+      content: previewContent,
+      language: selectedLanguage as 'pt' | 'en' | 'es' | 'zh' | 'it',
+      fieldValues,
+      checkboxValues,
+      uploadedFiles: Object.values(uploadedFiles).map(f => f.name),
+      signatureData: signature || undefined,
+      signatureHash: signatureHash || undefined,
+    };
     
-    // Header
-    doc.setFillColor(26, 43, 60);
-    doc.rect(0, 0, pageWidth, 35, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('ELP ALLIANCE S/A', margin, 18);
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.text('ELP Green Technology | www.elpgreen.com', margin, 28);
-    
-    // Date
-    doc.setFontSize(9);
-    doc.text(format(new Date(), 'dd/MM/yyyy'), pageWidth - margin, 18, { align: 'right' });
-    
-    // Content
-    doc.setTextColor(0, 0, 0);
-    doc.setFontSize(10);
-    
-    const lines = doc.splitTextToSize(previewContent, contentWidth);
-    let y = 50;
-    
-    lines.forEach((line: string) => {
-      if (y > 230) {
-        doc.addPage();
-        y = 20;
-      }
-      doc.text(line, margin, y);
-      y += 6;
-    });
-
-    // Signature section
-    if (signature) {
-      y += 15;
-      if (y > 200) { doc.addPage(); y = 30; }
-      
-      doc.setDrawColor(200, 200, 200);
-      doc.setFillColor(250, 250, 250);
-      doc.roundedRect(margin, y, contentWidth, 60, 3, 3, 'FD');
-      
-      doc.setFontSize(9);
-      doc.setTextColor(100, 100, 100);
-      doc.text('ASSINATURA DIGITAL', margin + 5, y + 8);
-      
-      try {
-        doc.addImage(signature.dataUrl, 'PNG', margin + 5, y + 12, 55, 22);
-      } catch (e) { console.error(e); }
-
-      doc.setFontSize(8);
-      doc.setTextColor(60, 60, 60);
-      doc.text(`Assinado por: ${signature.signerName}`, margin + 70, y + 18);
-      doc.text(`Email: ${signature.signerEmail}`, margin + 70, y + 26);
-      doc.text(`Data: ${format(new Date(signature.timestamp), "dd/MM/yyyy 'às' HH:mm:ss")}`, margin + 70, y + 34);
-      doc.text(`Tipo: ${signature.type === 'drawn' ? 'Manuscrita Digital' : 'Digitada'}`, margin + 70, y + 42);
-      
-      if (signatureHash) {
-        doc.setFontSize(6);
-        doc.text(`Hash SHA-256: ${signatureHash.substring(0, 40)}...`, margin + 5, y + 54);
-      }
-
-      doc.setFillColor(34, 139, 34);
-      doc.roundedRect(margin + 5, y + 48, 50, 7, 2, 2, 'F');
-      doc.setTextColor(255, 255, 255);
-      doc.setFontSize(6);
-      doc.text('✓ DOCUMENTO ASSINADO', margin + 8, y + 52);
-    }
-    
-    // Footer
-    const pageCount = doc.getNumberOfPages();
-    for (let i = 1; i <= pageCount; i++) {
-      doc.setPage(i);
-      doc.setFontSize(8);
-      doc.setTextColor(128, 128, 128);
-      doc.text(
-        `Documento preenchido em ${format(new Date(), 'dd/MM/yyyy HH:mm')} | Página ${i}/${pageCount}`,
-        pageWidth / 2,
-        pageHeight - 10,
-        { align: 'center' }
-      );
-      if (signature) {
-        doc.text('Válido conforme Lei 14.063/2020 | eIDAS (UE)', pageWidth / 2, pageHeight - 5, { align: 'center' });
-      }
-    }
-    
-    const suffix = signature ? '_ASSINADO' : '';
-    const fileName = `${template.type.toUpperCase()}_${(fieldValues.razao_social || fieldValues.company_name || 'document').replace(/\s/g, '_')}_${format(new Date(), 'yyyy-MM-dd')}${suffix}.pdf`;
-    doc.save(fileName);
-    
-    return doc.output('blob');
+    await generateTemplateDocumentPDF(documentData);
   };
 
   // Capture signature
@@ -429,7 +347,7 @@ export default function TemplateViewer() {
       });
 
       // Generate PDF
-      generatePDF(signatureData, signatureHash || undefined);
+      await generatePDF(signatureData, signatureHash || undefined);
     },
     onSuccess: () => {
       setSubmitted(true);
@@ -539,6 +457,30 @@ export default function TemplateViewer() {
   }
 
   if (submitted) {
+    const handleDownloadPDF = async (lang: string) => {
+      if (!template || !previewContent) return;
+      
+      // Get content in selected download language
+      let content = getContentByLanguage(lang);
+      Object.entries(fieldValues).forEach(([key, value]) => {
+        content = content.replace(new RegExp(`{{${key}}}`, 'g'), value || `[${key}]`);
+      });
+      
+      const documentData: TemplateDocumentData = {
+        templateName: template.name,
+        templateType: template.type,
+        content,
+        language: lang as 'pt' | 'en' | 'es' | 'zh' | 'it',
+        fieldValues,
+        checkboxValues,
+        uploadedFiles: Object.values(uploadedFiles).map(f => f.name),
+        signatureData: signatureData || undefined,
+        signatureHash: undefined,
+      };
+      
+      await generateTemplateDocumentPDF(documentData);
+    };
+    
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
         <SEO title="Documento Enviado" description="Seu documento foi enviado com sucesso." />
@@ -558,10 +500,34 @@ export default function TemplateViewer() {
               <p className="text-muted-foreground mb-6">
                 {t('templateViewer.successDescription', 'Recebemos seu documento preenchido. Nossa equipe entrará em contato em breve.')}
               </p>
+              
+              {/* Language selector for download */}
+              <div className="mb-4">
+                <Label className="text-sm text-muted-foreground mb-2 block">
+                  {t('templateViewer.selectDownloadLanguage', 'Selecione o idioma do PDF / Select PDF language')}
+                </Label>
+                <Select value={downloadLanguage} onValueChange={setDownloadLanguage}>
+                  <SelectTrigger className="w-full">
+                    <Globe className="h-4 w-4 mr-2" />
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(languageLabels).map(([code, { label, flag }]) => (
+                      <SelectItem key={code} value={code}>
+                        <span className="flex items-center gap-2">
+                          <span>{flag}</span>
+                          <span>{label}</span>
+                        </span>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
               <div className="flex flex-col gap-3">
-                <Button onClick={() => generatePDF(signatureData, null)} variant="outline" className="w-full">
+                <Button onClick={() => handleDownloadPDF(downloadLanguage)} variant="outline" className="w-full">
                   <Download className="h-4 w-4 mr-2" />
-                  {t('templateViewer.downloadCopy', 'Baixar Cópia')}
+                  {t('templateViewer.downloadCopy', 'Baixar Cópia')} ({languageLabels[downloadLanguage]?.flag})
                 </Button>
                 <Button onClick={() => navigate('/')} variant="ghost" className="w-full">
                   <ArrowLeft className="h-4 w-4 mr-2" />
