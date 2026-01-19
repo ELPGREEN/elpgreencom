@@ -50,8 +50,10 @@ interface SignatureData {
   timestamp: string;
   signerName: string;
   signerEmail: string;
-  type: 'drawn' | 'typed';
+  type: 'drawn' | 'typed' | 'initials' | 'upload';
 }
+
+type SignatureMode = 'draw' | 'type' | 'initials' | 'upload';
 
 interface DocumentData {
   id: string;
@@ -78,9 +80,12 @@ const translations = {
     back: 'Voltar',
     sign: 'Assinar Documento',
     download: 'Baixar PDF',
-    drawSignature: 'Desenhar Assinatura',
-    typeSignature: 'Digitar Nome',
+    drawSignature: 'Desenhar',
+    typeSignature: 'Digitar',
+    initialsSignature: 'Iniciais',
+    uploadSignature: 'Upload',
     clear: 'Limpar',
+    uploadImage: 'Carregar imagem da assinatura',
     signHere: 'Assine aqui usando mouse ou toque',
     legalNotice: 'Declaro que li e concordo com os termos do documento. Esta assinatura eletrônica é legalmente válida conforme a Lei 14.063/2020 e regulação eIDAS (UE).',
     noDocument: 'Documento não encontrado',
@@ -114,9 +119,12 @@ const translations = {
     back: 'Back',
     sign: 'Sign Document',
     download: 'Download PDF',
-    drawSignature: 'Draw Signature',
-    typeSignature: 'Type Name',
+    drawSignature: 'Draw',
+    typeSignature: 'Type',
+    initialsSignature: 'Initials',
+    uploadSignature: 'Upload',
     clear: 'Clear',
+    uploadImage: 'Upload signature image',
     signHere: 'Sign here using mouse or touch',
     legalNotice: 'I declare that I have read and agree to the terms of the document. This electronic signature is legally valid under Law 14.063/2020 and EU eIDAS regulation.',
     noDocument: 'Document not found',
@@ -150,9 +158,12 @@ const translations = {
     back: 'Volver',
     sign: 'Firmar Documento',
     download: 'Descargar PDF',
-    drawSignature: 'Dibujar Firma',
-    typeSignature: 'Escribir Nombre',
+    drawSignature: 'Dibujar',
+    typeSignature: 'Escribir',
+    initialsSignature: 'Iniciales',
+    uploadSignature: 'Subir',
     clear: 'Limpiar',
+    uploadImage: 'Subir imagen de firma',
     signHere: 'Firme aquí usando ratón o toque',
     legalNotice: 'Declaro que he leído y acepto los términos del documento. Esta firma electrónica es legalmente válida según la Ley 14.063/2020 y la regulación eIDAS (UE).',
     noDocument: 'Documento no encontrado',
@@ -186,9 +197,12 @@ const translations = {
     back: 'Indietro',
     sign: 'Firma Documento',
     download: 'Scarica PDF',
-    drawSignature: 'Disegna Firma',
-    typeSignature: 'Digita Nome',
+    drawSignature: 'Disegna',
+    typeSignature: 'Digita',
+    initialsSignature: 'Iniziali',
+    uploadSignature: 'Carica',
     clear: 'Cancella',
+    uploadImage: 'Carica immagine firma',
     signHere: 'Firma qui usando mouse o tocco',
     legalNotice: 'Dichiaro di aver letto e accettato i termini del documento. Questa firma elettronica è legalmente valida secondo la Legge 14.063/2020 e il regolamento eIDAS (UE).',
     noDocument: 'Documento non trovato',
@@ -222,9 +236,12 @@ const translations = {
     back: '返回',
     sign: '签署文件',
     download: '下载PDF',
-    drawSignature: '绘制签名',
-    typeSignature: '输入姓名',
+    drawSignature: '绘制',
+    typeSignature: '输入',
+    initialsSignature: '首字母',
+    uploadSignature: '上传',
     clear: '清除',
+    uploadImage: '上传签名图片',
     signHere: '使用鼠标或触摸在此签名',
     legalNotice: '我声明已阅读并同意文件条款。此电子签名根据第14.063/2020号法律和欧盟eIDAS法规具有法律效力。',
     noDocument: '未找到文档',
@@ -259,11 +276,13 @@ export default function PublicSignature() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [documentLoading, setDocumentLoading] = useState(false);
-  const [signatureMode, setSignatureMode] = useState<'draw' | 'type'>('draw');
+  const [signatureMode, setSignatureMode] = useState<SignatureMode>('draw');
   const [legalAccepted, setLegalAccepted] = useState(false);
   const [signatureComplete, setSignatureComplete] = useState(false);
   const [finalSignature, setFinalSignature] = useState<SignatureData | null>(null);
   const [signatureHash, setSignatureHash] = useState<string>('');
+  const [uploadedSignature, setUploadedSignature] = useState<string>('');
+  const [initials, setInitials] = useState('');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -277,7 +296,9 @@ export default function PublicSignature() {
   const [typedName, setTypedName] = useState('');
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasContainerRef = useRef<HTMLDivElement>(null);
   const signaturePadRef = useRef<SignaturePad | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Load document from URL param
   useEffect(() => {
@@ -288,21 +309,42 @@ export default function PublicSignature() {
 
   // Initialize signature pad
   useEffect(() => {
-    if (step === 3 && signatureMode === 'draw' && canvasRef.current) {
+    if (step === 3 && signatureMode === 'draw' && canvasRef.current && canvasContainerRef.current) {
+      // Clean up previous instance
+      if (signaturePadRef.current) {
+        signaturePadRef.current.off();
+        signaturePadRef.current = null;
+      }
+
       const canvas = canvasRef.current;
+      const container = canvasContainerRef.current;
+      
+      // Set fixed dimensions
+      const width = container.offsetWidth || 500;
+      const height = 160;
+      
+      // Set display size
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      
+      // Set actual size in memory (scaled for retina)
       const ratio = Math.max(window.devicePixelRatio || 1, 1);
-      canvas.width = canvas.offsetWidth * ratio;
-      canvas.height = canvas.offsetHeight * ratio;
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
+      
       const ctx = canvas.getContext('2d');
       if (ctx) {
         ctx.scale(ratio, ratio);
+        // Fill with white background
+        ctx.fillStyle = 'rgb(255, 255, 255)';
+        ctx.fillRect(0, 0, width, height);
       }
 
       signaturePadRef.current = new SignaturePad(canvas, {
         backgroundColor: 'rgb(255, 255, 255)',
         penColor: 'rgb(0, 51, 102)',
-        minWidth: 1,
-        maxWidth: 3,
+        minWidth: 1.5,
+        maxWidth: 3.5,
       });
     }
 
@@ -366,13 +408,25 @@ export default function PublicSignature() {
   const clearSignature = () => {
     if (signaturePadRef.current) {
       signaturePadRef.current.clear();
+      // Refill with white background
+      const canvas = canvasRef.current;
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          const ratio = Math.max(window.devicePixelRatio || 1, 1);
+          ctx.fillStyle = 'rgb(255, 255, 255)';
+          ctx.fillRect(0, 0, canvas.width / ratio, canvas.height / ratio);
+        }
+      }
     }
     setTypedName('');
+    setInitials('');
+    setUploadedSignature('');
   };
 
-  const generateTypedSignature = (name: string): string => {
+  const generateTypedSignature = (name: string, isInitials = false): string => {
     const canvas = window.document.createElement('canvas');
-    canvas.width = 400;
+    canvas.width = isInitials ? 150 : 400;
     canvas.height = 100;
     const ctx = canvas.getContext('2d');
     if (!ctx) return '';
@@ -380,12 +434,31 @@ export default function PublicSignature() {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = '#003366';
-    ctx.font = 'italic 36px "Brush Script MT", cursive, serif';
+    ctx.font = isInitials ? 'bold 48px serif' : 'italic 36px "Brush Script MT", cursive, serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(name, canvas.width / 2, canvas.height / 2);
 
     return canvas.toDataURL('image/png');
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        toast({
+          title: 'Arquivo inválido',
+          description: 'Por favor, envie uma imagem.',
+          variant: 'destructive',
+        });
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setUploadedSignature(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const generateHash = async (data: string): Promise<string> => {
@@ -394,6 +467,15 @@ export default function PublicSignature() {
     const hashBuffer = await crypto.subtle.digest('SHA-256', dataBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  };
+
+  const getSignatureType = (mode: SignatureMode): SignatureData['type'] => {
+    switch (mode) {
+      case 'draw': return 'drawn';
+      case 'type': return 'typed';
+      case 'initials': return 'initials';
+      case 'upload': return 'upload';
+    }
   };
 
   const handleSign = async () => {
@@ -411,7 +493,7 @@ export default function PublicSignature() {
         return;
       }
       signatureDataUrl = signaturePadRef.current.toDataURL('image/png');
-    } else {
+    } else if (signatureMode === 'type') {
       if (!typedName.trim()) {
         toast({
           title: 'Nome necessário',
@@ -421,6 +503,26 @@ export default function PublicSignature() {
         return;
       }
       signatureDataUrl = generateTypedSignature(typedName);
+    } else if (signatureMode === 'initials') {
+      if (!initials.trim()) {
+        toast({
+          title: 'Iniciais necessárias',
+          description: 'Por favor, digite suas iniciais.',
+          variant: 'destructive',
+        });
+        return;
+      }
+      signatureDataUrl = generateTypedSignature(initials.toUpperCase(), true);
+    } else if (signatureMode === 'upload') {
+      if (!uploadedSignature) {
+        toast({
+          title: 'Imagem necessária',
+          description: 'Por favor, faça upload de uma imagem da sua assinatura.',
+          variant: 'destructive',
+        });
+        return;
+      }
+      signatureDataUrl = uploadedSignature;
     }
 
     setLoading(true);
@@ -432,7 +534,7 @@ export default function PublicSignature() {
         timestamp,
         signerName: formData.name,
         signerEmail: formData.email,
-        type: signatureMode === 'draw' ? 'drawn' : 'typed',
+        type: getSignatureType(signatureMode),
       };
 
       // Generate hash
@@ -814,26 +916,46 @@ export default function PublicSignature() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <Tabs value={signatureMode} onValueChange={(v) => setSignatureMode(v as 'draw' | 'type')}>
-                      <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="draw" className="flex items-center gap-2">
-                          <Pencil className="w-4 h-4" />
-                          {t.drawSignature}
+                    <Tabs value={signatureMode} onValueChange={(v) => setSignatureMode(v as SignatureMode)}>
+                      <TabsList className="grid w-full grid-cols-4">
+                        <TabsTrigger value="draw" className="flex items-center gap-1 text-xs sm:text-sm">
+                          <Pencil className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline">{t.drawSignature}</span>
+                          <span className="sm:hidden">Draw</span>
                         </TabsTrigger>
-                        <TabsTrigger value="type" className="flex items-center gap-2">
-                          <Type className="w-4 h-4" />
-                          {t.typeSignature}
+                        <TabsTrigger value="type" className="flex items-center gap-1 text-xs sm:text-sm">
+                          <Type className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline">{t.typeSignature}</span>
+                          <span className="sm:hidden">Type</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="initials" className="flex items-center gap-1 text-xs sm:text-sm">
+                          <User className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline">{t.initialsSignature}</span>
+                          <span className="sm:hidden">Init</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="upload" className="flex items-center gap-1 text-xs sm:text-sm">
+                          <FileText className="w-3 h-3 sm:w-4 sm:h-4" />
+                          <span className="hidden sm:inline">{t.uploadSignature}</span>
+                          <span className="sm:hidden">File</span>
                         </TabsTrigger>
                       </TabsList>
 
                       <TabsContent value="draw" className="mt-4">
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                           <p className="text-sm text-muted-foreground">{t.signHere}</p>
-                          <div className="border-2 border-dashed border-[#1a5c3a]/30 rounded-lg bg-white relative">
+                          <div 
+                            ref={canvasContainerRef}
+                            className="border-2 border-dashed border-[#1a5c3a]/30 rounded-lg bg-white relative overflow-hidden"
+                          >
                             <canvas
                               ref={canvasRef}
-                              className="w-full h-40 touch-none"
-                              style={{ touchAction: 'none' }}
+                              className="touch-none cursor-crosshair"
+                              style={{ 
+                                touchAction: 'none',
+                                display: 'block',
+                                width: '100%',
+                                height: '160px',
+                              }}
                             />
                           </div>
                           <Button variant="outline" size="sm" onClick={clearSignature}>
@@ -843,16 +965,76 @@ export default function PublicSignature() {
                       </TabsContent>
 
                       <TabsContent value="type" className="mt-4">
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                           <Input
                             value={typedName}
                             onChange={(e) => setTypedName(e.target.value)}
-                            placeholder={formData.name}
+                            placeholder={formData.name || 'Seu nome completo'}
                             className="text-2xl font-serif italic text-center h-16"
                           />
                           {typedName && (
-                            <div className="p-4 bg-gray-50 rounded-lg text-center">
+                            <div className="p-4 bg-gray-50 rounded-lg text-center border">
                               <p className="text-3xl font-serif italic text-[#003366]">{typedName}</p>
+                            </div>
+                          )}
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="initials" className="mt-4">
+                        <div className="space-y-3">
+                          <p className="text-sm text-muted-foreground">
+                            Digite suas iniciais (ex: EP para Ericson Piccoli)
+                          </p>
+                          <Input
+                            value={initials}
+                            onChange={(e) => setInitials(e.target.value.toUpperCase().slice(0, 4))}
+                            placeholder="EP"
+                            maxLength={4}
+                            className="text-4xl font-bold text-center h-20 uppercase tracking-widest"
+                          />
+                          {initials && (
+                            <div className="p-4 bg-gray-50 rounded-lg text-center border">
+                              <p className="text-5xl font-bold text-[#003366] tracking-widest">{initials}</p>
+                            </div>
+                          )}
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="upload" className="mt-4">
+                        <div className="space-y-3">
+                          <p className="text-sm text-muted-foreground">{t.uploadImage}</p>
+                          <input
+                            type="file"
+                            ref={fileInputRef}
+                            accept="image/*"
+                            onChange={handleFileUpload}
+                            className="hidden"
+                          />
+                          <Button
+                            variant="outline"
+                            className="w-full h-24 border-dashed"
+                            onClick={() => fileInputRef.current?.click()}
+                          >
+                            <div className="flex flex-col items-center gap-2">
+                              <FileText className="w-8 h-8 text-muted-foreground" />
+                              <span>Clique para selecionar imagem</span>
+                            </div>
+                          </Button>
+                          {uploadedSignature && (
+                            <div className="p-4 bg-gray-50 rounded-lg text-center border">
+                              <img 
+                                src={uploadedSignature} 
+                                alt="Assinatura" 
+                                className="max-h-20 mx-auto object-contain"
+                              />
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                onClick={() => setUploadedSignature('')}
+                                className="mt-2 text-xs"
+                              >
+                                Remover
+                              </Button>
                             </div>
                           )}
                         </div>
@@ -927,7 +1109,12 @@ export default function PublicSignature() {
                         </div>
                         <div className="flex justify-between">
                           <dt className="text-muted-foreground">{t.signatureType}:</dt>
-                          <dd>{finalSignature.type === 'drawn' ? 'Manuscrita Digital' : 'Digitada'}</dd>
+                          <dd>{
+                            finalSignature.type === 'drawn' ? 'Manuscrita Digital' : 
+                            finalSignature.type === 'typed' ? 'Digitada' :
+                            finalSignature.type === 'initials' ? 'Iniciais' :
+                            'Upload de Imagem'
+                          }</dd>
                         </div>
                         <div className="flex flex-col gap-1">
                           <dt className="text-muted-foreground">{t.hash}:</dt>
