@@ -91,7 +91,7 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
     setError(null);
 
     try {
-      const { data, error: fnError } = await supabase.functions.invoke('analyze-feasibility', {
+      const response = await supabase.functions.invoke('analyze-feasibility', {
         body: {
           study: {
             ...study,
@@ -103,7 +103,30 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
         }
       });
 
-      if (fnError) throw fnError;
+      const { data, error: fnError } = response;
+
+      // Check if we got a rate limit error (429) - data will contain the error details
+      if (fnError) {
+        // For non-2xx responses, check if data contains error info
+        if (data?.error) {
+          const isRateLimited = data.error.includes('Rate limit') || data.recommended_model;
+          if (isRateLimited) {
+            const recommendedModel = data.recommended_model || (selectedModel === 'flash' ? 'pro' : 'flash');
+            setError(t('admin.feasibility.ai.rateLimited', 'Rate limit reached. Please wait a moment and try again, or switch to another model.'));
+            toast({
+              title: t('admin.feasibility.ai.analysisFailed'),
+              description: t('admin.feasibility.ai.rateLimitedSuggestion', {
+                defaultValue: `Rate limit reached. Try switching to ${recommendedModel === 'pro' ? 'Complete (Pro)' : 'Quick (Flash)'} model.`
+              }),
+              variant: 'destructive'
+            });
+            setSelectedModel(recommendedModel as 'flash' | 'pro');
+            return;
+          }
+          throw new Error(data.error);
+        }
+        throw fnError;
+      }
 
       if (data?.error) {
         throw new Error(data.error);
@@ -126,35 +149,14 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
     } catch (err: any) {
       console.error('Analysis error:', err);
       
-      // Check for rate limit - can come from error status or error message
-      const isRateLimited = err?.status === 429 || 
-        err?.message?.includes('Rate limit') || 
-        err?.message?.includes('429');
-      
-      let errorMessage: string;
-      let recommendedModel: string | null = null;
-      
-      if (isRateLimited) {
-        errorMessage = t('admin.feasibility.ai.rateLimited', 'Rate limit reached. Please wait a moment and try again, or switch to another model.');
-        // Suggest the opposite model
-        recommendedModel = selectedModel === 'flash' ? 'pro' : 'flash';
-      } else {
-        errorMessage = err instanceof Error ? err.message : (typeof err?.message === 'string' ? err.message : 'Unknown error');
-      }
+      const errorMessage = err instanceof Error ? err.message : (typeof err?.message === 'string' ? err.message : 'Unknown error');
 
       setError(errorMessage);
       toast({
         title: t('admin.feasibility.ai.analysisFailed'),
-        description: recommendedModel 
-          ? `${errorMessage} ${t('admin.feasibility.ai.tryModel', { model: recommendedModel === 'pro' ? 'Complete (Pro)' : 'Quick (Flash)' })}`
-          : errorMessage,
+        description: errorMessage,
         variant: 'destructive'
       });
-      
-      // Auto-switch to recommended model
-      if (recommendedModel) {
-        setSelectedModel(recommendedModel as 'flash' | 'pro');
-      }
     } finally {
       setIsAnalyzing(false);
     }
