@@ -2052,72 +2052,9 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
     };
 
     // Try primary model first, then fallback
+    // INVERTED: Flash uses Claude (faster responses), Pro uses Gemini (more detailed)
     if (model === 'flash') {
-      console.log("Starting with Gemini Flash...");
-      
-      if (GEMINI_API_KEY) {
-        const geminiResult = await tryWithRetries(callGemini, analysisPrompt, "Gemini");
-        
-        if (geminiResult.success && geminiResult.response) {
-          const data = await geminiResult.response.json();
-          analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-          usedModel = "flash";
-        } else if (geminiResult.rateLimited && ANTHROPIC_API_KEY) {
-          // Fallback to Claude
-          console.log("Gemini rate limited, falling back to Claude...");
-          didFallback = true;
-          
-          const claudeResult = await tryWithRetries(callClaude, analysisPrompt, "Claude");
-          
-          if (claudeResult.success && claudeResult.response) {
-            const data = await claudeResult.response.json();
-            analysis = data.content?.[0]?.text || "";
-            usedModel = "pro";
-          } else if (claudeResult.rateLimited) {
-            return new Response(
-              JSON.stringify({
-                error: "Both AI models are rate limited. Please wait a few minutes and try again.",
-                recommended_model: "pro",
-              }),
-              {
-                status: 429,
-                headers: { ...corsHeaders, "Content-Type": "application/json" },
-              }
-            );
-          } else {
-            console.error("Claude fallback error:", claudeResult.errorText);
-            return new Response(JSON.stringify({ error: "AI analysis failed", details: claudeResult.errorText }), {
-              status: 500,
-              headers: { ...corsHeaders, "Content-Type": "application/json" },
-            });
-          }
-        } else if (geminiResult.rateLimited) {
-          return new Response(
-            JSON.stringify({
-              error: "Rate limits exceeded. Please try again in a few moments.",
-              recommended_model: "pro",
-            }),
-            {
-              status: 429,
-              headers: { ...corsHeaders, "Content-Type": "application/json" },
-            }
-          );
-        } else {
-          console.error("Gemini API error:", geminiResult.errorText);
-          return new Response(JSON.stringify({ error: "AI analysis failed", details: geminiResult.errorText }), {
-            status: 500,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          });
-        }
-      } else {
-        return new Response(JSON.stringify({ error: "GEMINI_API_KEY is not configured" }), {
-          status: 500,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-    } else {
-      // Pro model - start with Claude
-      console.log("Starting with Claude Pro...");
+      console.log("Starting with Claude for Quick Analysis...");
       
       if (ANTHROPIC_API_KEY) {
         const claudeResult = await tryWithRetries(callClaude, analysisPrompt, "Claude");
@@ -2125,7 +2062,7 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
         if (claudeResult.success && claudeResult.response) {
           const data = await claudeResult.response.json();
           analysis = data.content?.[0]?.text || "";
-          usedModel = "pro";
+          usedModel = "flash";
         } else if (claudeResult.rateLimited && GEMINI_API_KEY) {
           // Fallback to Gemini
           console.log("Claude rate limited, falling back to Gemini...");
@@ -2136,12 +2073,12 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
           if (geminiResult.success && geminiResult.response) {
             const data = await geminiResult.response.json();
             analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-            usedModel = "flash";
+            usedModel = "pro";
           } else if (geminiResult.rateLimited) {
             return new Response(
               JSON.stringify({
                 error: "Both AI models are rate limited. Please wait a few minutes and try again.",
-                recommended_model: "flash",
+                recommended_model: "pro",
               }),
               {
                 status: 429,
@@ -2159,6 +2096,70 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
           return new Response(
             JSON.stringify({
               error: "Rate limits exceeded. Please try again in a few moments.",
+              recommended_model: "pro",
+            }),
+            {
+              status: 429,
+              headers: { ...corsHeaders, "Content-Type": "application/json" },
+            }
+          );
+        } else {
+          console.error("Claude API error:", claudeResult.errorText);
+          return new Response(JSON.stringify({ error: "AI analysis failed", details: claudeResult.errorText }), {
+            status: 500,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
+        }
+      } else {
+        return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured" }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+    } else {
+      // Pro model - uses Gemini for more detailed analysis
+      console.log("Starting with Gemini for Complete Analysis...");
+      
+      if (GEMINI_API_KEY) {
+        const geminiResult = await tryWithRetries(callGemini, analysisPrompt, "Gemini");
+        
+        if (geminiResult.success && geminiResult.response) {
+          const data = await geminiResult.response.json();
+          analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+          usedModel = "pro";
+        } else if (geminiResult.rateLimited && ANTHROPIC_API_KEY) {
+          // Fallback to Claude
+          console.log("Gemini rate limited, falling back to Claude...");
+          didFallback = true;
+          
+          const claudeResult = await tryWithRetries(callClaude, analysisPrompt, "Claude");
+          
+          if (claudeResult.success && claudeResult.response) {
+            const data = await claudeResult.response.json();
+            analysis = data.content?.[0]?.text || "";
+            usedModel = "flash";
+          } else if (claudeResult.rateLimited) {
+            return new Response(
+              JSON.stringify({
+                error: "Both AI models are rate limited. Please wait a few minutes and try again.",
+                recommended_model: "flash",
+              }),
+              {
+                status: 429,
+                headers: { ...corsHeaders, "Content-Type": "application/json" },
+              }
+            );
+          } else {
+            console.error("Claude fallback error:", claudeResult.errorText);
+            return new Response(JSON.stringify({ error: "AI analysis failed", details: claudeResult.errorText }), {
+              status: 500,
+              headers: { ...corsHeaders, "Content-Type": "application/json" },
+            });
+          }
+        } else if (geminiResult.rateLimited) {
+          return new Response(
+            JSON.stringify({
+              error: "Rate limits exceeded. Please try again in a few moments.",
               recommended_model: "flash",
             }),
             {
@@ -2167,14 +2168,14 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
             }
           );
         } else {
-          console.error("Anthropic API error:", claudeResult.errorText);
-          return new Response(JSON.stringify({ error: "AI analysis failed", details: claudeResult.errorText }), {
+          console.error("Gemini API error:", geminiResult.errorText);
+          return new Response(JSON.stringify({ error: "AI analysis failed", details: geminiResult.errorText }), {
             status: 500,
             headers: { ...corsHeaders, "Content-Type": "application/json" },
           });
         }
       } else {
-        return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured" }), {
+        return new Response(JSON.stringify({ error: "GEMINI_API_KEY is not configured" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
