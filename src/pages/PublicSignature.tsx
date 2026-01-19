@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { format } from 'date-fns';
@@ -265,15 +265,18 @@ const translations = {
 export default function PublicSignature() {
   const { i18n } = useTranslation();
   const [searchParams] = useSearchParams();
+  const { docId: routeDocId } = useParams<{ docId?: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
 
   const lang = (searchParams.get('lang') || i18n.language?.split('-')[0] || 'pt') as keyof typeof translations;
   const t = translations[lang] || translations.pt;
 
-  const documentIdParam = searchParams.get('doc');
+  // Support both route param (/sign/:docId) and query param (/sign?doc=id)
+  const documentIdParam = routeDocId || searchParams.get('doc');
 
-  const [step, setStep] = useState(1);
+  // If document ID is provided in URL, start at step 2 (document) to load it directly
+  const [step, setStep] = useState(documentIdParam ? 2 : 1);
   const [loading, setLoading] = useState(false);
   const [documentLoading, setDocumentLoading] = useState(false);
   const [signatureMode, setSignatureMode] = useState<SignatureMode>('draw');
@@ -300,10 +303,12 @@ export default function PublicSignature() {
   const signaturePadRef = useRef<SignaturePad | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Load document from URL param
+  // Load document from URL param - auto-navigate to signature step if document loads successfully
   useEffect(() => {
     if (documentIdParam) {
-      loadDocument(documentIdParam);
+      loadDocument(documentIdParam).then(() => {
+        // Navigation to step 3 happens after document is loaded in loadDocument
+      });
     }
   }, [documentIdParam]);
 
@@ -374,6 +379,16 @@ export default function PublicSignature() {
         return;
       }
 
+      // Check if document is already signed
+      if (data.is_signed) {
+        toast({
+          title: lang === 'pt' ? 'Documento já assinado' : 'Document already signed',
+          description: lang === 'pt' 
+            ? `Este documento foi assinado em ${format(new Date(data.signed_at), "dd/MM/yyyy 'às' HH:mm")} por ${data.signer_name}` 
+            : `This document was signed on ${format(new Date(data.signed_at), "yyyy-MM-dd 'at' HH:mm")} by ${data.signer_name}`,
+        });
+      }
+
       setDocument({
         id: data.id,
         document_name: data.document_name,
@@ -383,9 +398,28 @@ export default function PublicSignature() {
         language: data.language || 'pt',
       });
 
-      // Pre-fill form if document has signer info
-      if (data.signer_name) setFormData(prev => ({ ...prev, name: data.signer_name || '' }));
-      if (data.signer_email) setFormData(prev => ({ ...prev, email: data.signer_email || '' }));
+      // Pre-fill form with field values if available
+      const fieldValues = data.field_values as Record<string, string> || {};
+      const signerNameFromFields = fieldValues.representante || fieldValues.contact_name || fieldValues.nome || '';
+      const signerEmailFromFields = fieldValues.email || fieldValues.contact_email || '';
+      const companyFromFields = fieldValues.razao_social || fieldValues.company_name || fieldValues.empresa || '';
+      
+      setFormData(prev => ({
+        ...prev,
+        name: data.signer_name || signerNameFromFields || prev.name,
+        email: data.signer_email || signerEmailFromFields || prev.email,
+        company: companyFromFields || prev.company,
+      }));
+
+      // If coming from URL with doc ID and document loaded successfully, go to step 1 for identification
+      // but pre-fill data for faster completion
+      if (documentIdParam && !data.is_signed) {
+        // If we have name and email from document, can proceed faster
+        if ((data.signer_name || signerNameFromFields) && (data.signer_email || signerEmailFromFields)) {
+          // Auto-fill completed, user can go directly to signature
+          setStep(1); // Still start at identification but with pre-filled data
+        }
+      }
 
     } catch (err) {
       console.error('Error loading document:', err);

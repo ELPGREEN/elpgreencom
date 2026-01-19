@@ -24,6 +24,9 @@ import {
   X,
   File,
   CheckSquare,
+  Copy,
+  QrCode,
+  ExternalLink,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -104,6 +107,7 @@ export default function TemplateViewer() {
   const [uploadedFiles, setUploadedFiles] = useState<Record<string, { file: File; name: string }>>({});
   const [previewContent, setPreviewContent] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [generatedDocumentId, setGeneratedDocumentId] = useState<string | null>(null);
   
   // Signature states
   const [signatureDialogOpen, setSignatureDialogOpen] = useState(false);
@@ -309,6 +313,11 @@ export default function TemplateViewer() {
       }).select('id').single();
       
       if (error) throw error;
+      
+      // Store the generated document ID for the success screen
+      if (insertedDoc) {
+        setGeneratedDocumentId(insertedDoc.id);
+      }
 
       // Upload files to storage if any
       if (Object.keys(uploadedFiles).length > 0 && insertedDoc) {
@@ -463,13 +472,32 @@ export default function TemplateViewer() {
       await generateTemplateDocumentPDF(documentData);
     };
     
+    // Generate signature link
+    const signatureLink = generatedDocumentId 
+      ? `${window.location.origin}/sign?doc=${generatedDocumentId}`
+      : null;
+    
+    const copyToClipboard = (text: string) => {
+      navigator.clipboard.writeText(text);
+      toast({
+        title: t('templateViewer.copied', 'Copiado!'),
+        description: t('templateViewer.linkCopied', 'Link copiado para a área de transferência'),
+      });
+    };
+
+    const openSignaturePage = () => {
+      if (signatureLink) {
+        window.open(signatureLink, '_blank');
+      }
+    };
+    
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
         <SEO title="Documento Enviado" description="Seu documento foi enviado com sucesso." />
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="max-w-md w-full"
+          className="max-w-lg w-full"
         >
           <Card className="border-emerald-500/20 bg-card/95 backdrop-blur-lg">
             <CardContent className="p-8 text-center">
@@ -482,6 +510,89 @@ export default function TemplateViewer() {
               <p className="text-muted-foreground mb-6">
                 {t('templateViewer.successDescription', 'Recebemos seu documento preenchido. Nossa equipe entrará em contato em breve.')}
               </p>
+              
+              {/* Document ID and Signature Link */}
+              {generatedDocumentId && (
+                <div className="mb-6 p-4 bg-slate-800/50 rounded-lg border border-slate-700 text-left">
+                  <div className="flex items-center gap-2 mb-3">
+                    <QrCode className="h-5 w-5 text-emerald-400" />
+                    <h3 className="font-semibold text-emerald-400">
+                      {t('templateViewer.documentInfo', 'Informações do Documento')}
+                    </h3>
+                  </div>
+                  
+                  {/* Document ID */}
+                  <div className="mb-3">
+                    <Label className="text-xs text-muted-foreground">
+                      {t('templateViewer.documentId', 'ID do Documento')}
+                    </Label>
+                    <div className="flex items-center gap-2 mt-1">
+                      <code className="flex-1 px-3 py-2 bg-slate-900 rounded text-sm font-mono text-emerald-300 overflow-x-auto">
+                        {generatedDocumentId}
+                      </code>
+                      <Button 
+                        variant="ghost" 
+                        size="icon"
+                        onClick={() => copyToClipboard(generatedDocumentId)}
+                        className="shrink-0"
+                      >
+                        <Copy className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  {/* Signature Link */}
+                  {signatureLink && !signatureData && (
+                    <div className="mb-3">
+                      <Label className="text-xs text-muted-foreground">
+                        {t('templateViewer.signatureLink', 'Link para Assinatura Digital')}
+                      </Label>
+                      <div className="flex items-center gap-2 mt-1">
+                        <code className="flex-1 px-3 py-2 bg-slate-900 rounded text-xs font-mono text-blue-300 overflow-x-auto break-all">
+                          {signatureLink}
+                        </code>
+                        <Button 
+                          variant="ghost" 
+                          size="icon"
+                          onClick={() => copyToClipboard(signatureLink)}
+                          className="shrink-0"
+                        >
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-2">
+                        {t('templateViewer.signatureLinkDesc', 'Compartilhe este link ou use o QR Code do documento para assinatura digital.')}
+                      </p>
+                    </div>
+                  )}
+                  
+                  {/* Open Signature Page Button */}
+                  {signatureLink && !signatureData && (
+                    <Button 
+                      onClick={openSignaturePage}
+                      className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      {t('templateViewer.openSignature', 'Abrir Página de Assinatura')}
+                    </Button>
+                  )}
+                  
+                  {/* Already signed indicator */}
+                  {signatureData && (
+                    <div className="flex items-center gap-2 p-3 bg-emerald-500/10 rounded-lg border border-emerald-500/30">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-emerald-400">
+                          {t('templateViewer.alreadySigned', 'Documento já assinado')}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {t('templateViewer.signedBy', 'Por')}: {signatureData.signerName}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
               
               {/* Language selector for download */}
               <div className="mb-4">
