@@ -56,48 +56,52 @@ interface Article {
   published_at: string | null;
 }
 
-// Global Presence - Updated locations
-const globalPresence = [
+// Global Presence regions - translated dynamically
+const getGlobalPresence = (t: (key: string) => string) => [
   { 
-    region: 'Europe', 
+    regionKey: 'europe',
+    region: t('indexPage.globalPresence.europe.region') || t('globalPresence.europe.title'),
     locations: [
-      { city: 'Milan, Italy', role: 'Local Partnership' },
-      { city: 'Frankfurt, Germany', role: 'Capital & Regulation' }
+      { city: t('globalPresence.europe.city'), role: t('globalPresence.europe.focus') },
+      { city: t('globalPresence.germany.city'), role: t('globalPresence.germany.focus') }
     ],
     icon: Building2
   },
   { 
-    region: 'South America', 
+    regionKey: 'southAmerica',
+    region: t('indexPage.globalPresence.southAmerica.region') || t('globalPresence.latam.title'),
     locations: [
-      { city: 'São Paulo, Brazil', role: 'Operations & Assets' }
+      { city: t('globalPresence.latam.city'), role: t('globalPresence.latam.focus') }
     ],
-    focus: 'Heavy Mining Focus',
+    focus: t('globalPresence.latam.miningFocus'),
     icon: Mountain
   },
   { 
-    region: 'Asia', 
+    regionKey: 'asia',
+    region: t('indexPage.globalPresence.asia.region') || t('globalPresence.asia.title'),
     locations: [
-      { city: 'Shenzhen, China', role: 'R&D & Manufacturing' }
+      { city: t('globalPresence.asia.city'), role: t('globalPresence.asia.focus') }
     ],
     icon: Factory
   },
   { 
-    region: 'Oceania', 
+    regionKey: 'oceania',
+    region: t('indexPage.globalPresence.oceania.region') || t('globalPresence.oceania.title'),
     locations: [
-      { city: 'Australia', role: 'OTR Plant Installation 2025' }
+      { city: t('globalPresence.oceania.city'), role: t('globalPresence.oceania.focus') }
     ],
     highlight: true,
     icon: Globe
   },
 ];
 
-// Certifications
-const certifications = [
-  { class: '1', desc: 'Chemical Products' },
-  { class: '7', desc: 'Industrial Machines' },
-  { class: '35', desc: 'Commerce' },
-  { class: '40', desc: 'Material Treatment' },
-  { class: '42', desc: 'Research & Technology' },
+// Certifications - translated dynamically
+const getCertifications = (t: (key: string) => string) => [
+  { class: '1', desc: t('indexPage.certifications.class1') },
+  { class: '7', desc: t('indexPage.certifications.class7') },
+  { class: '35', desc: t('indexPage.certifications.class35') },
+  { class: '40', desc: t('indexPage.certifications.class40') },
+  { class: '42', desc: t('indexPage.certifications.class42') },
 ];
 
 export default function Index() {
@@ -419,9 +423,9 @@ export default function Index() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {globalPresence.map((region, index) => (
+            {getGlobalPresence(t).map((region, index) => (
               <motion.div
-                key={region.region}
+                key={region.regionKey}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -627,7 +631,7 @@ export default function Index() {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {certifications.map((cert) => (
+                  {getCertifications(t).map((cert) => (
                     <div key={cert.class} className="flex items-center gap-2 bg-primary/5 rounded-lg px-3 py-2">
                       <FileCheck className="h-4 w-4 text-primary" />
                       <span className="text-sm font-medium">{t('indexPage.investorsSection.class')} {cert.class}</span>
