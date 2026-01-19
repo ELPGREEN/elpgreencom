@@ -1670,17 +1670,23 @@ serve(async (req) => {
       model?: 'flash' | 'pro';
     };
     
-    // Use Anthropic Claude API directly
+    // Use Gemini for flash, Anthropic for pro
+    const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
     const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
-    if (!ANTHROPIC_API_KEY) {
-      return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured" }), {
+    
+    if (model === 'flash' && !GEMINI_API_KEY) {
+      return new Response(JSON.stringify({ error: "GEMINI_API_KEY is not configured" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
     
-    // Select model based on user choice (haiku = fast, sonnet = comprehensive)
-    const claudeModel = model === 'pro' ? 'claude-sonnet-4-20250514' : 'claude-3-5-haiku-20241022';
+    if (model === 'pro' && !ANTHROPIC_API_KEY) {
+      return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // Calculate additional metrics
     const annualTonnage = study.daily_capacity_tons * study.operating_days_per_year * (study.utilization_rate / 100);
@@ -1965,106 +1971,150 @@ ${hasGovPartnership ? `
 
 CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cover ALL 11 sections in full detail. DO NOT stop before completing all sections. Each section must have substantial, actionable content.`;
 
-    // Adjust prompt for Haiku (faster) vs Sonnet (comprehensive)
+    // Adjust prompt based on model type
     const analysisPrompt = model === 'flash' 
       ? systemPrompt + "\n\nProvide a COMPLETE analysis covering ALL sections. Be concise but thorough - each section needs actionable content. Do NOT stop mid-section.\n\n" + userPrompt
       : systemPrompt + "\n\nProvide an EXHAUSTIVE and COMPLETE analysis. Cover ALL 12 sections in full detail. Do NOT stop before completing all sections.\n\n" + userPrompt;
 
-    const callClaude = async (modelName: string, prompt: string) => {
-      return await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": ANTHROPIC_API_KEY,
-          "anthropic-version": "2023-06-01",
-        },
-        body: JSON.stringify({
-          model: modelName,
-          max_tokens: model === 'flash' ? 8192 : 16384,
-          messages: [
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-        }),
-      });
-    };
-
     const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-    const getRetryAfterMs = (res: Response, attempt: number) => {
-      const retryAfter = res.headers.get('retry-after');
-      if (retryAfter) {
-        const seconds = Number(retryAfter);
-        if (!Number.isNaN(seconds) && seconds > 0) return Math.min(30000, seconds * 1000);
-      }
-      // Exponential backoff with jitter
-      const base = 800 * Math.pow(2, attempt);
-      const jitter = Math.floor(Math.random() * 250);
-      return Math.min(8000, base + jitter);
-    };
-
-    let usedModel = claudeModel;
-    let response: Response | null = null;
-    let lastErrorText = "";
+    let analysis = "";
+    let usedModel = model;
     let didFallback = false;
 
-    // Strategy:
-    // - If Sonnet is rate-limited, immediately fall back to Haiku
-    // - If Haiku is rate-limited, retry a couple times with backoff
-    for (let attempt = 0; attempt < 3; attempt++) {
-      response = await callClaude(usedModel, analysisPrompt);
+    if (model === 'flash') {
+      // Use Gemini API for flash analysis
+      const callGemini = async (prompt: string) => {
+        return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [{ text: prompt }]
+            }],
+            generationConfig: {
+              maxOutputTokens: 8192,
+              temperature: 0.7
+            }
+          }),
+        });
+      };
 
-      if (response.ok) break;
+      let response: Response | null = null;
+      let lastErrorText = "";
 
-      if (response.status === 429) {
-        // Sonnet -> Haiku fallback
-        if (usedModel === 'claude-sonnet-4-20250514') {
-          usedModel = 'claude-3-5-haiku-20241022';
-          didFallback = true;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        response = await callGemini(analysisPrompt);
+
+        if (response.ok) break;
+
+        if (response.status === 429) {
+          const waitMs = Math.min(8000, 800 * Math.pow(2, attempt) + Math.floor(Math.random() * 250));
+          await sleep(waitMs);
           continue;
         }
 
-        // Haiku retries
-        const waitMs = getRetryAfterMs(response, attempt);
-        await sleep(waitMs);
-        continue;
+        lastErrorText = await response.text();
+        break;
       }
 
-      lastErrorText = await response.text();
-      break;
-    }
+      if (!response || !response.ok) {
+        if (response?.status === 429) {
+          return new Response(
+            JSON.stringify({
+              error: "Rate limits exceeded. Please try again in a few moments.",
+              recommended_model: "pro",
+            }),
+            {
+              status: 429,
+              headers: { ...corsHeaders, "Content-Type": "application/json" },
+            }
+          );
+        }
 
-    if (!response || !response.ok) {
-      if (response?.status === 429) {
-        return new Response(
-          JSON.stringify({
-            error: "Rate limits exceeded. Please try again in a few moments.",
-            recommended_model: "flash",
+        const errorText = lastErrorText || (response ? await response.text() : "Unknown error");
+        console.error("Gemini API error:", response?.status, errorText);
+        return new Response(JSON.stringify({ error: "AI analysis failed", details: errorText }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+
+      const data = await response.json();
+      analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to generate analysis.";
+
+    } else {
+      // Use Anthropic Claude API for pro analysis
+      const callClaude = async (prompt: string) => {
+        return await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": ANTHROPIC_API_KEY!,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            model: "claude-sonnet-4-20250514",
+            max_tokens: 16384,
+            messages: [
+              {
+                role: "user",
+                content: prompt,
+              },
+            ],
           }),
-          {
-            status: 429,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          }
-        );
+        });
+      };
+
+      let response: Response | null = null;
+      let lastErrorText = "";
+
+      for (let attempt = 0; attempt < 3; attempt++) {
+        response = await callClaude(analysisPrompt);
+
+        if (response.ok) break;
+
+        if (response.status === 429) {
+          const waitMs = Math.min(8000, 800 * Math.pow(2, attempt) + Math.floor(Math.random() * 250));
+          await sleep(waitMs);
+          continue;
+        }
+
+        lastErrorText = await response.text();
+        break;
       }
 
-      const errorText = lastErrorText || (response ? await response.text() : "Unknown error");
-      console.error("Anthropic API error:", response?.status, errorText);
-      return new Response(JSON.stringify({ error: "AI analysis failed", details: errorText }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
+      if (!response || !response.ok) {
+        if (response?.status === 429) {
+          return new Response(
+            JSON.stringify({
+              error: "Rate limits exceeded. Please try again in a few moments.",
+              recommended_model: "flash",
+            }),
+            {
+              status: 429,
+              headers: { ...corsHeaders, "Content-Type": "application/json" },
+            }
+          );
+        }
 
-    const data = await response.json();
-    const analysis = data.content?.[0]?.text || "Unable to generate analysis.";
-    const selectedModelName = usedModel === 'claude-sonnet-4-20250514' ? 'pro' : 'flash';
+        const errorText = lastErrorText || (response ? await response.text() : "Unknown error");
+        console.error("Anthropic API error:", response?.status, errorText);
+        return new Response(JSON.stringify({ error: "AI analysis failed", details: errorText }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+
+      const data = await response.json();
+      analysis = data.content?.[0]?.text || "Unable to generate analysis.";
+    }
 
     return new Response(JSON.stringify({ 
       analysis,
-      model_used: selectedModelName,
+      model_used: usedModel,
       did_fallback: didFallback,
       metrics: {
         annualTonnage,
