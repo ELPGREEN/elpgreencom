@@ -1,0 +1,3476 @@
+{
+  "pwa": {
+    "installApp": "安装应用",
+    "enableNotifications": "开启通知",
+    "disableNotifications": "关闭通知"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "solutions": "解决方案",
+    "saas": "SaaS平台",
+    "investors": "投资者",
+    "esg": "ESG",
+    "media": "媒体中心",
+    "contact": "联系我们",
+    "marketplace": "B2B市场",
+    "quote": "询价",
+    "certificates": "证书",
+    "smartOtr": "智能OTR",
+    "otrSources": "提交OTR来源",
+    "brazilLatam": "巴西 / 拉美",
+    "globalExpansion": "全球扩展"
+  },
+  "hero": {
+    "badge": "全球合作伙伴计划",
+    "title": "OTR轮胎智能回收全球合作 – 我们投资海外工厂",
+    "subtitle": "寻找可靠的二手OTR轮胎来源（矿业、经销商、港口）。智能机器人生产线配备自动机器人。",
+    "noSellMachines": "我们不卖机器",
+    "investDirectly": "我们建立合资企业并直接投资工厂（欧洲、巴西、澳大利亚）。",
+    "whatsappContact": "内部审核后WhatsApp联系",
+    "scrollDown": "向下滚动",
+    "cta": {
+      "partner": "立即提交OTR来源",
+      "invest": "成为我们的合作伙伴",
+      "learnPartnership": "了解合作模式",
+      "technology": "了解技术"
+    }
+  },
+  "topBanner": {
+    "lookingFor": "🔍 在意大利、巴西或澳大利亚寻找OTR轮胎来源 –",
+    "indicateHere": "点击这里进行合作！"
+  },
+  "smartOtr": {
+    "badge": "智能机器人生产线",
+    "title": "智能OTR生产线 – 先进机器人技术",
+    "description": "智能升级：将轮胎放在平台上 → 机器人自动定位和切割。首次演示在",
+    "demoLocation": "澳大利亚（2025年4月/5月）",
+    "globalGoal": "全球目标：17-18家海外工厂年产100万吨。",
+    "disclaimer": "我们不销售智能生产线",
+    "disclaimerDesc": "我们正在寻找OTR来源和联合运营的合作伙伴。",
+    "features": {
+      "autoPosition": "自动定位",
+      "roboticCutting": "机器人切割",
+      "tonsPerPlant": "每厂约10吨/小时",
+      "globalCapacity": "全球175吨/小时"
+    },
+    "indicateSource": "提交OTR来源",
+    "roadmapTitle": "2025-2030扩张路线图",
+    "roadmap": {
+      "2025": "澳大利亚 – 首条智能生产线",
+      "2026": "南美和欧洲（3-4家工厂）",
+      "2027": "非洲和中东（8-10家工厂）",
+      "2030": "全球目标：17-18家工厂"
+    }
+  },
+  "stats": {
+    "co2Avoided": "减少CO₂排放",
+    "wasteProcessed": "处理废物",
+    "globalPlants": "全球工厂",
+    "countries": "国家",
+    "tons": "吨",
+    "unit": "个"
+  },
+  "globalPresence": {
+    "badge": "战略全球布局",
+    "title": "在主要经济轴心运营",
+    "subtitle": "直接投资海外工厂进行大规模OTR回收。欧洲（米兰/意大利）+ 拉丁美洲（巴西/圣保罗）+ 澳大利亚的平衡布局。",
+    "europe": {
+      "title": "欧洲",
+      "city": "意大利米兰",
+      "focus": "本地合作"
+    },
+    "germany": {
+      "city": "德国法兰克福",
+      "focus": "资本与监管"
+    },
+    "asia": {
+      "title": "亚洲",
+      "city": "中国深圳",
+      "focus": "研发与制造"
+    },
+    "latam": {
+      "title": "拉丁美洲",
+      "city": "巴西圣保罗",
+      "focus": "运营与资产",
+      "miningFocus": "重点矿业"
+    },
+    "oceania": {
+      "title": "大洋洲",
+      "city": "澳大利亚",
+      "focus": "2025年OTR工厂安装"
+    }
+  },
+  "indexPage": {
+    "partnershipModel": {
+      "badge": "合作模式",
+      "title": "合作如何运作",
+      "description": "您找到OTR轮胎来源。一旦您有良好的OTR来源，我们会来到您身边，一起与OTR资源所有者（矿业公司、制造商、经销商）进行谈判。",
+      "step1": { "title": "您指示来源", "desc": "矿业公司、轮胎经销商、港口、制造商" },
+      "step2": { "title": "我们来找您", "desc": "出差会见您的来源并评估机会" },
+      "step3": { "title": "共同谈判", "desc": "我们一起与资源所有者谈判" },
+      "step4": { "title": "我们投资工厂", "desc": "直接投资工厂建设" },
+      "indicateSource": "指示OTR来源",
+      "fullDetails": "完整合作详情",
+      "stats": {
+        "partnerCountries": "合作国家",
+        "tonsYearGoal": "吨/年目标",
+        "factoriesBy2030": "2030年工厂数量",
+        "yourInvestment": "您的投资"
+      }
+    },
+    "esgSection": {
+      "title": "ESG承诺",
+      "subtitle": "真正的可持续发展",
+      "description": "符合欧洲、巴西和澳大利亚可持续OTR回收的ESG目标。",
+      "netZero": "2040年净零排放",
+      "zeroWaste": "零废弃物",
+      "bCorp": "符合B-Corp标准",
+      "euTaxonomy": "欧盟分类法",
+      "learnMore": "了解更多"
+    },
+    "investorsSection": {
+      "title": "投资者专区",
+      "subtitle": "独特机会",
+      "description": "OTR回收海外合资企业的独特机会 – 访问数据室。",
+      "class": "类别",
+      "dataRoom": "数据室",
+      "certificates": "证书"
+    },
+    "news": {
+      "badge": "新闻",
+      "title": "最新动态",
+      "subtitle": "关注绿色技术和循环经济的最新新闻。",
+      "noNews": "暂无新闻。",
+      "viewAll": "查看所有新闻"
+    },
+    "privacyNote": "OTR来源数据在任何外部共享之前会进行内部处理。符合GDPR标准。",
+    "ctaSection": {
+      "title": "有OTR轮胎来源？让我们合作！",
+      "description": "我们直接投资海外工厂。您提供来源，我们提供技术和资本。",
+      "indicateNow": "立即指示OTR来源",
+      "partnershipDetails": "合作详情"
+    },
+    "globalPresence": {
+      "europe": { "region": "欧洲", "city": "米兰，意大利", "role": "本地合作" },
+      "germany": { "city": "法兰克福，德国", "role": "资本与监管" },
+      "southAmerica": { "region": "南美洲", "city": "圣保罗，巴西", "role": "运营与资产", "focus": "采矿重点" },
+      "asia": { "region": "亚洲", "city": "深圳，中国", "role": "研发与制造" },
+      "oceania": { "region": "大洋洲", "city": "澳大利亚", "role": "2025年OTR工厂安装" }
+    },
+    "certifications": {
+      "class1": "化学产品",
+      "class7": "工业机械",
+      "class35": "商业",
+      "class40": "材料处理",
+      "class42": "研究与技术"
+    }
+  },
+  "solutionsPage": {
+    "galleryImages": {
+      "topsTeam": { "title": "TOPS回收团队", "description": "与张家港TOPS Recycling团队的战略合作" },
+      "partnershipHandshake": { "title": "合作协议", "description": "Ericson Piccoli和合作伙伴在生产线上" },
+      "partnershipTeam": { "title": "技术访问", "description": "工业设施商务会议" },
+      "pyrolysisPipes": { "title": "热解设备", "description": "组装中的管道和反应器" },
+      "factoryFloor": { "title": "生产线", "description": "配有自动传送带的工业加工区" },
+      "factoryInspection": { "title": "质量检验", "description": "加工设备监督" },
+      "rubberPowderBags": { "title": "橡胶粉", "description": "最终产品：可商业化的再生橡胶粉" },
+      "productionBags": { "title": "存储区", "description": "等待发货的加工材料" }
+    }
+  },
+  "contactPage": {
+    "offices": {
+      "italy": { "city": "瓦伦扎", "country": "意大利" },
+      "brazil": { "city": "梅迪亚内拉", "country": "巴西" },
+      "germany": { "city": "法兰克福", "country": "德国" },
+      "china": { "city": "张家港", "country": "中国" },
+      "australia": { "city": "悉尼", "country": "澳大利亚" }
+    },
+    "leadership": {
+      "ericson": { "role": "董事会主席及创始人" },
+      "samuel": { "role": "关联会员及中国总经理" }
+    }
+  },
+  "about": {
+    "title": "关于ELP绿色科技",
+    "heroSubtitle": "循环经济解决方案全球领导者，通过国际办事处和战略合作伙伴网络，将绿色技术与可持续资本相连接。",
+    "noSellEquipment": "我们不销售设备 – 我们建立合资企业。",
+    "globalPresence": "全球4大洲布局",
+    "headquarters": {
+      "title": "国际总部",
+      "subtitle": "战略性布局于全球主要市场，以最大化影响力和效率"
+    },
+    "leadership": {
+      "title": "全球领导团队",
+      "subtitle": "拥有技术、可持续发展和全球市场专业知识的国际团队",
+      "partnership": "官方战略合作伙伴关系",
+      "partnershipDate": "建立于2023年2月22日",
+      "trademarks": "INPI注册商标",
+      "trademarksDesc": "ELP品牌在巴西国家工业产权研究所注册了6个类别",
+      "validity": "有效期：2023/11/07 - 2033/11/07",
+      "viewCertificates": "查看官方证书"
+    },
+    "factories": "生产设施",
+    "factoryLine": "热解反应器生产线",
+    "factoryVisit": "Tops Recycling设施技术访问",
+    "factoryDesc": "我们的模块化单元在中国张家港最先进的设施中生产，遵循严格的国际质量和安全标准。",
+    "ourPillars": "我们的支柱",
+    "gallery": "合作伙伴画廊",
+    "gallerySubtitle": "我们战略合作伙伴关系和全球运营的视觉记录",
+    "documents": {
+      "title": "官方文件",
+      "subtitle": "国家工业产权研究所(INPI)的证书和商标记录"
+    },
+    "partnershipDesc": "ELP Green Technology已与中国回收和工业加工设备领导者TOPS RECYCLING ZHANGJIAGANG SHILONG MACHINERY CO. LTD建立官方合作伙伴关系。",
+    "governance": {
+      "title": "治理与合规",
+      "description": "ELP Green Technology保持最高水平的公司治理标准，由四大会计师事务所进行独立审计，完全符合国际法规。",
+      "items": ["独立道德委员会", "年度四大审计", "GDPR/LGPD合规", "欧盟分类法一致"],
+      "internationalBoard": "国际董事会",
+      "boardDesc": "我们的董事会由国际知名专业人士组成，确保全球战略视野和进入世界主要市场的途径。"
+    },
+    "quote": "我们可以一起建设一个可持续的世界，将挑战转化为更美好未来的机遇。",
+    "companyDesc1": "ELP GREEN TECHNOLOGY是一家致力于推广创新和可持续解决方案以应对全球挑战的公司。基于可持续发展、先进技术和战略合作伙伴关系，我们的公司致力于将环境问题转化为商业机会。",
+    "companyDesc2": "我们的目标是创造一个以可持续发展为所有行动基础的未来。我们寻求实施先进技术、高效的废物管理实践和可再生能源来减少碳排放并应对气候变化。",
+    "vision": {
+      "title": "我们的愿景",
+      "description": "引领全球废物资源化转型，将尖端技术与可持续资本相连接。"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "description": "开发和实施技术解决方案，将环境负债转化为高价值经济资产。"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "innovation": "创新",
+      "innovationDesc": "不断寻求创新解决方案",
+      "sustainability": "可持续性",
+      "sustainabilityDesc": "对地球未来的承诺",
+      "transparency": "透明度",
+      "transparencyDesc": "开放诚实的关系",
+      "excellence": "卓越",
+      "excellenceDesc": "卓越的质量标准"
+    },
+    "offices": {
+      "italy": { "country": "意大利", "city": "瓦伦扎，Strada per Solero", "role": "欧洲总部", "description": "欧盟运营、合规和投资者关系的战略中心。", "phone": "+39 350 1021359", "email": "info@elpgreen.com", "website": "www.elpgreen.com" },
+      "brazil": { "country": "巴西", "city": "梅迪亚内拉，PR", "role": "美洲总部", "description": "Linha Saude S/N，邮编85884-000。拉丁美洲行政总部。", "phone": "+39 350 1021359", "email": "info@elpgreen.com", "website": "www.elpgreen.com" },
+      "germany": { "country": "德国", "city": "法兰克福", "role": "金融中心", "description": "欧洲金融中心，投资管理和银行关系。", "phone": "+39 350 1021359", "email": "info@elpgreen.com", "website": "www.elpgreen.com" },
+      "china": { "country": "中国", "city": "张家港", "role": "生产中心", "description": "工业制造中心，设备生产和与TOPS Recycling的合作。", "phone": "+86 159 6237 8058", "email": "info@topsindustry.com", "website": "www.topsrecycling.com" },
+      "australia": { "country": "澳大利亚", "city": "悉尼", "role": "大洋洲业务", "description": "大洋洲矿业合作伙伴关系的区域办事处。", "phone": "+39 350 1021359", "email": "info@elpgreen.com", "website": "www.elpgreen.com" }
+    },
+    "galleryItems": {
+      "topsFactory": { "title": "TOPS工厂 - 概览", "description": "位于中国张家港的Smart Line OTR设备制造中心" },
+      "otrShredder": { "title": "OTR破碎机运行中", "description": "用于处理巨型OTR轮胎的大容量设备" },
+      "otrProcessing": { "title": "OTR加工区", "description": "完整的非公路轮胎回收生产线" },
+      "shreddingLine": { "title": "破碎生产线", "description": "配备自动化系统的Smart Line工厂内部" },
+      "beadRings": { "title": "回收的胎圈环", "description": "从OTR轮胎中提取的高品质钢材 - 可直接熔炼" },
+      "otrPartnership": { "title": "OTR合作伙伴", "description": "矿用轮胎回收的战略合作" },
+      "topsTeam": { "title": "TOPS Recycling团队", "description": "与张家港TOPS Recycling团队的战略合作" },
+      "partnershipAgreement": { "title": "合作协议", "description": "Ericson Piccoli和合作伙伴在生产线上" }
+    },
+    "certificates": {
+      "class1": { "name": "第1类证书", "description": "工业化学品" },
+      "class7": { "name": "第7类证书", "description": "工业和农业机械" },
+      "class35": { "name": "第35类证书", "description": "商业和中介" },
+      "class40": { "name": "第40类证书", "description": "材料处理" },
+      "class40_1": { "name": "第40-1类证书", "description": "材料处理（附加）" },
+      "class42": { "name": "第42类证书", "description": "研究与技术" }
+    },
+    "trademarkClasses": {
+      "class1": { "class": "第1类", "description": "工业化学品", "details": "矿物酸、活性炭、未加工塑料、工业化学物质" },
+      "class7": { "class": "第7类", "description": "工业和农业机械", "details": "农业机械、破碎机、压缩机、磨机、喷雾器" },
+      "class35": { "class": "第35类", "description": "商业和中介", "details": "塑料、橡胶、电力、工业机械贸易" },
+      "class40": { "class": "第40类", "description": "材料处理", "details": "材料加工、回收、废物处理" },
+      "class42": { "class": "第42类", "description": "研究与技术", "details": "软件开发、科学研究、工业自动化、环境控制" }
+    },
+    "leadershipBios": {
+      "ericson": {
+        "role": "董事会主席兼创始人",
+        "location": "巴西梅迪亚内拉，PR / 意大利瓦伦扎",
+        "bio": "ELP Green Technology和ELP Global S.A.的创始人兼董事会主席。作为远见卓识的企业家，他领导公司在欧洲、亚洲和拉丁美洲建立战略合作伙伴关系进行OTR轮胎回收的全球扩张。负责在INPI注册的6个类别的ELP品牌。当前重点：Smart Line OTR合资企业。"
+      },
+      "xuShihe": {
+        "role": "附属成员兼总经理 - 中国运营",
+        "location": "中国江苏省张家港市",
+        "bio": "TOPS RECYCLING张家港世龙机械有限公司总经理，自2023年2月22日起成为ELP Green Technology的官方合作伙伴。专注于巨型OTR轮胎回收的Smart Line设备专家。负责制造运营和机器人切割技术。"
+      }
+    }
+  },
+  "solutions": {
+    "title": "解决方案与技术",
+    "subtitle": "循环经济领域最先进的专有技术",
+    "industrialTech": "工业技术",
+    "requestQuote": "请求报价",
+    "viewEquipment": "查看设备",
+    "proprietaryTech": "专有技术",
+    "processTitle": "转化过程",
+    "processSubtitle": "从废物到商品：高效可持续的过程",
+    "scalability": "可扩展性",
+    "techSpecs": "技术规格",
+    "capacity": "产能",
+    "area": "所需面积",
+    "installTime": "安装时间",
+    "lifespan": "使用寿命",
+    "payback": "回报期",
+    "pyrolysis": {
+      "title": "先进热解技术",
+      "description": "闭环技术流程，将轮胎和塑料转化为高价值商品：回收炭黑(rCB)、热解油和绿色钢材。"
+    },
+    "modular": {
+      "title": "模块化装置",
+      "description": "滑橇式工厂，快速可扩展部署，灵活的处理能力。"
+    },
+    "circular": {
+      "title": "360°循环经济",
+      "description": "我们将环境负债转化为经济资产，闭合可持续发展循环。"
+    },
+    "industrialPlantsTitle": "完整工业工厂",
+    "industrialPlantsSubtitle": "交钥匙回收解决方案",
+    "industrialPlantsDesc": "采用尖端技术的完整工业工厂，从安装到运营。根据区域需求定制项目规模。",
+    "productsGenerated": "生成产品",
+    "technicalSpecs": "技术规格",
+    "viewDetails": "查看详情",
+    "getQuote": "获取报价",
+    "investment": "投资",
+    "profitability": "盈利能力",
+    "economicTitle": "经济可行性",
+    "economicSubtitle": "投资回报",
+    "economicDesc": "基于10吨/小时产能的轮胎回收工厂分析，每天运营16小时，每月运营26天。",
+    "scenarioPessimist": "悲观情景",
+    "scenarioLikely": "可能情景",
+    "scenarioOptimist": "乐观情景",
+    "productionAt": "产能利用率{{percent}}",
+    "monthlyRevenue": "月收入",
+    "yearlyRevenue": "年收入",
+    "profitMargin": "利润率",
+    "investmentSummary": "投资概要",
+    "investmentDesc": "每小时处理10吨轮胎的回收工厂总投资，包括基础设施、机器、太阳能和运营成本。",
+    "recyclingMachines": "回收机器",
+    "infrastructure": "基础设施与建设",
+    "solarEnergy": "太阳能（7MW）",
+    "landOperating": "土地与运营成本",
+    "totalInvestment": "总投资",
+    "viabilityIndicators": "可行性指标",
+    "paybackMonths": "个月回本",
+    "monthlyYield": "月收益率",
+    "yearsLifespan": "年使用寿命",
+    "viewInvestments": "查看投资机会",
+    "equipmentSpecs": {
+      "dualShredder": "双轴破碎机",
+      "dualShredderDesc": "可更换刀片的初级破碎系统",
+      "crackerMill": "裂解磨（精炼机）",
+      "crackerMillDesc": "超细橡胶粉生产",
+      "pyrolysisReactor": "热解反应器",
+      "pyrolysisReactorDesc": "受控环境下的热化学转化"
+    },
+    "plants": {
+      "tireRecycling": {
+        "title": "轮胎回收工厂",
+        "subtitle": "完整加工系统",
+        "description": "全自动废旧轮胎回收系统，生产高品质橡胶颗粒和粉末、钢材和纺织纤维。"
+      },
+      "pyrolysis": {
+        "title": "连续热解工厂",
+        "subtitle": "先进热化学转化",
+        "description": "闭环热解技术，将轮胎和塑料转化为燃料油、回收炭黑和合成气。"
+      },
+      "msw": {
+        "title": "城市固废处理厂",
+        "subtitle": "城市固体废物",
+        "description": "市政废物分离和增值的综合系统，生产RDF（垃圾衍生燃料）和可回收材料。"
+      },
+      "otr": {
+        "title": "OTR轮胎回收",
+        "subtitle": "采矿业巨型轮胎",
+        "description": "专门用于回收采矿、港口、农业和建筑业巨型轮胎的系统。可处理重达4.5吨的轮胎。"
+      }
+    },
+    "gallery": {
+      "title": "工业画廊",
+      "subtitle": "我们与中国张家港TOPS Recycling技术访问和战略合作的记录"
+    }
+  },
+  "saas": {
+    "title": "SaaS平台",
+    "subtitle": "循环经济管理的完整数字生态系统",
+    "digitalPlatform": "数字平台",
+    "requestDemo": "请求演示",
+    "platformModules": "平台模块",
+    "completeSolution": "循环经济完整解决方案",
+    "valueFlow": "价值流",
+    "valueFlowTitle": "从废物到资源的旅程",
+    "valueFlowSubtitle": "从收集到碳信用生成的完整可追溯性",
+    "architecture": "架构",
+    "cloudNative": "云原生基础设施",
+    "dataFlow": "数据流",
+    "enterpriseSecurity": "企业级安全",
+    "securityDesc": "我们的平台采用最高安全标准构建，满足大型企业和金融机构的要求。",
+    "preRegisterCta": "B2B市场预注册",
+    "preRegisterDesc": "成为首批加入我们循环经济市场的用户。将您的废物供应或工业需求连接到我们的全球网络。",
+    "blockchain": {
+      "title": "区块链溯源",
+      "description": "基于区块链技术的来源保证和废物数字护照。"
+    },
+    "dashboard": {
+      "title": "ESG仪表板",
+      "description": "高管界面，实时监控可持续发展关键绩效指标。"
+    },
+    "marketplace": {
+      "title": "B2B市场",
+      "description": "废物供应与工业需求的直接对接。"
+    }
+  },
+  "investors": {
+    "title": "投资者专区",
+    "subtitle": "高增长循环经济的独特投资机会",
+    "investmentOpportunities": "投资机会",
+    "highlightsTitle": "投资亮点",
+    "accessDataRoom": "访问数据室",
+    "viewEsg": "查看ESG",
+    "revenueStreams": "收入来源",
+    "thesis": {
+      "title": "投资论点",
+      "description": "循环经济市场估值4.5万亿美元。欧洲CBAM推动全球需求。",
+      "cbam": "欧洲CBAM",
+      "cbamDesc": "欧洲碳边境税正在加速全球对可持续解决方案的需求。",
+      "rcbDemand": "rCB需求",
+      "rcbDemandDesc": "轮胎和橡胶制造商积极寻求回收炭黑以实现ESG目标。",
+      "carbonCredits": "碳信用",
+      "carbonCreditsDesc": "市场呈指数级增长，预计到2030年价格将增加两倍。"
+    },
+    "spv": {
+      "title": "SPV结构",
+      "description": "项目融资和管理方式完全透明。",
+      "details": "每个项目都以独立的SPV（特殊目的载体）结构进行，允许定向投资、隔离风险管理，并为投资者提供最大透明度。每月报告和季度审计确保完全可见性。"
+    },
+    "reports": {
+      "title": "影响力报告",
+      "description": "年度ESG文件，四大会计师事务所审计。",
+      "esg": "ESG报告",
+      "financialAudit": "财务审计",
+      "impactReport": "影响力报告"
+    },
+    "cta": "访问数据室",
+    "ctaDesc": "申请访问我们的专属数据室，获取投资机会、财务预测和完整文档的详细信息。",
+    "revenue": {
+      "gateFees": "进场费",
+      "gateFeesDesc": "每吨处理废物的费用",
+      "commodities": "商品销售",
+      "commoditiesDesc": "rCB、热解油、绿色钢材",
+      "carbonCredits": "碳信用",
+      "carbonCreditsDesc": "CO₂减排证书",
+      "saas": "SaaS许可",
+      "saasDesc": "可追溯性平台"
+    },
+    "highlights": {
+      "totalMarket": "总市场",
+      "totalMarketDesc": "全球循环经济",
+      "cagr": "预计复合年增长率",
+      "cagrDesc": "到2030年的年增长",
+      "ebitda": "EBITDA利润率",
+      "ebitdaDesc": "成熟运营",
+      "payback": "回报期",
+      "paybackDesc": "每个安装单位",
+      "months": "个月"
+    }
+  },
+  "esg": {
+    "title": "ESG与社会影响",
+    "subtitle": "对人、地球和繁荣的真正承诺",
+    "sustainableCommitment": "可持续承诺",
+    "contactUs": "联系我们",
+    "certificates": "证书",
+    "measurableImpact": "可衡量的影响",
+    "netZeroGoals": "净零目标",
+    "sdgsTitle": "可持续发展目标",
+    "sdgsSubtitle": "我们对联合国可持续发展目标的承诺",
+    "sdgsNote": "联合国官方颜色 - 2030年可持续发展议程",
+    "viewCertificates": "查看INPI证书",
+    "joinJourney": "加入我们的旅程",
+    "joinJourneyDesc": "成为建设可持续未来的合作伙伴。与我们联系，探索合作机会。",
+    "environmental": {
+      "title": "环境承诺",
+      "description": "所有运营中的净零排放目标和生物多样性保护。",
+      "items": ["2040年前实现净零排放承诺", "100%可再生能源运营", "零废物填埋", "保护当地生物多样性"]
+    },
+    "social": {
+      "title": "人才发展",
+      "description": "本地培训计划和世界级工作场所安全。",
+      "items": ["社区培训计划", "零事故工作场所安全", "各级别的多元化和包容性", "运营区域的社会项目"]
+    },
+    "certifications": {
+      "title": "认证",
+      "description": "B-Corp认证、欧盟分类法和联合国可持续发展目标一致。"
+    },
+    "scopes": {
+      "scope12": "范围 1 & 2",
+      "scope3": "范围 3"
+    }
+  },
+  "media": {
+    "seo": {
+      "title": "媒体与新闻 | ELP Green Technology",
+      "description": "关注ELP Green Technology的最新新闻、文章、视频和新闻稿。轮胎回收和循环经济创新。"
+    },
+    "title": "媒体中心",
+    "subtitle": "新闻、技术解决方案和工业合作伙伴画廊",
+    "mediaResources": "媒体与资源",
+    "youtubeChannel": "YouTube频道",
+    "requestMedia": "请求媒体资料",
+    "machineSolutions": "机械解决方案",
+    "topsEquipment": "TOPS Recycling设备",
+    "topsDesc": "由我们的战略合作伙伴TOPS Recycling集团提供的完整轮胎和橡胶回收设备组合",
+    "all": "全部",
+    "videoGallery": "视频画廊",
+    "videoGalleryDesc": "在官方@elpgreen YouTube频道观看我们的技术和机构视频",
+    "subscribeChannel": "订阅@elpgreen频道",
+    "viewAllVideos": "在YouTube上查看所有视频",
+    "gallery": "画廊",
+    "partnershipsGallery": "合作伙伴与设施",
+    "partnershipsDesc": "我们技术访问和战略合作伙伴的记录",
+    "photoCredits": "照片：ELP Green Technology & TOPS Recycling集团 - 中国张家港",
+    "articlesInsights": "循环经济的洞察和分析",
+    "pressDesc": "官方发布和新闻",
+    "eventsDesc": "我们在全球论坛和活动中的存在",
+    "strategicPartner": "战略合作伙伴：TOPS Recycling",
+    "partnerDesc": "TOPS Recycling由许世和先生于2001年创立，是全球轮胎破碎和回收技术的领导者，业务遍及60多个国家。",
+    "visitPartner": "访问合作伙伴网站",
+    "blog": "博客与文章",
+    "press": "新闻稿",
+    "events": "活动",
+    "searchVideos": "搜索视频...",
+    "clearFilters": "清除筛选",
+    "watchOnYoutube": "在YouTube观看",
+    "noVideosFound": "未找到符合筛选条件的视频。",
+    "noArticles": "尚未发布任何文章。",
+    "noPressReleases": "尚未发布任何新闻稿。",
+    "source": "来源",
+    "videosOf": "共",
+    "videos": "个视频",
+    "live": "实时",
+    "cache": "缓存",
+    "fallback": "备用",
+    "otrSolutions": "OTR解决方案",
+    "otrTitle": "巨型OTR轮胎回收",
+    "otrDesc": "专业解决方案，用于处理采矿、农业和建筑巨型轮胎。高容量设备处理世界上最大的轮胎。",
+    "otrSpecs": "技术规格",
+    "otrApplications": "应用",
+    "otrCapacity": "容量",
+    "otrCta": "对OTR解决方案感兴趣？",
+    "otrCtaDesc": "联系我们了解我们完整的巨型OTR轮胎回收设备系列。",
+    "tags": {
+      "mining": "采矿",
+      "recycling": "回收",
+      "pyrolysis": "热解",
+      "partnership": "合作伙伴",
+      "equipment": "设备",
+      "sustainability": "可持续发展"
+    },
+    "videos": {
+      "conveyorBelt": "无缝采矿流程的输送带系统",
+      "crushers": "大容量破碎机 – 专为恶劣条件设计",
+      "compactMining": "小规模作业的紧凑型采矿设备",
+      "fullMiningPlant": "ELP | 绿色技术 – 完整采矿厂设置",
+      "customMachinery": "定制采矿机械解决方案",
+      "ecoMining": "生态友好采矿 – 低排放设备",
+      "heavyDuty": "重型采矿设备实战",
+      "mineralSeparation": "先进的矿物分离技术",
+      "ecoMining2": "生态友好采矿 – 低排放设备",
+      "miningAutomation": "采矿自动化 – 提取的未来",
+      "mobileCrushing": "移动式破碎和筛分设备",
+      "smartRecycling": "创新实践 – 智能回收创造绿色未来",
+      "pyrolysisTech": "热解技术 – 将废物转化为能源",
+      "globalSupplyChain": "深入我们的全球供应链 – 为世界提供橡胶材料",
+      "completeSolutions": "完整的回收解决方案 – 从机器到市场",
+      "devulcanized": "脱硫橡胶 – 循环经济实践",
+      "builtToLast": "经久耐用 – 我们如何制造回收机器",
+      "tireRevolution": "从废料到资源 – 轮胎回收革命",
+      "websiteElp": "ELP Green网站",
+      "partnershipAnnouncement": "激动人心的新合作伙伴公告！",
+      "wasteToResources": "将废物转化为宝贵资源！",
+      "otrRecycler": "OTR轮胎回收机：可持续橡胶回收的创新解决方案",
+      "revolutionizeTire": "轮胎回收革命：ELP Green与Tops Recycling",
+      "tireSlicePro": "TireSlicePro™ - 高效轮胎切割回收机",
+      "samuelXu": "许世和向Ericson Piccoli介绍回收机械制造商集团",
+      "chinaBrazil": "中巴可持续发展合作伙伴关系",
+      "topsCollaboration": "Top Recycling集团与ELP GREEN TECHNOLOGY的合作",
+      "strategicAlliance": "战略联盟：ELP与中国合作伙伴的成功之旅"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "我们随时准备讨论合作方式",
+    "sendMessage": "发送消息",
+    "ourOffices": "我们的办事处",
+    "leadership": "领导团队",
+    "strategicPartner": "战略合作伙伴",
+    "generalContact": "总联系方式",
+    "mapTitle": "我们的全球位置",
+    "businessLicense": "营业执照",
+    "mapSubtitle": "战略性布局于4大洲，为全球客户提供服务",
+    "partnership": {
+      "title": "产业合作",
+      "description": "有兴趣成为战略合作伙伴？"
+    },
+    "investor": {
+      "title": "投资者通道",
+      "description": "为现有和潜在投资者提供信息。"
+    },
+    "compliance": {
+      "title": "道德与合规",
+      "description": "匿名举报通道和道德事务。"
+    },
+    "form": {
+      "name": "姓名",
+      "email": "邮箱",
+      "company": "公司",
+      "subject": "主题",
+      "message": "消息",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "success": "消息发送成功！",
+      "successDesc": "我们将尽快与您联系。",
+      "error": "发送消息出错，请重试。",
+      "subjects": {
+        "partnership": "产业合作",
+        "investment": "投资",
+        "technology": "技术",
+        "media": "媒体",
+        "other": "其他"
+      }
+    }
+  },
+  "marketplace": {
+    "title": "B2B市场",
+    "subtitle": "我们将工业采购商与可持续商品生产商直接对接。立即预注册，成为首批用户。",
+    "heroTitle": "可供产品",
+    "heroSubtitle": "源自先进热解工艺的可持续商品",
+    "comingSoon": "即将推出",
+    "whyUse": "为什么选择我们的市场？",
+    "preRegister": "预注册意向",
+    "products": {
+      "rcb": {
+        "title": "回收炭黑 (rCB)",
+        "description": "从废轮胎热解过程中回收的高品质炭黑。",
+        "applications": "橡胶、塑料、涂料"
+      },
+      "pyrolyticOil": {
+        "title": "热解油",
+        "description": "由聚合物热分解产生的替代燃料。",
+        "applications": "熔炉、锅炉、热电联产"
+      },
+      "greenSteel": {
+        "title": "绿色再生钢",
+        "description": "从轮胎回收的高品质钢丝，可直接熔炼。",
+        "format": "压缩包",
+        "applications": "钢铁厂、铸造厂"
+      },
+      "rubberBlocks": {
+        "title": "再生橡胶块",
+        "description": "用于工业应用的高密度压制橡胶块。",
+        "size": "可定制",
+        "applications": "地板、隔音、减震"
+      },
+      "rubberGranules": {
+        "title": "橡胶颗粒",
+        "description": "多种尺寸的橡胶颗粒，适用于多种应用。",
+        "applications": "人造草坪、游乐场、沥青"
+      },
+      "reclaimedRubber": {
+        "title": "再生橡胶",
+        "description": "脱硫橡胶，可用于新配方的再加工。",
+        "applications": "轮胎行业、橡胶制品"
+      }
+    },
+    "specs": {
+      "purity": "纯度",
+      "ashContent": "灰分含量",
+      "specificSurface": "比表面积",
+      "applications": "应用",
+      "calorificValue": "热值",
+      "sulfurContent": "硫含量",
+      "density": "密度",
+      "carbon": "碳含量",
+      "format": "规格",
+      "size": "尺寸",
+      "granulometry": "粒度",
+      "viscosity": "粘度"
+    },
+    "benefits": {
+      "globalReach": {
+        "title": "全球覆盖",
+        "description": "与全球买家和卖家建立联系"
+      },
+      "traceability": {
+        "title": "可追溯性",
+        "description": "区块链确保来源和材料质量"
+      },
+      "competitivePrices": {
+        "title": "有竞争力的价格",
+        "description": "直接对接生产商，无中间商"
+      },
+      "certifications": {
+        "title": "认证",
+        "description": "具有ESG认证和国际标准的产品"
+      }
+    },
+    "form": {
+      "title": "立即预注册",
+      "subtitle": "成为首批用户，享受独家上线优惠。",
+      "companyName": "公司名称",
+      "companyNamePlaceholder": "您的公司名称",
+      "contactName": "联系人姓名",
+      "contactNamePlaceholder": "您的全名",
+      "email": "企业邮箱",
+      "emailPlaceholder": "您的@公司.com",
+      "phone": "电话",
+      "country": "国家",
+      "countryPlaceholder": "选择国家",
+      "companyType": "公司类型",
+      "companyTypePlaceholder": "选择类型",
+      "buyer": "采购商",
+      "seller": "供应商",
+      "both": "两者",
+      "productsInterest": "感兴趣的产品",
+      "estimatedVolume": "预计采购量（吨/月）",
+      "volumePlaceholder": "选择预计采购量",
+      "tons": "吨",
+      "message": "附加信息",
+      "messagePlaceholder": "告诉我们更多关于您的需求或具体要求...",
+      "submit": "提交预注册",
+      "selectProduct": "请至少选择一个产品",
+      "selectProductDesc": "请选择您感兴趣的产品。",
+      "success": "预注册成功！",
+      "successDesc": "我们将尽快与您联系。",
+      "error": "预注册出错",
+      "errorDesc": "请重试或联系我们。",
+      "duplicateEmail": "邮箱已注册",
+      "duplicateEmailDesc": "该邮箱已有预注册记录。我们的团队将尽快联系您。",
+      "terms": "注册即表示您同意我们的",
+      "and": "和"
+    }
+  },
+  "footer": {
+    "company": "ELP绿色科技",
+    "description": "连接绿色技术与可持续资本，共创美好未来。",
+    "quickLinks": "快速链接",
+    "legal": "法律声明",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "cookies": "Cookie政策",
+    "rights": "版权所有。",
+    "social": "社交媒体",
+    "restrictedArea": "限制区域",
+    "globalHQ": "全球总部",
+    "email": "电子邮件",
+    "otrIndications": "OTR来源提交",
+    "contactAfterReview": "内部审核后联系",
+    "indicateSource": "提交OTR来源"
+  },
+  "newsletter": {
+    "title": "订阅我们的通讯",
+    "subtitle": "接收OTR回收市场更新",
+    "placeholder": "您的最佳邮箱",
+    "subscribe": "订阅",
+    "success": "订阅成功！",
+    "successDesc": "您将很快收到我们的更新。",
+    "error": "订阅失败",
+    "errorDesc": "请重试。"
+  },
+  "legal": {
+    "backToHome": "返回首页",
+    "lastUpdate": "最后更新：2025年1月",
+    "privacy": {
+      "title": "隐私政策",
+      "subtitle": "我们如何保护您的个人数据",
+      "intro": {
+        "title": "1. 引言",
+        "text": "ELP Green Technology 致力于保护用户的隐私。本隐私政策描述了我们如何根据《通用数据保护法》(LGPD) 和《通用数据保护条例》(GDPR) 收集、使用、存储和保护您的个人信息。"
+      },
+      "dataCollected": {
+        "title": "2. 收集的数据",
+        "text": "我们收集以下类型的数据：",
+        "items": {
+          "identification": "身份数据：姓名、电子邮件、电话、公司",
+          "navigation": "导航数据：cookies、IP地址、使用数据",
+          "communication": "通信数据：通过表单发送的消息"
+        }
+      },
+      "purpose": {
+        "title": "3. 处理目的",
+        "text": "我们使用您的数据来：",
+        "items": {
+          "respond": "回应请求并提供有关我们服务的信息",
+          "newsletter": "发送新闻通讯和相关通信（经同意）",
+          "improve": "改进我们的产品和服务",
+          "legal": "遵守法律和监管义务"
+        }
+      },
+      "rights": {
+        "title": "4. 您的权利",
+        "text": "您有权访问、更正、删除或转移您的个人数据。要行使这些权利，请通过电子邮件与我们联系"
+      },
+      "contact": {
+        "title": "5. 联系方式",
+        "text": "如有关于本政策或数据处理的问题，请联系：",
+        "email": "电子邮件",
+        "address": "地址"
+      }
+    },
+    "terms": {
+      "title": "使用条款",
+      "subtitle": "网站使用的一般条件",
+      "acceptance": {
+        "title": "1. 条款接受",
+        "text": "通过访问和使用本网站，您接受并同意受此处规定的使用条款和条件的约束。如果您不同意这些条款的任何部分，则不应使用我们的网站。"
+      },
+      "siteUsage": {
+        "title": "2. 网站使用",
+        "text": "本网站的内容仅供一般信息目的提供。ELP Green Technology 保留随时修改、暂停或终止网站任何方面的权利。"
+      },
+      "intellectualProperty": {
+        "title": "3. 知识产权",
+        "text1": "本网站的所有内容，包括文本、图形、徽标、图标、图像、音频剪辑和软件，均为 ELP Green Technology 或其内容提供商的财产，受国家和国际版权法保护。",
+        "text2": "ELP 品牌已在 INPI（国家工业产权局）注册，涵盖第1、7、35、40和42类，有效期至2033年11月7日。"
+      },
+      "liability": {
+        "title": "4. 责任限制",
+        "text": "ELP Green Technology 对因使用或无法使用本网站或其服务而产生的任何直接、间接、附带、特殊或后果性损害不承担责任。"
+      },
+      "externalLinks": {
+        "title": "5. 外部链接",
+        "text": "本网站可能包含指向第三方网站的链接。这些链接仅为方便起见而提供，并不意味着对这些网站内容的认可或责任。"
+      },
+      "applicableLaw": {
+        "title": "6. 适用法律",
+        "text": "这些条款将根据巴西法律进行管辖和解释，不与法律规定相冲突。"
+      },
+      "contact": {
+        "title": "7. 联系方式",
+        "text": "如有关于这些条款的问题，请联系：",
+        "email": "电子邮件",
+        "website": "网站"
+      }
+    },
+    "cookies": {
+      "title": "Cookie政策",
+      "subtitle": "我们如何在网站上使用cookies",
+      "what": {
+        "title": "什么是Cookies？",
+        "text": "Cookies是在您访问网站时存储在您设备上的小型文本文件。它们被广泛用于使网站更高效地运行，并向网站所有者提供信息。"
+      },
+      "types": {
+        "title": "我们使用的Cookie类型",
+        "essential": {
+          "title": "必要Cookies",
+          "text": "网站基本功能所必需的。没有它们，网站将无法正常运行。"
+        },
+        "performance": {
+          "title": "性能Cookies",
+          "text": "收集有关访问者如何使用网站的信息，使我们能够改善用户体验。"
+        },
+        "functionality": {
+          "title": "功能Cookies",
+          "text": "允许网站记住您所做的选择（如您偏好的语言）并提供增强功能。"
+        }
+      },
+      "manage": {
+        "title": "如何管理Cookies",
+        "text": "您可以根据需要控制和/或删除cookies。您可以删除计算机上已有的所有cookies，并设置大多数浏览器以阻止它们被放置。但是，如果这样做，您可能需要在每次访问网站时手动调整某些首选项。"
+      },
+      "thirdParty": {
+        "title": "第三方Cookies",
+        "text": "在某些情况下，我们使用受信任的第三方cookies。以下部分详细说明了您可能在本网站上找到的第三方cookies：",
+        "googleAnalytics": "Google Analytics - 用于网站使用分析",
+        "youtube": "YouTube - 用于嵌入式视频"
+      },
+      "moreInfo": {
+        "title": "更多信息",
+        "text": "有关我们如何使用cookies和您的个人数据的更多信息，请参阅我们的",
+        "privacyPolicy": "隐私政策",
+        "email": "电子邮件"
+      }
+    }
+  },
+  "globe": {
+    "contactInfo": "联系信息",
+    "team": "团队",
+    "keyOperations": "主要业务",
+    "clickMarker": "点击标记查看详情",
+    "scrollZoom": "滚动缩放",
+    "dragRotate": "拖动旋转",
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "resetView": "重置视图",
+    "dayMode": "日间模式",
+    "nightMode": "夜间模式",
+    "flyingTo": "飞往",
+    "backToCenter": "返回中心",
+    "openOSM": "在 OpenStreetMap 中打开",
+    "copyAddress": "复制",
+    "copied": "已复制！"
+  },
+  "quote": {
+    "badge": "自动LOI",
+    "title": "请求报价",
+    "subtitle": "填写下面的表格，自动接收您的专业意向书 (LOI)。",
+    "companyInfo": "公司信息",
+    "productsTitle": "感兴趣的产品/设备",
+    "form": {
+      "companyName": "公司名称",
+      "companyNamePlaceholder": "您的公司名称",
+      "contactName": "联系人姓名",
+      "contactNamePlaceholder": "您的全名",
+      "email": "企业邮箱",
+      "emailPlaceholder": "您@公司.com",
+      "phone": "电话",
+      "country": "国家",
+      "countryPlaceholder": "选择国家",
+      "companyType": "公司类型",
+      "companyTypePlaceholder": "选择类型",
+      "buyer": "采购商",
+      "seller": "供应商",
+      "both": "采购商和供应商",
+      "investor": "投资者",
+      "partner": "战略合作伙伴",
+      "volume": "预计数量/体积",
+      "volumePlaceholder": "例如：100吨/月或2台",
+      "message": "消息/规格说明",
+      "messagePlaceholder": "描述您的需求、技术规格或问题...",
+      "sending": "发送中...",
+      "submit": "提交请求并生成LOI",
+      "loiNote": "提交后，您将自动收到PDF格式的意向书(LOI)及电子邮件。",
+      "selectProduct": "请至少选择一个产品",
+      "selectProductDesc": "请选择您感兴趣的产品/设备。",
+      "duplicateEmail": "邮箱已注册",
+      "duplicateEmailDesc": "此邮箱已有请求。我们的团队将很快与您联系。",
+      "success": "请求发送成功！",
+      "successDesc": "您的意向书(LOI)已生成。我们将在7个工作日内与您联系。",
+      "error": "发送请求时出错",
+      "errorDesc": "请重试或联系我们。"
+    },
+    "benefits": {
+      "loi": "自动LOI",
+      "loiDesc": "即时生成专业文档",
+      "email": "邮件链接",
+      "emailDesc": "随时在线访问您的LOI",
+      "response": "快速响应",
+      "responseDesc": "我们的团队在7个工作日内回复"
+    }
+  },
+  "common": {
+    "learnMore": "了解更多",
+    "getStarted": "开始使用",
+    "viewMore": "查看更多",
+    "scroll": "滚动",
+    "globalImpact": "全球影响",
+    "globalPresenceBadge": "全球布局",
+    "advancedTech": "先进技术",
+    "digitalPlatform": "数字平台",
+    "explorePlatform": "探索平台",
+    "greenTechGlobal": "全球绿色科技",
+    "zeroEmissions": "零排放",
+    "closedLoop": "闭环系统",
+    "recovery": "95%回收率",
+    "pyrolysis": "热解",
+    "recycling": "回收",
+    "iot": "物联网",
+    "efficiency": "效率",
+    "reduction": "减少",
+    "continents": "大洲",
+    "viewDetails": "查看详情",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "close": "关闭",
+    "viewAll": "查看全部",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "send": "发送",
+    "cancel": "取消"
+  },
+  "index": {
+    "pyrolysisDesc": "我们最先进的热解技术采用闭环运行，确保零排放和最高能源效率。",
+    "modularDesc": "我们的滑橇式工厂预制并作为完整模块运输，大幅缩短安装时间。",
+    "industrialPlants": "工业工厂",
+    "plantsTitle": "交钥匙模块化工厂",
+    "plantsSubtitle": "从工程到运营的完整回收和废物增值解决方案",
+    "plants": {
+      "tireRecycling": { "title": "轮胎回收", "description": "用于轮胎粉碎和加工成橡胶粉和颗粒的完整工厂。" },
+      "pyrolysis": { "title": "连续热解", "description": "将轮胎和塑料热转化为油、炭黑和合成气。" },
+      "msw": { "title": "固废处理", "description": "城市固体废物的综合分选和增值系统。" },
+      "otr": { "title": "OTR回收", "description": "采矿和建筑业巨型轮胎回收的专业解决方案。" }
+    },
+    "comparison": {
+      "title": "比较我们的解决方案",
+      "subtitle": "找到满足您回收需求的理想工厂",
+      "cardsView": "卡片",
+      "tableView": "表格",
+      "capacity": "产能",
+      "investment": "投资",
+      "area": "所需面积",
+      "products": "产品",
+      "highlights": "亮点",
+      "viewDetails": "查看详情",
+      "showMore": "更多详情",
+      "showLess": "收起详情",
+      "metric": "指标",
+      "actions": "操作",
+      "details": "详情"
+    },
+    "certifications": "认证",
+    "certificationsTitle": "INPI注册商标",
+    "certificationsSubtitle": "知识产权在巴西6个不同类别中受到保护",
+    "class": "类别",
+    "viewAllCertificates": "查看所有证书",
+    "esgTitle": "真正的ESG承诺",
+    "esgDescription": "我们的项目遵循最严格的环境、社会和治理标准，通过四大会计师事务所审计并与联合国可持续发展目标保持一致。",
+    "netZero2040": "2040年实现净零排放",
+    "zeroWaste": "零填埋废物",
+    "bCorpAligned": "符合B-Corp标准",
+    "euTaxonomy": "欧盟分类标准",
+    "impactTitle": "积极影响",
+    "co2Reduction": "CO₂减排",
+    "renewableEnergy": "可再生能源",
+    "sdgsAligned": "符合SDGs",
+    "accidents": "事故",
+    "aboutCompany": "关于公司",
+    "aboutTitle": "循环经济全球领导者",
+    "aboutDescription": "ELP绿色科技通过在欧洲、亚洲和拉丁美洲的国际办事处网络，将绿色技术与可持续资本相连接。",
+    "aboutDescription2": "自2023年与TOPS Recycling建立战略合作以来，我们提供完整的工业回收解决方案、先进热解和城市固体废物处理。",
+    "continents": "大洲",
+    "offices": "办事处",
+    "countries": "合作国家",
+    "trademarks": "INPI商标",
+    "knowUs": "了解ELP",
+    "investmentBadge": "可持续投资"
+  },
+  "machines": {
+    "tireShredder": "轮胎破碎机",
+    "tireShredderDesc": "产能高达10吨/小时",
+    "debeader": "钢丝圈去除机",
+    "debeaderDesc": "钢珠去除",
+    "otrCutter": "OTR切割机",
+    "otrCutterDesc": "用于巨型矿山轮胎",
+    "granulator": "造粒机",
+    "granulatorDesc": "0.5-4mm颗粒生产",
+    "crackerMill": "裂解磨",
+    "crackerMillDesc": "超细粉末生产",
+    "powderLine": "粉末生产线",
+    "powderLineDesc": "完整粉碎系统",
+    "reclaimedLine": "再生生产线",
+    "reclaimedLineDesc": "脱硫橡胶",
+    "pyrolysisPlant": "热解工厂",
+    "pyrolysisPlantDesc": "连续和批次系统"
+  },
+  "process": {
+    "step1": "收集和分类",
+    "step1Desc": "废物被收集并分类以进行处理。",
+    "step2": "准备",
+    "step2Desc": "材料被准备和破碎以输入反应器。",
+    "step3": "热解",
+    "step3Desc": "在无氧受控环境中进行热分解。",
+    "step4": "分离",
+    "step4Desc": "产品被分离：油、气、炭黑和金属。",
+    "step5": "精炼",
+    "step5Desc": "每种产品都经过精炼以满足市场规格。",
+    "step6": "商业化",
+    "step6Desc": "认证商品在全球市场上销售。"
+  },
+  "products": {
+    "rcb": "rCB（回收炭黑）",
+    "rcbDesc": "橡胶和塑料工业原生炭黑的可持续替代品。",
+    "pyrolyticOil": "热解油",
+    "pyrolyticOilDesc": "炼油厂和化工行业的替代燃料或原料。",
+    "greenSteel": "绿色钢材",
+    "greenSteelDesc": "从轮胎回收过程中回收的钢材，可供工业再利用。",
+    "syngas": "合成气",
+    "syngasDesc": "为工艺本身提供能源，使运营自给自足。"
+  },
+  "gallery": {
+    "topsTeam": "TOPS回收团队",
+    "topsTeamDesc": "与张家港TOPS回收团队的战略合作",
+    "partnershipAgreement": "合作协议",
+    "partnershipAgreementDesc": "Ericson Piccoli和合作伙伴在生产线上",
+    "technicalVisit": "技术考察",
+    "technicalVisitDesc": "在工业设施的商务会议",
+    "pyrolysisEquipment": "热解设备",
+    "pyrolysisEquipmentDesc": "管道和反应器组装过程中",
+    "productionLine": "生产线",
+    "productionLineDesc": "带自动传送带的工业加工区",
+    "qualityInspection": "质量检查",
+    "qualityInspectionDesc": "加工设备监督",
+    "rubberPowder": "橡胶粉",
+    "rubberPowderDesc": "最终产品：可商业化的再生橡胶粉",
+    "storageArea": "存储区",
+    "storageAreaDesc": "等待发货的加工材料",
+    "reactorFactory": "反应器工厂",
+    "reactorFactoryDesc": "热解反应器组装线",
+    "facilityVisit": "设施参观",
+    "facilityVisitDesc": "生产设施技术参观",
+    "chinaBrazil": "中巴合作",
+    "chinaBrazilDesc": "加强国际贸易关系"
+  },
+  "saasModules": {
+    "traceability": "区块链溯源",
+    "traceabilityDesc": "数字废物护照，在整个价值链中具有不可篡改的可追溯性。",
+    "autoCertification": "自动认证",
+    "realTimeAudit": "实时审计",
+    "immutability": "保证不可篡改性",
+    "fullHistory": "完整历史记录",
+    "analytics": "ESG分析仪表板",
+    "analyticsDesc": "用于合规和决策的可持续性指标和报告。",
+    "sustainabilityKpis": "可持续性KPI",
+    "autoReports": "自动报告",
+    "benchmarking": "行业基准",
+    "smartAlerts": "智能警报",
+    "marketplaceModule": "B2B市场",
+    "marketplaceModuleDesc": "连接废物产生者和工业加工者的平台。",
+    "supplyDemand": "供需对接",
+    "dynamicPricing": "动态定价",
+    "smartContracts": "智能合约",
+    "integratedLogistics": "集成物流"
+  },
+  "valueFlow": {
+    "collection": "收集",
+    "collectionDesc": "轮胎和废物收集",
+    "registration": "登记",
+    "registrationDesc": "区块链录入",
+    "processing": "加工",
+    "processingDesc": "工业转化",
+    "certification": "认证",
+    "certificationDesc": "ESG证书签发",
+    "commercialization": "商业化",
+    "commercializationDesc": "市场销售",
+    "impact": "影响",
+    "impactDesc": "碳信用"
+  },
+  "techArch": {
+    "dataCollection": "数据收集",
+    "iotSensors": "物联网传感器",
+    "monitoring247": "24/7监控",
+    "externalApis": "外部API",
+    "erpIntegrations": "ERP集成",
+    "mobileApps": "移动应用",
+    "manualInput": "手动输入",
+    "processing": "处理",
+    "aiMlEngine": "AI/ML引擎",
+    "predictionsOptimization": "预测和优化",
+    "blockchain": "区块链",
+    "validationRegistry": "验证和登记",
+    "realtimeAnalytics": "实时分析",
+    "streamProcessing": "流处理",
+    "applications": "应用",
+    "webDashboard": "Web仪表板",
+    "visualizationManagement": "可视化和管理",
+    "marketplace": "市场",
+    "b2bNegotiation": "B2B谈判",
+    "reportsApi": "报告API",
+    "dataExport": "数据导出"
+  },
+  "security": {
+    "encryption": "AES-256加密",
+    "encryptionDesc": "端到端数据保护",
+    "soc2": "SOC 2 Type II",
+    "soc2Desc": "安全合规",
+    "gdpr": "GDPR & LGPD",
+    "gdprDesc": "个人数据保护",
+    "sla": "99.9% SLA",
+    "slaDesc": "可用性保证"
+  },
+  "esgImpact": {
+    "co2Avoided": "年度避免CO₂排放",
+    "wasteProcessed": "处理废物",
+    "jobsGenerated": "创造就业",
+    "cleanEnergy": "运营使用清洁能源"
+  },
+  "sdgs": {
+    "sdg7": "经济适用的清洁能源",
+    "sdg7Desc": "确保人人获得负担得起、可靠和可持续的现代能源",
+    "sdg9": "产业、创新和基础设施",
+    "sdg9Desc": "建设有抵御灾害能力的基础设施，促进具有包容性的可持续工业化",
+    "sdg11": "可持续城市和社区",
+    "sdg11Desc": "建设包容、安全、有抵御灾害能力和可持续的城市和人类住区",
+    "sdg12": "负责任消费和生产",
+    "sdg12Desc": "确保采用可持续的消费和生产模式",
+    "sdg13": "气候行动",
+    "sdg13Desc": "采取紧急行动应对气候变化及其影响"
+  },
+  "esgCerts": {
+    "bcorp": "正面影响企业认证",
+    "euTaxonomy": "欧盟分类法",
+    "euTaxonomyDesc": "符合欧洲可持续发展法规",
+    "iso14001": "环境管理体系",
+    "iso45001": "职业健康安全"
+  },
+  "esgSocial": {
+    "directJobs": "直接就业",
+    "indirectJobs": "间接就业",
+    "trainings": "年度培训",
+    "communities": "影响社区"
+  },
+  "plants": {
+    "processVideo": "工艺视频",
+    "backToSolutions": "返回解决方案",
+    "requestQuote": "请求报价",
+    "talkEngineer": "咨询工程师",
+    "talkSpecialist": "咨询专家",
+    "systemEquipment": "系统设备",
+    "commercializableProducts": "可销售产品",
+    "generatedCommodities": "生成的商品",
+    "technicalData": "技术数据",
+    "plantSpecs": "工厂规格",
+    "equipmentList": "设备清单",
+    "requestYourQuote": "请求报价",
+    "quoteFormDesc": "填写表格，我们的工程团队将与您联系并提供定制方案",
+    "tireRecycling": {
+      "badge": "完整加工系统",
+      "title": "轮胎回收工厂",
+      "description": "全自动废旧轮胎回收系统，生产高品质橡胶颗粒和粉末、回收钢材和纺织纤维。",
+      "capacity": "产能",
+      "payback": "回报期",
+      "investment": "投资",
+      "profitability": "盈利能力",
+      "equipmentDesc": "汽车、卡车和OTR（越野）轮胎加工的完整生产线",
+      "productsDesc": "三种高价值商业产品，在全球市场需求不断增长"
+    },
+    "pyrolysis": {
+      "badge": "先进热化学转化",
+      "title": "连续热解工厂",
+      "description": "闭环热解技术，将轮胎和塑料转化为燃料油、回收炭黑(rCB)和自给自足的合成气。",
+      "perLine": "每条线",
+      "lines7": "7条线",
+      "recovery": "回收率",
+      "videoTitle": "热解工艺运行中",
+      "videoDesc": "观看我们的连续热解工厂运行，将废物转化为高价值商品",
+      "advantages": {
+        "zeroEmissions": "零排放",
+        "zeroEmissionsDesc": "配备脱硫的闭环系统",
+        "selfSufficient": "自给自足",
+        "selfSufficientDesc": "合成气为工艺提供动力",
+        "operation247": "全天候运行",
+        "operation247Desc": "连续系统无停机",
+        "plcControl": "PLC控制",
+        "plcControlDesc": "可选智能自动化"
+      },
+      "productsTitle": "热解产品",
+      "productsDesc": "将废物完全转化为高价值商品",
+      "techSpecs": "技术规格",
+      "systemComponents": "系统组件",
+      "investment7Lines": "投资 - 7条线项目",
+      "equipmentCost": "设备成本",
+      "revenueProjection": "收入预测",
+      "dailyCapacity": "总日产能",
+      "monthlyRevenue": "预计月收入",
+      "yearlyRevenue": "年收入"
+    },
+    "msw": {
+      "badge": "城市固体废物",
+      "title": "MSW处理工厂",
+      "description": "市政废物分离和增值的综合系统，生产RDF、可回收材料、沼气和有机堆肥。为市政当局提供完整解决方案。",
+      "tonDay": "吨/天",
+      "landfillReduction": "减少填埋",
+      "profitability": "盈利能力",
+      "benefits": {
+        "reducesLandfills": "减少填埋场",
+        "reducesLandfillsDesc": "减少80%+送往填埋场的体积",
+        "circularEconomy": "循环经济",
+        "circularEconomyDesc": "将废物转化为资源",
+        "envImpact": "环境影响",
+        "envImpactDesc": "符合可持续发展目标和环境政策",
+        "municipalRevenue": "市政收入",
+        "municipalRevenueDesc": "通过商品销售创造收入"
+      },
+      "recoveredProducts": "回收产品",
+      "recoveredProductsDesc": "将城市废物完全增值为多个可销售流",
+      "implementationPhases": "实施阶段",
+      "implementationPhasesDesc": "安全可扩展实施的结构化方法",
+      "phases": {
+        "research": "研发阶段",
+        "researchDesc": "废物管理绿色技术的研究和测试",
+        "pilot": "试点实施",
+        "pilotDesc": "在选定市政部署以验证解决方案",
+        "expansion": "区域扩展",
+        "expansionDesc": "向其他市政和地区复制",
+        "monitoring": "持续监控",
+        "monitoringDesc": "性能评估和持续优化"
+      },
+      "techSpecs": "技术规格"
+    },
+    "otr": {
+      "badge": "巨型轮胎解决方案",
+      "title": "OTR轮胎回收",
+      "description": "专门用于回收采矿、港口、农业和建筑业巨型轮胎的系统。可处理重达4.5吨、直径达4500毫米的轮胎。",
+      "maxSize": "最大尺寸",
+      "applicationsTitle": "应用领域",
+      "applicationsDesc": "我们的OTR生产线处理来自各行业的巨型轮胎",
+      "galleryTitle": "OTR设备展示",
+      "galleryDesc": "了解巨型轮胎回收的专业设备",
+      "equipmentTitle": "技术规格",
+      "equipmentDesc": "OTR生产线每台设备的技术细节",
+      "specsTitle": "一般规格",
+      "productsTitle": "回收产品",
+      "productsDesc": "从OTR轮胎中提取的高价值材料",
+      "partnerTitle": "战略合作伙伴",
+      "partnerDesc": "由我们在中国的独家合作伙伴提供的设备",
+      "partnerAbout": "全球领先的OTR轮胎回收设备制造商。凭借15年以上的经验，TOPS Recycling为采矿、港口和建筑业的巨型轮胎加工提供完整解决方案。",
+      "partnerVisit": "TOPS Recycling工厂技术考察",
+      "partnerYears": "年经验",
+      "partnerCountries": "服务国家",
+      "partnerCert": "ISO认证",
+      "partnerSupport": "技术支持",
+      "visitSite": "访问官方网站",
+      "viewOnTops": "在TOPS Recycling网站查看",
+      "applications": {
+        "mining": "采矿业",
+        "miningDesc": "越野卡车和装载机轮胎",
+        "ports": "港口",
+        "portsDesc": "叉车和正面吊轮胎",
+        "agriculture": "农业",
+        "agricultureDesc": "巨型拖拉机和收割机轮胎",
+        "construction": "建筑业",
+        "constructionDesc": "平地机和铲运机轮胎"
+      },
+      "specs": {
+        "power": "功率",
+        "capacity": "产能",
+        "dimensions": "尺寸",
+        "maxDiameter": "最大直径",
+        "blade": "刀片",
+        "bladeLife": "刀片寿命",
+        "process": "工艺",
+        "features": "特点",
+        "lineCapacity": "生产线产能",
+        "maxTireWeight": "最大轮胎重量",
+        "cutTime": "切割时间",
+        "totalPower": "总功率",
+        "operators": "操作员",
+        "certifications": "认证"
+      },
+      "machines": {
+        "sidewallCutter": "OTR侧壁切割机",
+        "sidewallCutterDesc": "切割59/80R63规格轮胎侧壁 - 地坑式操作",
+        "stripCutter": "OTR冠带切割机",
+        "stripCutterDesc": "处理轮胎冠带（最厚部分>300mm）",
+        "blockCutter": "OTR块切割机",
+        "blockCutterDesc": "将条带和侧壁转化为可造粒的碎片",
+        "tireCutter": "OTR轮胎切割机运行中",
+        "tireCutterDesc": "液压系统切割采矿巨型轮胎",
+        "completeLine": "完整OTR生产线",
+        "completeLineDesc": "集成式OTR轮胎加工系统",
+        "partnership": "战略合作",
+        "partnershipDesc": "中国TOPS Recycling工厂技术考察",
+        "shredder": "工业破碎机",
+        "shredderDesc": "OTR加工用高产能破碎机",
+        "beadRings": "提取的胎圈环",
+        "beadRingsDesc": "回收的高品质钢材 - 可直接熔炼"
+      },
+      "equipmentSpecs": {
+        "sidewallCutter": {
+          "capacity": "2-4个轮胎/小时",
+          "bladeLife": "15-20个轮胎",
+          "features": ["地坑式操作", "同时切割两侧", "起重机/叉车装载", "切割时间：3-5分钟"]
+        },
+        "stripCutter": {
+          "capacity": "2-3个冠带/小时",
+          "bladeLife": "500-800个轮胎",
+          "features": ["处理>300mm厚度冠带", "普通破碎机无法处理", "精准条带切割", "高强度耐久性"]
+        },
+        "blockCutter": {
+          "capacity": "8-10吨/小时",
+          "bladeLife": "1000-1500吨",
+          "features": ["处理条带和侧壁", "输出：用于精磨机的碎片", "刀片寿命：20-40个轮胎", "24/7连续运行"]
+        },
+        "completeLine": {
+          "capacity": "8-10吨/小时",
+          "process": "3个集成步骤",
+          "features": ["侧壁+冠带+块切割机", "包含监督安装", "操作员培训", "永久技术支持"]
+        }
+      },
+      "products": {
+        "rubberBlocks": "橡胶块",
+        "rubberBlocksApps": "TDF（燃料）、热解、造粒、协同处理",
+        "steel": "高品质钢材",
+        "steelApps": "钢铁厂、铸造厂、精炼、回收",
+        "textileFibers": "纺织纤维",
+        "textileFibersApps": "保温、吸附剂、土工布、复合材料",
+        "ofTire": "轮胎的",
+        "avgPrice": "平均价格",
+        "applicationsLabel": "应用"
+      }
+    },
+    "quoteForm": {
+      "title": "报价表",
+      "plantType": "工厂类型",
+      "name": "全名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "company": "公司",
+      "country": "国家",
+      "capacity": "期望产能",
+      "message": "附加信息",
+      "submit": "提交请求",
+      "sending": "发送中...",
+      "success": "请求提交成功！",
+      "successDesc": "我们的团队将尽快与您联系。",
+      "error": "发送错误，请重试。"
+    }
+  },
+  "certificates": {
+    "title": "证书和记录",
+    "subtitle": "INPI官方商标注册和认证，保证ELP绿色科技服务和产品的真实性和质量。",
+    "badge": "知识产权",
+    "registeredMarks": "商标注册",
+    "clickToView": "点击任何证书查看详情并访问官方文件",
+    "holder": "持有人",
+    "validity": "有效期",
+    "registrations": "注册",
+    "classes": "INPI类别",
+    "view": "查看证书",
+    "processNumber": "流程编号",
+    "pdfNotSupported": "您的浏览器不支持直接查看PDF。",
+    "openPdf": "在新标签页中打开PDF",
+    "inpiNote": "INPI官方文件 - 巴西国家工业产权研究所"
+  },
+  "common": {
+    "viewDetails": "查看详情"
+  },
+  "plants": {
+    "backToSolutions": "返回解决方案",
+    "roi": {
+      "title": "投资回报计算器",
+      "subtitle": "估算您的投资回报",
+      "dailyCapacity": "日处理能力",
+      "dailyCapacityTooltip": "每运营日处理吨数",
+      "tonsDay": "吨/天",
+      "operatingDays": "运营天数",
+      "operatingDaysTooltip": "每年运营天数（考虑维护和节假日）",
+      "daysYear": "天/年",
+      "utilizationRate": "利用率",
+      "utilizationRateTooltip": "有效利用的额定产能百分比",
+      "investment": "投资",
+      "annualRevenue": "年收入",
+      "annualProfit": "年利润",
+      "payback": "回本期",
+      "months": "个月",
+      "roiLabel": "年投资回报率",
+      "ebitdaMargin": "EBITDA利润率",
+      "summary": "摘要",
+      "summaryText": "年处理{{tonnage}}吨，预计收入{{revenue}}，净利润{{profit}}。",
+      "disclaimer": "* 基于当前市场条件的估计值。请联系我们的团队进行个性化分析。",
+      "getQuote": "申请定制报价"
+    },
+    "tireRecycling": {
+      "title": "轮胎回收工厂",
+      "subtitle": "完整加工系统",
+      "description": "全自动废旧轮胎回收系统，生产高品质橡胶颗粒和粉末、回收钢材和纺织纤维。",
+      "badge": "完整加工系统",
+      "requestQuote": "申请报价",
+      "talkEngineer": "联系工程师",
+      "capacity": "产能",
+      "payback": "回本期",
+      "investment": "投资",
+      "profitability": "盈利能力",
+      "equipmentTitle": "系统设备",
+      "equipmentDesc": "用于处理轿车、卡车和OTR（越野）轮胎的完整生产线",
+      "productsTitle": "生成商品",
+      "productsSubtitle": "三种高价值商业产品，全球市场需求不断增长",
+      "commercialProducts": "商业产品",
+      "applications": "应用",
+      "ofTire": "轮胎的",
+      "techSpecs": "技术数据",
+      "plantSpecs": "工厂规格",
+      "equipmentList": "设备清单",
+      "power": "功率",
+      "weight": "重量",
+      "quoteTitle": "申请报价",
+      "quoteDesc": "填写表格，我们的工程团队将与您联系并提供定制方案",
+      "specs": {
+        "capacity": "产能",
+        "dailyProduction": "日产量",
+        "operation": "运营",
+        "requiredArea": "所需面积",
+        "automation": "自动化",
+        "operators": "操作员",
+        "lifespan": "使用寿命",
+        "certifications": "认证"
+      },
+      "products": {
+        "rubberGranules": "橡胶颗粒",
+        "rubberGranulesApps": "环保沥青、人造草坪、工业地坪、游乐场",
+        "textileFibers": "纺织纤维（尼龙）",
+        "textileFibersApps": "保温隔热、头盔、复合材料、填充物",
+        "steelFragments": "钢铁碎片",
+        "steelFragmentsApps": "钢铁厂、铸造厂、钢铁制造、建筑"
+      },
+      "equipment": {
+        "tyreSlitting": "轮胎切割机",
+        "stripCutting": "条带切割机",
+        "blockCutting": "块切割机",
+        "beadRemoval": "胎圈拆除机",
+        "dualShredder": "双轴破碎机",
+        "crackerMill": "裂解磨"
+      },
+      "gallery": {
+        "industrialShredder": "工业破碎机",
+        "industrialShredderDesc": "高产能红色破碎机",
+        "shreddingLine": "破碎生产线",
+        "shreddingLineDesc": "加工系统内部视图",
+        "topsFactory": "TOPS Recycling工厂",
+        "topsFactoryDesc": "张家港工业设施",
+        "circularCutter": "圆周切割机",
+        "circularCutterDesc": "将轮胎切成两半",
+        "stripCutter": "条带切割机",
+        "stripCutterDesc": "将半边轮胎转化为橡胶条",
+        "blockCutter": "块切割机",
+        "blockCutterDesc": "生产75-150mm块状物",
+        "debeader": "胎圈拆除机",
+        "debeaderDesc": "胎圈钢丝提取"
+      }
+    },
+    "pyrolysis": {
+      "title": "连续热解工厂",
+      "subtitle": "先进热化学转化",
+      "description": "闭环热解技术，将轮胎和塑料转化为燃料油、回收炭黑（rCB）和自给自足的合成气。",
+      "badge": "先进热化学转化",
+      "requestQuote": "申请报价",
+      "talkEngineer": "联系工程师",
+      "perLine": "每条线",
+      "lines7": "7条线",
+      "recovery": "回收率",
+      "videoTitle": "热解工艺运行中",
+      "videoDesc": "观看我们的连续热解工厂运行，将废物转化为高价值商品",
+      "productsTitle": "热解产品",
+      "productsDesc": "将废物完全转化为高价值商品",
+      "techSpecs": "技术规格",
+      "systemComponents": "系统组件",
+      "investment7Lines": "投资 - 7条线项目",
+      "equipmentCost": "设备成本",
+      "revenueProjection": "收入预测",
+      "dailyCapacity": "总日产能",
+      "monthlyRevenue": "预计月收入",
+      "yearlyRevenue": "年收入",
+      "quoteTitle": "申请报价",
+      "quoteDesc": "填写表格，我们的工程团队将与您联系并提供定制方案",
+      "advantages": {
+        "zeroEmissions": "零排放",
+        "zeroEmissionsDesc": "配备脱硫的闭环系统",
+        "selfSufficient": "自给自足",
+        "selfSufficientDesc": "合成气为工艺提供动力",
+        "operation247": "全天候运行",
+        "operation247Desc": "连续系统无停机",
+        "plcControl": "PLC控制",
+        "plcControlDesc": "可选智能自动化"
+      },
+      "specs": {
+        "model": "型号",
+        "capacityPerLine": "产能/线",
+        "feedstock": "原料",
+        "processing": "处理",
+        "reactorSize": "反应器尺寸",
+        "heatingMethod": "加热方式",
+        "powerConsumption": "电力消耗",
+        "areaPerLine": "每线面积",
+        "operators": "操作员",
+        "lifespan": "使用寿命",
+        "sealing": "密封",
+        "certifications": "认证"
+      },
+      "products": {
+        "pyrolysisOil": "热解油",
+        "pyrolysisOilApps": "工业燃料、炼油厂、船舶、发电机",
+        "carbonBlack": "炭黑（rCB）",
+        "carbonBlackApps": "橡胶工业、油漆和颜料、塑料、沥青",
+        "syngas": "合成气",
+        "syngasApps": "反应器供料、加热、发电、自给自足",
+        "synGas": "合成气",
+        "synGasApps": "反应器供料、加热、发电、自给自足",
+        "steel": "回收钢材",
+        "steelApps": "钢铁厂、铸造厂、建筑、回收",
+        "recoveredSteel": "回收钢材",
+        "recoveredSteelApps": "钢铁厂、铸造厂、建筑、回收",
+        "selfConsumption": "自用"
+      },
+      "components": {
+        "pyrolysisReactor": "热解反应器",
+        "condensationTank": "冷凝罐",
+        "verticalCondenser": "立式冷凝器",
+        "screwFeeder": "螺旋进料器",
+        "desulfurizationTower": "脱硫塔",
+        "odorRemoval": "除臭系统"
+      },
+      "investmentItems": {
+        "plants7": "7x DY-50工厂",
+        "odorRemoval": "除臭系统",
+        "smokeDesulfurization": "烟气脱硫",
+        "totalFob": "FOB总价"
+      },
+      "gallery": {
+        "reactorDy50": "DY-50热解反应器",
+        "reactorDy50Desc": "带耐火砖的加热室",
+        "completeLine": "完整热解生产线",
+        "completeLineDesc": "连续热化学转化系统",
+        "motorTransmission": "电机和传动装置",
+        "motorTransmissionDesc": "旋转反应器驱动系统",
+        "condensationSystem": "冷凝系统",
+        "condensationSystemDesc": "油气回收"
+      }
+    },
+    "msw": {
+      "title": "城市固废处理厂",
+      "subtitle": "城市固体废物",
+      "description": "市政废物分离和增值的综合系统，生产RDF、可回收材料、沼气和有机堆肥。为市政当局提供完整解决方案。",
+      "badge": "城市固体废物",
+      "requestQuote": "申请方案",
+      "talkSpecialist": "咨询专家",
+      "capacity": "产能",
+      "payback": "回本期",
+      "tonDay": "吨/天",
+      "landfillReduction": "减少填埋",
+      "profitability": "盈利能力",
+      "productsTitle": "回收产品",
+      "productsDesc": "将城市废物完全增值为多个可销售流",
+      "phasesTitle": "实施阶段",
+      "phasesDesc": "安全可扩展实施的结构化方法",
+      "techSpecs": "技术规格",
+      "quoteTitle": "申请报价",
+      "quoteDesc": "填写表格，我们的工程团队将与您联系并提供定制方案",
+      "benefits": {
+        "reducesLandfills": "减少填埋场",
+        "reducesLandfillsDesc": "减少80%+送往填埋场的体积",
+        "circularEconomy": "循环经济",
+        "circularEconomyDesc": "将废物转化为资源",
+        "envImpact": "环境影响",
+        "envImpactDesc": "符合可持续发展目标和环境政策",
+        "municipalRevenue": "市政收入",
+        "municipalRevenueDesc": "通过商品销售创造收入"
+      },
+      "specs": {
+        "capacity": "产能",
+        "landfillReduction": "减少填埋",
+        "process": "工艺",
+        "metalSeparation": "金属分离",
+        "technology": "技术",
+        "organicTreatment": "有机处理",
+        "requiredArea": "所需面积",
+        "lifespan": "使用寿命"
+      },
+      "products": {
+        "rdf": "RDF（燃料）",
+        "rdfApps": "水泥厂、发电厂、工业锅炉、协同处理",
+        "ferrousMetals": "黑色金属",
+        "ferrousMetalsApps": "钢铁厂、铸造厂、回收、出口",
+        "plastics": "可回收塑料",
+        "plasticsApps": "回收行业、颗粒、新产品、出口",
+        "recyclablePlastics": "可回收塑料",
+        "recyclablePlasticsApps": "回收行业、颗粒、新产品、出口",
+        "biogas": "沼气",
+        "biogasApps": "发电、供暖、车辆、燃气管网",
+        "compost": "有机堆肥",
+        "compostApps": "农业、园艺、土壤修复、肥料",
+        "organicCompost": "有机堆肥",
+        "organicCompostApps": "农业、园艺、土壤修复、肥料"
+      },
+      "phases": {
+        "research": "研发阶段",
+        "researchDesc": "废物管理绿色技术的研究和测试",
+        "researchDuration": "6-12个月",
+        "pilot": "试点实施",
+        "pilotDesc": "在选定市政部署以验证解决方案",
+        "pilotDuration": "12-18个月",
+        "expansion": "区域扩展",
+        "expansionDesc": "向其他市政和地区复制",
+        "expansionDuration": "24-36个月",
+        "monitoring": "持续监控",
+        "monitoringDesc": "性能评估和持续优化",
+        "monitoringDuration": "持续"
+      },
+      "gallery": {
+        "autoSorting": "自动分拣线",
+        "autoSortingDesc": "高产能机械分离",
+        "treatmentStation": "城市固废处理站",
+        "treatmentStationDesc": "自动化机械分离",
+        "recyclingLine": "回收生产线",
+        "recyclingLineDesc": "可回收材料回收",
+        "projectPhases": "项目阶段",
+        "projectPhasesDesc": "分阶段实施"
+      }
+    }
+  },
+  "otrBanner": {
+    "title": "了解OTR轮胎来源？",
+    "subtitle": "矿业公司、经销商、港口？立即提交！",
+    "cta": "提交来源",
+    "note": "我们在任何联系之前内部审核"
+  },
+  "whatsapp": {
+    "banner": "巴西或欧洲的OTR来源？",
+    "bannerCta": "通过WhatsApp直接联系我们！",
+    "title": "WhatsApp直接联系",
+    "subtitle": "选择最近的联系人",
+    "defaultMessage": "您好！我对OTR合作感兴趣。",
+    "otrNote": "OTR合作：欧洲和巴西"
+  },
+"otrPartnership": {
+    "badge": "全球OTR合作",
+    "title": "智能OTR轮胎回收",
+    "subtitle": "我们正在寻找可靠的二手OTR轮胎来源（矿业、经销商、港口）。智能机器人生产线：自动机器人定位和切割。",
+    "smartLine": "机器人智能生产线",
+    "goal": "目标：100万吨/年",
+    "cta": "您提供来源 – 我们一起谈判！",
+    "ctaButton": "立即提交OTR来源",
+    "learnMore": "了解智能生产线",
+    "contactTitle": "直接联系",
+    "priorityNote": "优先：巴西（SP/MG/PA）和意大利",
+    "hero": {
+      "badge": "全球合作机会",
+      "title": "智能OTR生产线",
+      "subtitle": "先进机器人回收",
+      "description": "升级生产线配备自动机器人：将轮胎放在平台上 → 机器人自动定位和切割。",
+      "firstDemo": "First demonstration: Australia (April/May 2025)",
+      "noSellWarning": "我们不销售智能生产线",
+      "noSellDesc": "我们正在寻找OTR来源和联合运营的合作伙伴。",
+      "indicateNow": "立即提交OTR来源",
+      "viewExpansion": "查看扩展计划"
+    },
+    "technology": {
+      "badge": "创新技术",
+      "title": "智能生产线 – OTR轮胎自动化回收",
+      "description": "我们的工厂已显著扩展，提高了生产能力和创新能力。升级到智能生产线包括用于自动定位和切割OTR轮胎的机器人。",
+      "simpleProcess": "简单自动化流程",
+      "simpleProcessDesc": "只需将轮胎放在平台上 → 机器人自动定位和切割",
+      "firstInstall": "First Installation: Australia",
+      "firstInstallDesc": "Demonstration line being installed in April/May 2025",
+      "futureExpansion": "全球未来扩展",
+      "futureExpansionDesc": "未来几年将在全球安装更多生产线",
+      "important": "重要：",
+      "importantDesc": "我们不销售智能生产线 – 我们正在寻找合作伙伴共同运营OTR轮胎回收。",
+      "howItWorks": "智能生产线如何工作",
+      "step1": "轮胎装载",
+      "step1Desc": "OTR轮胎放置在入口平台",
+      "step2": "机器人定位",
+      "step2Desc": "工业机器人自动定位轮胎",
+      "step3": "精确切割",
+      "step3Desc": "系统切割侧壁、胎冠并分离组件",
+      "step4": "回收材料",
+      "step4Desc": "橡胶、钢铁和纤维准备销售"
+    },
+    "expansion": {
+      "badge": "Global Expansion Plan 2025-2030",
+      "title": "目标：每年100万吨",
+      "description": "我们雄心勃勃的计划预计在未来5年在海外安装17-18家工厂，总产能约175吨/小时（每家工厂约10吨/小时）。",
+      "factories": "工厂",
+      "capacity": "产能",
+      "focusOverseas": "专注海外安装",
+      "focusOverseasDesc": "所有新工厂将安装在中国以外，优先考虑采矿和重工业集中的地区。"
+    },
+    "benefits": {
+      "title": "为什么成为我们的合作伙伴？",
+      "description": "我们提供独特机会，以尖端技术和全面支持进入OTR轮胎回收市场。",
+      "smartLine": "智能生产线技术",
+      "smartLineDesc": "访问智能回收生产线，配备自动机器人进行OTR轮胎定位和切割。",
+      "smartLineHighlight": "First installation: Australia (April/May 2025)",
+      "profitModel": "盈利商业模式",
+      "profitModelDesc": "我们不销售设备 – 我们正在寻找合作伙伴共同运营。您找到OTR轮胎来源，我们提供技术。",
+      "profitModelHighlight": "我们直接与资源所有者谈判",
+      "globalExpansion": "全球扩展",
+      "globalExpansionDesc": "雄心计划：未来5年在海外建立17-18家工厂，目标每年回收100万吨。",
+      "globalExpansionHighlight": "~175吨/小时全球产能",
+      "partnership": "战略合作",
+      "partnershipDesc": "我们前往您那里了解您的OTR轮胎来源，并与矿业公司、制造商和经销商共同谈判。",
+      "partnershipHighlight": "共同建设业务"
+    },
+    "sources": {
+      "title": "在哪里找到OTR轮胎？",
+      "description": "如果您能接触到任何这些OTR轮胎来源，您就可以成为我们的合作伙伴！",
+      "mining": "矿业公司",
+      "miningDesc": "越野卡车、巨型装载机",
+      "manufacturer": "轮胎制造商",
+      "manufacturerDesc": "缺陷轮胎、停产、召回",
+      "dealer": "轮胎经销商",
+      "dealerDesc": "二手轮胎、车队更换",
+      "port": "港口和码头",
+      "portDesc": "正面吊、港口叉车"
+    },
+    "form": {
+      "title": "提交您的潜在来源",
+      "description": "填写下面的表格，提供您潜在OTR轮胎来源的信息。我们将与您联系讨论合作！",
+      "fullName": "全名",
+      "email": "电子邮件",
+      "company": "公司",
+      "countryRegion": "国家/地区",
+      "countryPlaceholder": "例如：澳大利亚、智利、巴西...",
+      "otrSources": "OTR轮胎来源",
+      "otrSourcesPlaceholder": "描述您潜在的OTR轮胎来源（例如：与矿业公司X联系、轮胎经销商Y等）",
+      "estimatedVolume": "预计数量",
+      "volumePlaceholder": "例如：100个轮胎/月、500吨/年等",
+      "additionalMessage": "附加信息",
+      "messagePlaceholder": "关于您合作提案的附加信息...",
+      "sending": "发送中...",
+      "submit": "提交合作提案",
+      "awaitingNews": "期待您的好消息！"
+    },
+    "toast": {
+      "successTitle": "消息发送成功！",
+      "successDesc": "我们将尽快与您联系讨论合作。",
+      "errorTitle": "发送错误",
+      "errorDesc": "请重试。"
+    }
+  },
+  "otrSources": {
+    "badge": "优先：巴西和欧洲",
+    "title": "提交二手OTR轮胎来源",
+    "subtitle": "寻找OTR轮胎来源（巴西淡水河谷/CSN矿业、意大利倍耐力/Prometeon、港口、经销商）。发送详情 – 萨穆埃尔将亲自前往与您谈判！",
+    "formTitle": "提交表格",
+    "yourInfo": "您的信息",
+    "name": "您的姓名",
+    "company": "您的公司",
+    "email": "电子邮件",
+    "phone": "电话",
+    "whatsapp": "WhatsApp（快速联系）",
+    "sourceInfo": "OTR来源信息",
+    "sourceName": "来源联系人姓名",
+    "sourceCompany": "产生公司",
+    "sourceType": "来源类型",
+    "location": "位置",
+    "volumeAnnual": "预计年产量",
+    "tireSizes": "OTR轮胎尺寸",
+    "details": "其他详情",
+    "consent": "我授权联系并与ELP Green Technology商业团队分享所提供的信息，用于合作谈判目的。",
+    "submit": "提交来源 – 期待好消息！",
+    "directContact": "直接联系",
+    "whatWeLookFor": "我们寻找什么",
+    "priorityRegions": "优先地区",
+    "learnMore": "了解更多智能OTR生产线",
+    "hero": {
+      "badge": "OTR合作计划",
+      "title": "提交OTR轮胎来源",
+      "subtitle": "加入我们的全球OTR轮胎回收合作伙伴网络。",
+      "description": "提交来自矿业公司、港口或经销商的OTR轮胎来源。我们的团队将评估每个提交并联系进行直接谈判。",
+      "longTermPartnership": "长期合作",
+      "directNegotiation": "直接谈判",
+      "sharedBenefits": "共享利益",
+      "regions": {
+        "brazil": "巴西 (SP/MG/PA)",
+        "europe": "欧洲 (意大利/德国)",
+        "partners": "+60 合作国家"
+      }
+    },
+    "pdfWelcome": {
+      "title": "欢迎！您来自可行性研究",
+      "description": "填写下面的表格，我们的团队将在24小时内与您联系。",
+      "priority": "优先"
+    },
+    "process": {
+      "title": "如何运作",
+      "subtitle": "简单透明的流程",
+      "step1": "步骤 1",
+      "step1Title": "您提交",
+      "step1Desc": "填写表格，提供OTR轮胎来源信息",
+      "step2": "步骤 2",
+      "step2Title": "内部评估",
+      "step2Desc": "我们的团队在继续之前分析和验证提交",
+      "step3": "步骤 3",
+      "step3Title": "联合谈判",
+      "step3Desc": "我们前往您那里直接与来源谈判"
+    },
+    "form": {
+      "title": "提交表格",
+      "subtitle": "填写以下详情以注册您的提交",
+      "yourInfo": "您的信息",
+      "yourName": "您的姓名",
+      "yourCompany": "您的公司",
+      "email": "电子邮件",
+      "phone": "电话",
+      "whatsappOptional": "WhatsApp（可选）",
+      "sourceInfo": "OTR来源信息",
+      "sourceContactName": "来源联系人姓名",
+      "generatingCompany": "产生公司",
+      "companyPlaceholder": "例如：淡水河谷、CSN、Prometeon...",
+      "sourceType": "来源类型",
+      "selectType": "选择类型",
+      "location": "位置",
+      "selectRegion": "选择地区",
+      "latinAmerica": "拉丁美洲",
+      "europe": "欧洲",
+      "other": "其他",
+      "annualVolume": "预计年产量",
+      "volumePlaceholder": "例如：500个轮胎/年、1000吨...",
+      "tireSizes": "OTR轮胎尺寸",
+      "selectSize": "选择尺寸",
+      "additionalDetails": "其他详情",
+      "detailsPlaceholder": "描述来源情况、您与他们的关系、处置频率等...",
+      "consentText": "我授权联系并与ELP Green Technology商业团队分享所提供的信息，用于合作谈判目的。数据按照LGPD/GDPR处理。",
+      "sending": "发送中...",
+      "submitButton": "提交来源",
+      "responseTime": "您的提交将被审核，我们将在48个工作小时内回复。"
+    },
+    "sidebar": {
+      "approvalProcess": "审批流程",
+      "receipt": "接收",
+      "receiptDesc": "您的提交已在我们系统中注册",
+      "internalAnalysis": "内部分析",
+      "internalAnalysisDesc": "团队评估可行性和潜力",
+      "contact": "联系",
+      "contactDesc": "我们联系进行下一步",
+      "whatWeLookFor": "我们寻找什么",
+      "lookingFor1": "定期处置OTR轮胎的矿业公司",
+      "lookingFor2": "有二手轮胎库存的经销商",
+      "lookingFor3": "有叉车和正面吊的港口",
+      "lookingFor4": "采石场和重型建筑",
+      "lookingFor5": "有缺陷轮胎的制造商",
+      "priorityRegions": "优先地区",
+      "brazil": "巴西",
+      "brazilRegions": "圣保罗、米纳斯吉拉斯、帕拉",
+      "italy": "意大利",
+      "italyRegions": "伦巴第、托斯卡纳、米兰",
+      "australia": "澳大利亚",
+      "australiaRegions": "采矿地区",
+      "commercialContact": "商业联系",
+      "allSubmissionsNote": "所有提交在商业联系前都需经过内部审批。",
+      "learnMoreSmartLine": "了解更多智能OTR生产线"
+    },
+    "sourceTypes": {
+      "mining": "矿业",
+      "dealer": "轮胎经销商",
+      "port": "港口/码头",
+      "quarry": "采石场",
+      "construction": "建筑",
+      "manufacturer": "轮胎制造商",
+      "other": "其他"
+    },
+    "locations": {
+      "italy-lombardia": "意大利 - 伦巴第/米兰",
+      "italy-tuscany": "意大利 - 托斯卡纳",
+      "italy-other": "意大利 - 其他地区",
+      "germany": "德国",
+      "spain": "西班牙",
+      "france": "法国",
+      "europe-other": "其他欧洲",
+      "brazil-sp": "巴西 - 圣保罗",
+      "brazil-mg": "巴西 - 米纳斯吉拉斯",
+      "brazil-pa": "巴西 - 帕拉",
+      "brazil-mt": "巴西 - 马托格罗索",
+      "brazil-other": "巴西 - 其他地区",
+      "chile": "智利",
+      "peru": "秘鲁",
+      "colombia": "哥伦比亚",
+      "latam-other": "其他拉丁美洲",
+      "australia": "澳大利亚",
+      "africa": "非洲",
+      "asia": "亚洲",
+      "other": "其他"
+    },
+    "toast": {
+      "successTitle": "提交成功",
+      "successDesc": "我们的团队将审核您的提交并尽快联系。",
+      "errorTitle": "发送错误",
+      "errorDesc": "请重试。",
+      "consentRequired": "需要同意",
+      "consentRequiredDesc": "请接受条款以提交。"
+    }
+  },
+  "globalExpansion": {
+    "badge": "2026-2031计划",
+    "title": "全球扩张",
+    "subtitle": "每年100万吨",
+    "heroDescription": "我们的宏伟计划：5年内建设17-18家工厂，重点布局欧洲、拉丁美洲和澳大利亚。",
+    "noSellEquipment": "我们不销售设备——我们直接投资运营。",
+    "indicateSource": "提交OTR来源",
+    "knowSmartLine": "了解Smart Line",
+    "keyMetrics": {
+      "annualGoal": "年度目标",
+      "globalCapacity": "全球产能",
+      "plannedFactories": "计划工厂",
+      "targetMarkets": "目标市场",
+      "tonYear": "吨/年",
+      "tonHour": "吨/小时",
+      "units": "座",
+      "markets": "个市场"
+    },
+    "roadmap": {
+      "badge": "路线图",
+      "title": "扩张时间表",
+      "subtitle": "结构化增长计划，目标明确，选址战略",
+      "factories": "工厂",
+      "inProgress": "进行中"
+    },
+    "milestones": {
+      "2026": {
+        "title": "澳大利亚首条Smart Line",
+        "description": "智能机器人生产线完整安装演示"
+      },
+      "2027": {
+        "title": "南美和欧洲扩张",
+        "description": "巴西（圣保罗/米纳斯吉拉斯）和意大利（米兰/伦巴第）"
+      },
+      "2028": {
+        "title": "非洲和中东",
+        "description": "向新兴矿业市场扩张"
+      },
+      "2029-2031": {
+        "title": "完成全球目标",
+        "description": "100万吨/年回收能力"
+      }
+    },
+    "regions": {
+      "badge": "战略区域",
+      "title": "区域重点",
+      "subtitle": "OTR轮胎高度集中且采矿基础设施完善的优先市场",
+      "europe": {
+        "name": "欧洲",
+        "countries": "意大利（米兰）、德国、西班牙",
+        "advantages": ["严格的ESG法规", "与倍耐力/普利司通合作", "物流基础设施", "欧盟绿色协议融资"]
+      },
+      "latam": {
+        "name": "拉丁美洲",
+        "countries": "巴西（SP/MG/PA）、智利、秘鲁",
+        "advantages": ["最大矿业市场", "淡水河谷、CSN、英美资源", "INPI 6类专利", "现有业务"]
+      },
+      "oceania": {
+        "name": "大洋洲",
+        "countries": "澳大利亚、新西兰",
+        "advantages": ["2026首条Smart Line", "必和必拓、力拓、FMG", "环境法规", "高端市场"]
+      },
+      "asia": {
+        "name": "亚太地区",
+        "countries": "中国（总部）、印度尼西亚、印度",
+        "advantages": ["技术总部", "设备制造", "增长市场", "供应链"]
+      }
+    },
+    "partnership": {
+      "badge": "合作模式",
+      "title": "我们不销售设备",
+      "description": "我们的方案不同：我们与拥有OTR轮胎来源的合作伙伴直接投资建厂。您找到来源（矿业公司、经销商、港口），我们带来Smart Line技术并共同运营。",
+      "jointVentures": "直接投资的合资企业",
+      "smartLineTech": "自动化机器人Smart Line技术",
+      "jointOperation": "利润分成的联合运营",
+      "indicateOtr": "提交OTR来源"
+    },
+    "cta": {
+      "title": "参与全球扩张",
+      "description": "您知道您所在地区的OTR轮胎来源吗？矿业公司、经销商、港口？立即提交，参与我们的全球增长。",
+      "knowTech": "了解Smart OTR技术"
+    }
+  },
+  "brazilLatam": {
+    "title": "巴西与拉丁美洲",
+    "subtitle": "OTR轮胎回收机会",
+    "heroDescription": "重型采矿潜力最大的地区。我们寻求长期合作的二手OTR轮胎来源。Smart Line技术 + PNRS/Reciclanip合规。",
+    "indicateInBrazil": "在巴西提交来源",
+    "knowTech": "了解Smart OTR技术",
+    "miningRegions": {
+      "title": "优先采矿区域",
+      "subtitle": "重点关注采矿作业密集、OTR轮胎量大的地区",
+      "norte": {
+        "name": "北部",
+        "states": "帕拉、亚马逊、阿马帕",
+        "description": "巴西最大的铁矿和铝土矿集中地。OTR轮胎使用量大。",
+        "companies": "淡水河谷（卡拉加斯）、海德鲁、MRN矿业",
+        "volume": "高产量 - 数千条轮胎/年"
+      },
+      "sudeste": {
+        "name": "东南部",
+        "states": "米纳斯吉拉斯、圣保罗、里约热内卢",
+        "description": "采矿和重工业传统。物流基础设施发达。",
+        "companies": "淡水河谷、CSN、乌西米纳斯、盖尔道",
+        "volume": "极高产量 - 最大工业集中地"
+      },
+      "centroOeste": {
+        "name": "中西部",
+        "states": "戈亚斯、马托格罗索",
+        "description": "农业综合企业和采矿业扩张。回收需求增长。",
+        "companies": "英美资源、金罗斯、雅马纳黄金",
+        "volume": "中高产量"
+      }
+    },
+    "map": {
+      "title": "互动采矿地图",
+      "subtitle": "点击矿山查看OTR轮胎量、运营公司和使用规格的详情。数据基于ANM和矿业公司的公开报告。",
+      "dataSource": "数据来源：国家矿业局（ANM）、淡水河谷、CSN、英美资源、金罗斯等矿业公司年报。OTR轮胎估计量基于报告的设备车队。"
+    },
+    "legislation": {
+      "title": "符合巴西法规",
+      "subtitle": "我们的技术100%符合PNRS并与Reciclanip系统集成",
+      "pnrs": {
+        "title": "PNRS - 国家固体废物政策",
+        "description": "第12.305/2010号法律规定了产品生命周期的共同责任，包括轮胎。"
+      },
+      "reciclanip": {
+        "title": "Reciclanip",
+        "description": "ANIP收集和处置废旧轮胎的项目。我们的技术以最大化价值补充这一链条。"
+      },
+      "conama": {
+        "title": "CONAMA第416/2009号决议",
+        "description": "规范废旧轮胎的环境适当处置。我们的技术完全合规。"
+      },
+      "esg": {
+        "title": "ESG与循环经济",
+        "description": "符合全球投资者要求的企业ESG目标和循环经济原则。"
+      },
+      "destination": {
+        "title": "环境适当处置",
+        "description": "使用我们Smart Line技术处理的OTR轮胎保证完整可追溯性、处置证书和回收材料（钢铁、橡胶、炭黑）的最大化价值。适合需要证明环境合规的企业。"
+      }
+    },
+    "advantages": {
+      "title": "为什么在巴西与我们合作？",
+      "subtitle": "先进技术、本地存在和长期合作关系的独特组合",
+      "operations": {
+        "title": "圣保罗运营",
+        "description": "已建立的运营基地，拥有资产和INPI 6类注册。"
+      },
+      "technology": {
+        "title": "Smart Line技术",
+        "description": "用于OTR轮胎切割的自动化机器人 - 更高效率和安全性。"
+      },
+      "miningFocus": {
+        "title": "矿业专注",
+        "description": "专注于采矿作业中使用的巨型（OTR）轮胎。"
+      },
+      "logistics": {
+        "title": "综合物流",
+        "description": "高产量地区收集和处理的合作伙伴关系。"
+      }
+    },
+    "cta": {
+      "title": "在巴西有OTR轮胎来源吗？",
+      "description": "矿业公司、经销商、港口或采石场？立即联系我们。我们一起谈判，建立长期合作伙伴关系。",
+      "contactNote": "提交内部审核后通过WhatsApp联系"
+    },
+    "expansion": {
+      "title": "扩展至整个拉丁美洲",
+      "subtitle": "除巴西外，我们还在矿业活动强劲的国家寻求合作伙伴"
+    }
+  },
+  "aboutPage": {
+    "heroSubtitle": "OTR回收专家",
+    "heroTitle": "ELP绿色科技",
+    "heroDescription": "全球巨型OTR轮胎回收领导者。我们直接投资海外工厂，寻求与采矿和建筑轮胎来源的战略合作伙伴关系。",
+    "noSellEquipment": "我们不销售设备——我们建立合资企业。",
+    "otrFocus": {
+      "badge": "专注OTR",
+      "title": "巨型OTR轮胎回收",
+      "description": "专注于大型采矿、建筑和农业轮胎。我们的Smart机器人生产线技术以最高效率处理57\"至63\"轮胎。",
+      "sizes": "OTR尺寸",
+      "sizesValue": "57\" - 63\"",
+      "sizesDesc": "巨型轮胎",
+      "capacity": "产能",
+      "capacityValue": "5,000+",
+      "capacityDesc": "吨/年",
+      "recovery": "回收率",
+      "recoveryValue": "95%",
+      "recoveryDesc": "材料",
+      "model": "模式",
+      "modelValue": "合资企业",
+      "modelDesc": "不销售设备"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "成为OTR轮胎回收的全球标杆，通过战略合作伙伴关系和尖端技术将工业废物转化为有价值的资源。"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "description": "将OTR轮胎来源与可持续回收解决方案连接起来，直接投资海外工厂，创建惠及各方的合资企业。"
+    },
+    "ourPillars": "我们的支柱",
+    "gallery": {
+      "title": "合作伙伴画廊",
+      "images": {
+        "topsFactory": { "title": "TOPS工厂 - 概览", "description": "中国张家港Smart Line OTR设备制造中心" },
+        "redShredder": { "title": "OTR粉碎机运行中", "description": "处理巨型OTR轮胎的高产能设备" },
+        "processingArea": { "title": "OTR处理区", "description": "完整的越野轮胎回收生产线" },
+        "shreddingLine": { "title": "粉碎生产线", "description": "配备自动化系统的Smart Line工厂内部" },
+        "beadRings": { "title": "回收的胎圈环", "description": "从OTR轮胎中提取的高品质钢铁 - 可供熔炼" },
+        "otrPartnership": { "title": "OTR合作", "description": "采矿轮胎回收的战略合作" },
+        "topsTeam": { "title": "TOPS回收团队", "description": "与张家港TOPS回收团队的战略合作" },
+        "handshake": { "title": "合作协议", "description": "Ericson Piccoli和合作伙伴在生产线上" }
+      }
+    }
+  },
+  "solutionsPage": {
+    "heroTag": "重点：巨型OTR轮胎",
+    "heroTitle": "智能OTR轮胎回收",
+    "heroDescription": "配备自动机器人的Smart Line技术处理巨型轮胎。",
+    "noSellEquipment": "我们不销售设备——我们直接投资。",
+    "tags": { "smartLine": "Smart机器人生产线", "tireWeight": "轮胎重达4.5吨", "zeroEmissions": "零排放", "globalPartnership": "全球合作" },
+    "indicateSource": "提交OTR来源",
+    "knowSmartLine": "了解Smart Line",
+    "disclaimer": { "important": "重要：", "description": "对于大规模OTR，我们专注于与OTR来源的合作——我们直接投资海外工厂。", "viewExpansion": "查看扩张计划" },
+    "pyrolysis": { "generatedProducts": "生成产品" },
+    "process": { "title": "Smart Line OTR回收流程", "subtitle": "处理巨型轮胎的自动机器人技术" },
+    "plants": { "badge": "重点：巨型OTR轮胎", "title": "我们的技术" },
+    "equipment": { "capacity": "产能：", "power": "功率：" },
+    "otrProducts": {
+      "rubberBlocks": { "name": "橡胶块", "description": "用于TDF、二次热解或制粒的OTR橡胶块。" },
+      "steel": { "name": "高品质钢材", "description": "从巨型轮胎胎圈回收的钢材，可供钢铁厂使用。" },
+      "fibers": { "name": "纺织纤维", "description": "用于隔热、土工布和工业复合材料的回收纤维。" },
+      "powder": { "name": "橡胶粉", "description": "用于改性沥青和高性能应用的超细粉末。" }
+    },
+    "industrialPlants": {
+      "otr": {
+        "title": "Smart OTR – 巨型轮胎回收",
+        "subtitle": "自动机器人生产线",
+        "description": "配备自动机器人的专业系统，用于回收矿业、港口和建筑巨型轮胎。可处理重达4.5吨的轮胎。我们不销售——寻求OTR来源合作。",
+        "capacity": "10-20吨/小时",
+        "investment": "合作/合资",
+        "payback": "34个月",
+        "products": {
+          "rubberBlocks": { "name": "橡胶块", "applications": "TDF、热解、制粒" },
+          "steel": { "name": "高品质钢材", "applications": "钢铁厂、铸造厂" },
+          "fibers": { "name": "纺织纤维", "applications": "隔热、土工布" }
+        },
+        "specs": {
+          "maxDiameter": { "label": "最大直径", "value": "4500mm" },
+          "maxWeight": { "label": "最大重量", "value": "4.5吨" },
+          "automation": { "label": "自动化", "value": "Smart Robot + PLC" },
+          "certification": { "label": "认证", "value": "CE / ISO 12100" }
+        }
+      },
+      "pyrolysis": {
+        "title": "连续热解装置",
+        "subtitle": "先进热化学转化",
+        "description": "闭环热解技术，将轮胎和塑料转化为燃料油、回收炭黑和合成气。",
+        "capacity": "10-50吨/天",
+        "investment": "从780万美元起",
+        "payback": "36个月",
+        "products": {
+          "oil": { "name": "热解油", "applications": "工业燃料、炼油厂、船舶" },
+          "rcb": { "name": "炭黑(rCB)", "applications": "橡胶工业、涂料、塑料" },
+          "syngas": { "name": "合成气", "applications": "工艺自用" },
+          "steel": { "name": "回收钢材", "applications": "钢铁厂" }
+        },
+        "specs": {
+          "reactor": { "label": "反应器", "value": "连续回转" },
+          "process": { "label": "工艺", "value": "闭环" },
+          "emissions": { "label": "排放", "value": "零（过滤）" },
+          "output": { "label": "热解油", "value": "45%产出" }
+        }
+      },
+      "tireRecycling": {
+        "title": "轮胎回收工厂",
+        "subtitle": "完整加工系统",
+        "description": "全自动废旧轮胎回收系统，生产高品质橡胶颗粒和粉末。",
+        "capacity": "10吨/小时",
+        "investment": "从450万美元起",
+        "payback": "40个月",
+        "products": {
+          "granules": { "name": "橡胶颗粒", "applications": "运动地面、人造草坪填充" },
+          "powder": { "name": "橡胶粉", "applications": "改性沥青、复合材料" },
+          "steel": { "name": "钢丝", "applications": "钢铁厂" },
+          "fibers": { "name": "纺织纤维", "applications": "隔热、土工布" }
+        },
+        "specs": {
+          "capacity": { "label": "产能", "value": "10吨/小时" },
+          "output": { "label": "颗粒尺寸", "value": "0.5mm - 6mm" },
+          "automation": { "label": "自动化", "value": "全PLC" },
+          "certification": { "label": "认证", "value": "CE / ISO" }
+        }
+      }
+    }
+  },
+  "faq": {
+    "badge": "帮助中心",
+    "title": "常见问题",
+    "description": "查找有关我们回收设备的常见问题的答案。",
+    "viewPlant": "查看设备",
+    "stillQuestions": "还有问题吗？",
+    "stillQuestionsDesc": "我们的团队随时为您提供帮助。",
+    "contactUs": "联系我们",
+    "viewSolutions": "查看解决方案",
+    "benefits": { "quality": "质量保证", "qualityDesc": "CE/ISO认证设备", "roi": "经验证的ROI", "roiDesc": "年回报率25-40%", "support": "24/7支持", "supportDesc": "全球技术支持", "eco": "可持续", "ecoDesc": "环保流程" },
+    "contactMethods": { "email": "电子邮件", "phone": "电话", "hours": "营业时间", "hoursValue": "周一至周五: 8am-6pm" },
+    "categories": { "tireRecycling": { "title": "轮胎回收" }, "pyrolysis": { "title": "热解" }, "otr": { "title": "OTR轮胎（巨型）" }, "quotation": { "title": "报价流程" } }
+  },
+  "investors": { "seo": { "title": "投资者 | ELP绿色科技", "description": "投资循环经济革命。" }, "spvStructure": { "holding": "ELP控股", "holdingDesc": "战略控制和治理" } },
+  "esg": { "seo": { "title": "ESG与可持续发展 | ELP绿色科技", "description": "致力于环境、社会和治理。" }, "scopes": { "scope12": "范围1和2", "scope3": "范围3" } },
+  "mediaPage": { 
+    "machines": {
+      "tireShredder": {
+        "name": "轮胎破碎机",
+        "model": "AMTS-3 / SMTS-5 / SMTS-10",
+        "category": "破碎",
+        "description": "双轴轮胎破碎系统，提供移动式和固定式版本。专为现场破碎设计，降低运输成本。",
+        "specs": ["产能：3-10吨/小时", "双轴系统", "带拖车和发电机的移动版本", "集成输送带"]
+      },
+      "rubberGranulator": {
+        "name": "橡胶造粒机",
+        "model": "A-TRPR Rasper",
+        "category": "造粒",
+        "description": "生产25-12mm无钢丝橡胶颗粒。配备可更换耐磨板和可逆刀片，效率最大化。",
+        "specs": ["产能：最高6吨/小时", "输出：25-12mm (1\"-0.5\")", "无钢丝产品", "可逆刀片"]
+      },
+      "crackerMill": {
+        "name": "破碎磨",
+        "model": "CM系列",
+        "category": "研磨",
+        "description": "将橡胶颗粒转化为颗粒和粉末。用作热解、人造草坪或改性沥青的原料。",
+        "specs": ["高效自动化系统", "生产颗粒和细粉", "适用于rCB和沥青", "低能耗"]
+      },
+      "debeader": {
+        "name": "去胎圈机",
+        "model": "DHK-1200双钩",
+        "category": "预处理",
+        "description": "10-15秒内同时去除两个钢丝胎圈。提高破碎机产能并保护刀片。",
+        "specs": ["效率：80-120条轮胎/小时", "拉力：每钩15吨", "同时去除两个胎圈", "10-15秒操作"]
+      },
+      "otrTireCutter": {
+        "name": "OTR轮胎切割机",
+        "model": "TPS-OTRCL4500",
+        "category": "OTR切割",
+        "description": "处理巨型采矿和农业轮胎（最大59/80R63，4.5吨）。3步工艺：侧壁切割、切条和切块。",
+        "specs": ["产能：10-15吨/小时", "处理最重4.5吨的轮胎", "3步工艺", "适用于采矿和农业轮胎"]
+      },
+      "pyrolysisPlant": {
+        "name": "热解工厂",
+        "model": "连续和批次系统",
+        "category": "热解",
+        "description": "轮胎和塑料热解的连续和批次系统。提取工业油和再生炭黑(rCB)。",
+        "specs": ["连续和批次系统", "油和rCB提取", "零排放", "集成能量回收"]
+      },
+      "rubberPowderLine": {
+        "name": "橡胶粉生产线",
+        "model": "RPL系列",
+        "category": "精细研磨",
+        "description": "生产用于再生橡胶和改性沥青的超细橡胶粉。完整的分级和筛分系统。",
+        "specs": ["超细粉末（30-80目）", "用于再生橡胶", "沥青改性", "集成分级系统"]
+      },
+      "reclaimedRubberLine": {
+        "name": "再生橡胶生产线",
+        "model": "RRL系列",
+        "category": "再生",
+        "description": "包括脱硫机、混炼机和精炼机。将橡胶粉转化为高质量再生橡胶。",
+        "specs": ["工业脱硫机", "混炼机", "高精度精炼机", "高质量产品"]
+      }
+    },
+    "otr": {
+      "giantTire": { 
+        "name": "巨型OTR轮胎", 
+        "model": "最大59/80R63", 
+        "category": "展示", 
+        "description": "我们处理的OTR轮胎规模展示。采矿轮胎重达4.5吨，直径可达4.5米。",
+        "specs": ["最大重量：4.5吨", "最大直径：4500mm", "宽度：最大1800mm", "适用于400吨卡车"],
+        "applications": ["采矿轮胎", "农业轮胎", "建筑轮胎", "港口轮胎"],
+        "capacity": "每小时10-15个OTR轮胎"
+      },
+      "shredder": { 
+        "name": "工业OTR破碎机", 
+        "model": "TOPS Heavy Duty Series", 
+        "category": "破碎", 
+        "description": "用于处理切割后OTR轮胎的大容量破碎机。24/7连续运行的稳健系统。",
+        "specs": ["产能：10-20吨/小时", "多轴系统", "过载保护", "维护减少"],
+        "applications": ["热解预处理", "TDF生产", "制粒", "回收"],
+        "capacity": "10-20吨/小时"
+      },
+      "processing": { 
+        "name": "OTR加工区", 
+        "model": "TPS-OTRCL Series", 
+        "category": "OTR切割", 
+        "description": "破碎前的巨型OTR轮胎准备和处理区域。",
+        "specs": ["有顶接收场", "搬运设备", "称重系统", "尺寸分类"],
+        "applications": ["轮胎接收", "分类", "准备", "初步切割"],
+        "capacity": "每天最多50个轮胎"
+      },
+      "beadWire": { 
+        "name": "回收胎圈钢丝环", 
+        "model": "高品质钢材", 
+        "category": "产品", 
+        "description": "从OTR轮胎中提取的胎圈环，可直接销售给钢铁厂和铸造厂。",
+        "specs": ["高品质钢材", "占轮胎重量25%", "价格：$0.55/kg", "需求有保障"],
+        "applications": ["钢铁厂", "铸造厂", "钢材精炼", "建筑"],
+        "capacity": "连续生产"
+      },
+      "factory": { 
+        "name": "TOPS Recycling工厂", 
+        "model": "中国张家港", 
+        "category": "设施", 
+        "description": "TOPS Recycling在张家港的工业设施概览，所有设备均在此生产。",
+        "specs": ["面积：50,000+ m²", "产能：100+台机器/年", "20+年经验", "出口50+国家"],
+        "applications": ["制造", "装配", "测试", "培训"],
+        "capacity": "完整制造中心"
+      },
+      "shreddingLine": { 
+        "name": "内部破碎生产线", 
+        "model": "集成系统", 
+        "category": "完整生产线", 
+        "description": "破碎生产线内部视图，配有传送带系统和顺序破碎机。",
+        "specs": ["自动传送带", "多台破碎机", "磁性分离系统", "集中控制"],
+        "applications": ["顺序破碎", "材料分离", "自动化", "连续生产"],
+        "capacity": "10-20吨/小时"
+      }
+    },
+    "events": { "cop29": { "name": "COP29 - 商业馆", "location": "迪拜，阿联酋", "date": "2024年11月", "type": "参与" }, "circularSummit": { "name": "循环经济峰会", "location": "法兰克福，德国", "date": "2025年3月", "type": "主题演讲" }, "rubberConference": { "name": "中国橡胶会议", "location": "上海，中国", "date": "2025年6月", "type": "展商" } } 
+  },
+  "globalExpansion": {
+    "badge": "路线图 2025-2031",
+    "title": "全球扩张",
+    "subtitle": "全球17-18家工厂",
+    "heroDescription": "我们直接投资海外OTR轮胎回收工厂。寻找与矿业公司、经销商和港口的合作伙伴关系。",
+    "noSellEquipment": "我们不销售设备。",
+    "indicateSource": "提交OTR来源",
+    "knowSmartLine": "了解Smart Line",
+    "roadmap": { "badge": "战略计划", "title": "扩张路线图 2025-2031", "subtitle": "从澳大利亚到全球布局，年产能100万吨" },
+    "regions": { "badge": "目标市场", "title": "战略区域重点", "subtitle": "优先考虑OTR轮胎高容量和成熟采矿业务的市场" },
+    "partnership": { "badge": "投资模式", "title": "合作模式", "description": "我们直接投资工厂建设。您带来OTR轮胎来源，我们带来技术和资金。", "jointVentures": "与当地合作伙伴的合资企业", "smartLineTech": "Smart Line机器人技术", "jointOperation": "共同运营，收益分成", "indicateOtr": "提交OTR来源" },
+    "cta": { "title": "有OTR轮胎来源吗？", "description": "矿业公司、轮胎经销商、港口。我们投资工厂，您带来来源。", "indicateNow": "立即提交OTR来源", "partnershipDetails": "合作详情", "knowTech": "了解技术" },
+    "metrics": { "annualGoal": "年度目标", "globalCapacity": "全球产能", "plannedFactories": "计划工厂", "targetCountries": "目标国家", "tonsYear": "吨/年", "tonsHour": "吨/小时", "units": "家", "markets": "个市场" },
+    "timeline": { "2026": { "milestone": "澳大利亚首条Smart Line", "description": "智能机器人生产线演示及完整安装", "factories": "1-2", "capacity": "10-20吨/小时", "location": "澳大利亚" }, "2027": { "milestone": "南美和欧洲扩张", "description": "巴西（圣保罗/米纳斯吉拉斯）和意大利（米兰/伦巴第）", "factories": "4-5", "capacity": "40-50吨/小时", "location": "巴西、意大利" }, "2028": { "milestone": "非洲和中东", "description": "扩展到新兴采矿市场", "factories": "8-10", "capacity": "80-100吨/小时", "location": "非洲、中东" }, "2029-2031": { "milestone": "完成全球目标", "description": "年回收能力100万吨", "factories": "17-18", "capacity": "175吨/小时", "location": "全球" } },
+    "regions_data": { "europe": { "region": "欧洲", "countries": ["意大利（米兰）", "德国", "西班牙"], "advantages": ["严格的ESG法规", "与倍耐力/普利司通合作", "物流基础设施", "欧盟绿色协议融资"] }, "latam": { "region": "拉丁美洲", "countries": ["巴西（SP/MG/PA）", "智利", "秘鲁"], "advantages": ["最大的采矿市场", "淡水河谷、CSN、英美资源", "INPI 6类专利", "现有运营"] }, "oceania": { "region": "大洋洲", "countries": ["澳大利亚", "新西兰"], "advantages": ["2026年首条Smart Line", "必和必拓、力拓、FMG", "环境法规", "高端市场"] }, "asia": { "region": "亚太地区", "countries": ["中国（总部）", "印度尼西亚", "印度"], "advantages": ["技术总部", "设备制造", "增长市场", "供应链"] } },
+    "inProgress": "进行中",
+    "factories": "工厂",
+    "goal2031": "2031年目标",
+    "millionTonsYear": "100万吨/年"
+  },
+  "brazilLatam": {
+    "title": "巴西和拉丁美洲",
+    "subtitle": "OTR回收合作",
+    "heroDescription": "巴西主要采矿区OTR轮胎回收的战略合作。完全符合PNRS和Reciclanip。",
+    "indicateInBrazil": "在巴西提交",
+    "knowTech": "了解技术",
+    "miningRegions": { "title": "巴西主要采矿区", "subtitle": "主要采矿和工业运营中OTR轮胎高容量", "north": { "region": "北部", "states": ["帕拉州", "亚马逊州", "阿马帕州"], "description": "巴西最大的铁矿和铝土矿集中地。OTR轮胎使用量高。", "companies": "淡水河谷（卡拉雅斯）、Hydro Alunorte、MRN矿业", "volume": "高容量 - 每年数千条轮胎" }, "southeast": { "region": "东南部", "states": ["米纳斯吉拉斯州", "圣保罗州", "里约热内卢州"], "description": "采矿和重工业传统。物流基础设施完善。", "companies": "淡水河谷、CSN、乌西米纳斯、盖尔道", "volume": "非常高容量 - 最大工业集中度" }, "midwest": { "region": "中西部", "states": ["戈亚斯州", "马托格罗索州"], "description": "农业综合企业和扩张中的采矿业。回收需求增长。", "companies": "英美资源、金罗斯、山田黄金", "volume": "中高容量" }, "companiesInRegion": "区域内企业" },
+    "map": { "title": "互动采矿地图", "subtitle": "点击查看采矿作业和OTR容量详情", "dataSource": "数据：ANM（国家矿业局）和矿业公司公开报告。" },
+    "legislation": { "title": "PNRS和Reciclanip", "subtitle": "完全符合巴西法规和行业计划", "pnrs": { "title": "PNRS - 国家固体废物政策", "description": "12.305/2010号法律规定产品生命周期的共同责任，包括轮胎。" }, "reciclanip": { "title": "Reciclanip", "description": "ANIP收集和处置废轮胎的计划。我们的技术以最大价值化补充这一链条。" }, "conama": { "title": "CONAMA 416/2009号决议", "description": "规范废轮胎的环境适当处置。我们的技术完全合规。" }, "esg": { "title": "ESG与循环经济", "description": "符合全球投资者要求的企业ESG目标和循环经济原则。" }, "destination": { "title": "认证环境处置", "description": "我们的技术将废轮胎转化为高价值产品（rCB、油、钢），并提供ESG报告和碳信用证书。" } },
+    "advantages": { "title": "我们在巴西的优势", "subtitle": "凭借既有资产和战略合作伙伴关系的独特竞争地位", "spOperations": { "title": "圣保罗运营", "description": "已建立的运营基地，拥有资产和6类INPI注册。" }, "smartLine": { "title": "Smart Line技术", "description": "OTR轮胎切割自动机器人 - 更高效率和安全性。" }, "miningFocus": { "title": "采矿重点", "description": "专注于采矿作业中使用的巨型轮胎（OTR）。" }, "logistics": { "title": "综合物流", "description": "在高容量地区收集和加工的合作伙伴关系。" } },
+    "cta": { "title": "在巴西成为合作伙伴？", "description": "矿业公司、轮胎经销商、制造商。我们投资工厂，您带来OTR来源。", "contactNote": "内部审核后联系" },
+    "expansion": { "title": "其他拉美国家", "subtitle": "扩展到该地区战略采矿市场", "chile": { "country": "智利", "focus": "铜" }, "peru": { "country": "秘鲁", "focus": "铜/金" }, "argentina": { "country": "阿根廷", "focus": "锂" }, "colombia": { "country": "哥伦比亚", "focus": "煤" }, "mexico": { "country": "墨西哥", "focus": "银/铜" }, "miningFocus": "采矿重点" }
+  },
+  "login": {
+    "title": "管理面板",
+    "subtitle": "登录以继续",
+    "email": "电子邮件",
+    "password": "密码",
+    "submit": "登录",
+    "loading": "登录中...",
+    "orContinueWith": "或使用以下方式继续",
+    "googleSignIn": "使用Google登录",
+    "connecting": "连接中...",
+    "noAccount": "没有账户？",
+    "createAccount": "创建账户",
+    "backToSite": "← 返回网站",
+    "errors": {
+      "googleError": "Google登录错误",
+      "googleErrorDesc": "无法连接到Google。",
+      "accessDenied": "访问被拒绝",
+      "accessDeniedDesc": "此电子邮件无权访问受限区域。",
+      "loginError": "登录错误",
+      "invalidCredentials": "凭据无效。"
+    },
+    "success": {
+      "title": "登录成功！",
+      "description": "正在重定向到面板..."
+    }
+  },
+  "signup": {
+    "title": "创建账户",
+    "subtitle": "注册以访问面板",
+    "name": "全名",
+    "namePlaceholder": "您的姓名",
+    "email": "电子邮件",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "createAccount": "创建账户",
+    "creating": "创建账户中...",
+    "orContinue": "或使用以下方式继续",
+    "connecting": "连接中...",
+    "signupGoogle": "使用Google注册",
+    "hasAccount": "已有账户？",
+    "login": "登录",
+    "backToSite": "返回网站",
+    "success": "账户创建成功！",
+    "successDesc": "您现在可以登录了。",
+    "error": "创建账户时出错。",
+    "errorTitle": "注册错误",
+    "alreadyRegistered": "该邮箱已注册。请尝试登录。",
+    "passwordMismatch": "密码不匹配",
+    "passwordMismatchDesc": "请确保两次输入的密码相同。",
+    "passwordShort": "密码太短",
+    "passwordShortDesc": "密码至少需要6个字符。",
+    "googleError": "Google注册错误",
+    "googleErrorDesc": "无法连接到Google。"
+  },
+  "admin": {
+    "title": "管理面板",
+    "subtitle": "ELP绿色科技",
+    "viewSite": "查看网站",
+    "logout": "退出",
+    "updateApp": "更新应用",
+    "updatingApp": "正在更新…",
+    "updatingAppDesc": "正在检查新版本并清理本地缓存。",
+    "updateFailed": "更新失败",
+    "updateFailedDesc": "请尝试硬刷新（Ctrl+Shift+R）或清理浏览器缓存。",
+    "nav": {
+      "principal": "主要",
+      "leads": "潜在客户",
+      "content": "内容",
+      "settings": "设置",
+      "tools": "工具",
+      "crmPipeline": "CRM管道",
+      "emailInbox": "邮件收件箱",
+      "partnerFolders": "合作伙伴文件夹",
+      "documents": "生成文档",
+      "globalMap": "全球地图",
+      "partnerLevels": "合作伙伴等级",
+      "feasibility": "可行性研究",
+      "otrLeads": "OTR潜在客户",
+      "marketplace": "市场平台",
+      "contacts": "联系人",
+      "newsletter": "新闻通讯",
+      "articles": "文章",
+      "press": "新闻稿",
+      "counters": "计数器",
+      "analytics": "分析"
+    },
+    "feasibility": {
+      "title": "可行性研究",
+      "description": "OTR回收工厂实施的财务分析",
+      "newStudy": "新建研究",
+      "editStudy": "编辑研究",
+      "editorDescription": "配置工厂参数并实时查看财务结果",
+      "noStudies": "暂无研究",
+      "noStudiesDesc": "创建您的第一个可行性研究以分析投资",
+      "createFirst": "创建第一个研究",
+      "savedSuccess": "研究保存成功！",
+      "saveError": "保存研究时出错",
+      "deletedSuccess": "研究已删除",
+      "deleteTitle": "删除研究？",
+      "deleteDescription": "此操作无法撤销。",
+      "pdfGenerated": "PDF生成成功！",
+      "studyName": "研究名称",
+      "studyNamePlaceholder": "例如：澳大利亚工厂2025",
+      "location": "位置",
+      "locationPlaceholder": "例如：悉尼",
+      "country": "国家",
+      "selectCountry": "选择国家",
+      "plantConfig": "工厂配置",
+      "dailyCapacity": "日产能",
+      "operatingDays": "年运营天数",
+      "utilizationRate": "利用率",
+      "tonsDay": "吨/天",
+      "capex": "投资（资本支出）",
+      "equipmentCost": "设备",
+      "installationCost": "安装",
+      "infrastructureCost": "基础设施",
+      "workingCapital": "流动资金",
+      "otherCapex": "其他资本支出",
+      "opex": "运营成本（运营支出）",
+      "rawMaterialCost": "原材料",
+      "laborCost": "人工",
+      "energyCost": "能源",
+      "maintenanceCost": "维护",
+      "logisticsCost": "物流",
+      "administrativeCost": "行政",
+      "otherOpex": "其他运营支出",
+      "revenue": "收入",
+      "rubberGranules": "橡胶颗粒",
+      "steelWire": "绿色钢材",
+      "textileFiber": "纺织纤维",
+      "pricePerTon": "价格/吨（美元）",
+      "yieldPercent": "产出率（%）",
+      "financialParams": "财务参数",
+      "taxRate": "税率",
+      "depreciationYears": "折旧年限",
+      "discountRate": "折现率",
+      "inflationRate": "通胀率",
+      "results": "计算结果",
+      "totalInvestment": "总投资",
+      "investment": "投资",
+      "annualEbitda": "年EBITDA",
+      "paybackPeriod": "回收期",
+      "payback": "回收期",
+      "months": "个月",
+      "roi": "投资回报率",
+      "irr": "内部收益率",
+      "npv10Years": "净现值（10年）",
+      "notes": "备注",
+      "notesPlaceholder": "添加研究备注...",
+      "checklistNotes": "PDF尽职调查清单备注",
+      "checklistNotesDesc": "这些备注将出现在PDF清单中。为每个类别填写观察结果。",
+      "ddNotesPlaceholder": "添加观察结果...",
+      "ddCompanyInfo": "公司信息",
+      "ddFinancial": "财务验证",
+      "ddLegal": "法律与合规",
+      "ddOperational": "运营能力",
+      "ddOtrSources": "OTR轮胎来源",
+      "ddPartnership": "合作准备",
+      "studyStatus": "状态",
+      "status": {
+        "draft": "草稿",
+        "in_review": "审核中",
+        "approved": "已批准",
+        "rejected": "已拒绝"
+      },
+      "saveStudy": "保存研究",
+      "edit": "编辑",
+      "duplicate": "复制",
+      "exportPdf": "导出PDF",
+      "tabs": {
+        "studies": "研究",
+        "templates": "模板",
+        "compare": "比较",
+        "charts": "图表"
+      },
+      "charts": {
+        "selectStudy": "选择研究",
+        "selectStudyPlaceholder": "选择要查看的研究",
+        "cashFlow": "现金流",
+        "breakdown": "组成",
+        "sensitivity": "敏感性",
+        "metrics": "指标",
+        "cashFlowTitle": "现金流预测（10年）",
+        "year": "年",
+        "years": "年",
+        "cumulativeCashFlow": "累计现金流",
+        "annualProfit": "年利润",
+        "breakeven": "盈亏平衡点",
+        "totalReturn": "总回报（10年）",
+        "avgAnnualReturn": "平均年回报",
+        "revenueBreakdown": "收入组成",
+        "opexBreakdown": "运营支出组成",
+        "totalAnnualOpex": "年总运营支出",
+        "sensitivityTitle": "ROI敏感性分析",
+        "sensitivityDesc": "关键参数变化的影响",
+        "priceVariation": "价格变化",
+        "capacityVariation": "产能变化",
+        "opexVariation": "运营支出变化",
+        "keyMetrics": "关键指标",
+        "totalInvestmentMetric": "总投资",
+        "annualRevenueMetric": "年收入",
+        "annualOpexMetric": "年运营支出",
+        "annualEbitdaMetric": "年EBITDA",
+        "roiMetric": "投资回报率",
+        "paybackMetric": "回收期",
+        "npvMetric": "净现值（10年）",
+        "irrMetric": "内部收益率"
+      },
+      "govPartnership": {
+        "title": "政府合作模式",
+        "description": "配置政府版税和OTR轮胎收集者环保奖金",
+        "collectionModel": "收集模式",
+        "modelDirect": "直接（矿业公司）",
+        "modelGovernment": "政府（市/州/联邦）",
+        "modelMining": "矿业公司合作",
+        "modelHybrid": "混合（政府+矿业）",
+        "royalties": "政府版税",
+        "royaltiesHint": "分配给政府的收入百分比",
+        "envBonus": "环保奖金",
+        "envBonusHint": "每吨收集奖金",
+        "impactTitle": "项目影响",
+        "annualRoyalties": "年版税",
+        "annualEnvBonus": "年环保奖金",
+        "netRevenue": "净收入",
+        "adjustedRoi": "调整后ROI"
+      },
+      "comparison": {
+        "title": "研究比较",
+        "description": "并排比较多项研究",
+        "selectStudies": "选择研究",
+        "selectToCompare": "选择2-4项研究进行比较",
+        "metricsTable": "指标表",
+        "chartsComparison": "比较图表",
+        "recommendation": "建议",
+        "bestRoi": "最佳ROI",
+        "fastestPayback": "最快回收期",
+        "highestNpv": "最高净现值",
+        "minStudies": "需要至少2项研究",
+        "minStudiesDesc": "您需要创建至少2项可行性研究才能使用比较工具。",
+        "investment": "投资",
+        "revenue": "收入",
+        "ebitda": "息税折旧摊销前利润",
+        "metric": "指标",
+        "financialComparison": "财务比较",
+        "performanceRadar": "性能雷达",
+        "selectedCount": "已选择{{count}}项研究",
+        "recommendationText": "{{name}}研究显示最佳综合表现，ROI为{{roi}}%，回收期为{{payback}}个月。"
+      },
+      "pdfError": "生成PDF时出错",
+      "templates": {
+        "title": "区域模板",
+        "description": "不同地区的预配置模板",
+        "useTemplate": "使用模板",
+        "australiaName": "澳大利亚矿业中心",
+        "australiaDesc": "靠近西澳大利亚大型采矿作业的高容量OTR回收",
+        "brazilName": "巴西亚马逊矿业",
+        "brazilDesc": "靠近帕拉/米纳斯吉拉斯铁矿石和金矿作业的战略位置",
+        "italyName": "欧洲地中海",
+        "italyDesc": "中欧枢纽，可获取建筑和港口设备轮胎",
+        "germanyName": "德国工业",
+        "germanyDesc": "靠近主要汽车和工业中心的高科技设施",
+        "chileName": "智利铜矿带",
+        "chileDesc": "位于阿塔卡马铜矿区附近，拥有大量OTR轮胎",
+        "southAfricaName": "南非矿业",
+        "southAfricaDesc": "通往非洲矿业市场的门户，拥有铂金和黄金业务",
+        "mexicoName": "墨西哥 - 政府OTR合作",
+        "mexicoDesc": "通过市/州/联邦政府的独特收集模式，为政府提供20%版税，为矿业公司OTR轮胎收集提供环保奖励",
+        "regions": {
+          "oceania": "大洋洲",
+          "southAmerica": "南美洲",
+          "europe": "欧洲",
+          "africa": "非洲",
+          "northAmerica": "北美洲"
+        },
+        "highlights": {
+          "freeRawMaterial": "矿山免费原材料",
+          "highPrices": "高产品价格",
+          "strongMiningDemand": "强劲的采矿需求",
+          "abundantOtrSupply": "丰富的OTR供应",
+          "lowLaborCosts": "低劳动力成本",
+          "growingDemand": "本地需求增长",
+          "premiumPrices": "优质产品价格",
+          "strongEuRegulations": "严格的欧盟法规",
+          "gateFeePotential": "入场费潜力",
+          "highestQuality": "最高质量标准",
+          "automotiveDemand": "强劲的汽车需求",
+          "excellentLogistics": "优秀的物流",
+          "largestCopperMines": "世界最大铜矿",
+          "stableEconomy": "经济稳定",
+          "freeTradeAgreements": "自由贸易协定",
+          "lowOperatingCosts": "低运营成本",
+          "growingAfricanDemand": "非洲需求增长",
+          "miningHub": "采矿业中心",
+          "govPartnership": "政府合作（联邦/州/市）",
+          "royaltiesProgram": "政府20%版税计划",
+          "environmentalBonus": "收集者环保奖金",
+          "miningPartnerships": "与矿业公司直接合作"
+        }
+      },
+      "ai": {
+        "title": "AI分析",
+        "excellent": "优秀",
+        "good": "良好",
+        "moderate": "中等",
+        "risky": "风险",
+        "runAnalysis": "运行AI分析",
+        "analyzing": "分析中...",
+        "reanalyze": "重新分析",
+        "analysisComplete": "分析完成",
+        "analysisCompleteDesc": "可行性分析已成功生成。",
+        "analysisFailed": "分析失败",
+        "analysisReady": "分析就绪",
+        "viabilityRating": "可行性评级",
+        "keyStrengths": "关键优势",
+        "riskFactors": "风险因素",
+        "recommendations": "建议"
+      },
+      "report": {
+        "rawMaterialComposition": "原材料组成",
+        "material": "材料",
+        "percentage": "百分比",
+        "kgPerHour": "公斤/小时",
+        "pricePerTon": "价格/吨",
+        "totalProduction": "总产量/小时",
+        "investmentBreakdown": "投资明细",
+        "description": "描述",
+        "value": "价值 (USD)",
+        "totalInvestment": "总投资",
+        "monthlySalesEstimates": "月销售预估",
+        "probable": "可能情景",
+        "pessimistic": "悲观情景",
+        "optimistic": "乐观情景",
+        "capacity": "产能",
+        "product": "产品/服务",
+        "monthlyQty": "月产量",
+        "monthlyRevenue": "月收入",
+        "total": "总计",
+        "contributionMargin": "边际贡献",
+        "fixedCosts": "固定成本",
+        "operatingIncome": "营业收入",
+        "paybackAnalysis": "投资回收期分析",
+        "years": "年",
+        "viabilityIndicators": "可行性指标（摘要）",
+        "totalSalesRevenue": "销售总收入",
+        "fixedCostsPercent": "(-) 固定成本",
+        "annualProfit": "年利润",
+        "strengths": "优势",
+        "risks": "风险因素",
+        "highRoi": "ROI高于20%",
+        "quickPayback": "回收期短于4年",
+        "positiveNpv": "正NPV表示盈利投资",
+        "irrAboveDiscount": "IRR超过贴现率",
+        "lowRoi": "ROI低于15%",
+        "longPayback": "回收期长（>5年）",
+        "negativeNpv": "负NPV",
+        "marketVolatility": "市场价格波动"
+      },
+      "savePdfWithCharts": "保存带图表的PDF",
+      "pdfWithChartsGenerated": "完整PDF生成成功！",
+      "professionalReport": "专业报告",
+      "generateProfessionalPdf": "生成专业PDF",
+      "pdfLanguage": "PDF语言",
+      "qrCodeConfig": "二维码链接配置",
+      "qrCodeConfigDesc": "选择PDF中的二维码将链接到哪个表单。合作伙伴可以扫描并直接填写表单。",
+      "qrFormSelect": "二维码表单/链接",
+      "customUrl": "自定义URL",
+      "qrPreview": "二维码将链接到",
+      "qrForms": {
+        "otrSources": "OTR来源指示",
+        "marketplace": "市场注册",
+        "quote": "请求报价",
+        "contact": "联系表单",
+        "dueDiligenceChecklist": "尽职调查清单 (KYC)",
+        "nda": "保密协议 (NDA)",
+        "jointVenture": "合资协议",
+        "lgpdConsent": "LGPD/GDPR同意",
+        "customLink": "自定义链接"
+      }
+    },
+    "otr": {
+      "compositionReference": "OTR巨型轮胎成分参考",
+      "realDataDate": "真实数据 - 2026年1月",
+      "avgRubber": "平均橡胶",
+      "weight": "重量",
+      "valueCalculator": "OTR轮胎价值计算器",
+      "selectModel": "选择轮胎型号",
+      "quantity": "数量",
+      "tireWeight": "轮胎重量",
+      "totalWeight": "总重量",
+      "tons": "吨",
+      "ton": "吨",
+      "adjustPrices": "调整价格",
+      "resetPrices": "重置",
+      "calculatedResults": "计算结果",
+      "total": "总计",
+      "valuePerTire": "每条轮胎价值",
+      "marketDate": "2026年1月市场",
+      "compositionByModel": "按OTR型号分类成分",
+      "model": "型号",
+      "application": "应用",
+      "value": "价值",
+      "marketPrices": "市场价格",
+      "january2026": "2026年1月",
+      "rubberGranules": "橡胶颗粒",
+      "recoveredSteel": "回收钢材",
+      "textileFiber": "纺织纤维",
+      "rcbCarbonBlack": "rCB（炭黑）",
+      "range": "范围",
+      "materials": {
+        "rubber": "橡胶",
+        "steel": "钢材",
+        "textile": "纺织",
+        "rcb": "rCB"
+      },
+      "applications": {
+        "dumpTrucks100t": "自卸卡车100吨",
+        "dumpTrucks150t": "自卸卡车150吨",
+        "dumpTrucks200t": "自卸卡车200吨+",
+        "giantLoaders": "巨型装载机",
+        "ultraClass400t": "超级400吨+"
+      }
+    },
+    "stats": {
+      "total": "总计",
+      "pending": "待处理",
+      "approved": "已批准",
+      "sent": "已发送",
+      "signed": "已签署"
+    },
+    "actions": {
+      "save": "保存",
+      "cancel": "取消",
+      "delete": "删除",
+      "edit": "编辑",
+      "view": "查看",
+      "download": "下载",
+      "send": "发送",
+      "reply": "回复",
+      "archive": "归档",
+      "search": "搜索",
+      "filter": "筛选",
+      "newEmail": "新邮件",
+      "newTemplate": "新模板",
+      "uploadFile": "上传文件",
+      "attachDocument": "附加文档",
+      "attachTemplate": "附加模板",
+      "shareForm": "分享表单"
+    },
+    "documentGenerator": {
+      "stats": {
+        "totalGenerated": "总生成数",
+        "signed": "已签署",
+        "sent": "已发送",
+        "templates": "模板",
+        "filled": "已填写"
+      },
+      "tabs": {
+        "generate": "生成",
+        "submissions": "已提交",
+        "history": "历史",
+        "templates": "模板"
+      },
+      "generate": {
+        "title": "选择模板",
+        "description": "选择您要生成的文档类型",
+        "customizableFields": "个可自定义字段",
+        "generateDocument": "生成",
+        "fillFieldsOrSelectLead": "填写字段或选择现有客户",
+        "manualFill": "手动填写",
+        "selectLead": "选择客户",
+        "selectExistingLead": "选择现有客户",
+        "noneManual": "无（手动）",
+        "language": "语言",
+        "preview": "预览",
+        "previewDocument": "预览",
+        "fillAndPreview": "填写字段后点击\"预览\"",
+        "signatureOptional": "数字签名（可选）",
+        "simpleSignature": "简单签名",
+        "icpBrasil": "ICP-Brasil",
+        "removeSignature": "移除签名",
+        "generatePdf": "生成PDF",
+        "generateSignedPdf": "生成已签署PDF"
+      },
+      "submissions": {
+        "title": "客户填写的模板",
+        "description": "客户/合作伙伴填写并提交的文档",
+        "signed": "已签署",
+        "pending": "待处理",
+        "searchPlaceholder": "按姓名、电子邮件或公司搜索...",
+        "signatureFilter": "签名",
+        "all": "全部",
+        "signedFilter": "✓ 已签署",
+        "pendingFilter": "⏳ 待处理",
+        "typeFilter": "类型",
+        "noSubmissions": "无已填写的模板",
+        "noSubmissionsDesc": "当客户填写模板后，将显示在此处。",
+        "signedBadge": "已签署",
+        "pendingBadge": "待处理"
+      },
+      "history": {
+        "title": "已生成的文档",
+        "description": "已创建文档的历史记录",
+        "searchPlaceholder": "搜索文档...",
+        "noDocuments": "未找到文档",
+        "sentBadge": "已发送"
+      },
+      "templates": {
+        "title": "可用模板",
+        "description": "管理文档模板",
+        "newTemplate": "新建模板",
+        "inactive": "未激活",
+        "fields": "字段",
+        "use": "使用",
+        "edit": "编辑",
+        "delete": "删除",
+        "deleteConfirm": "删除模板？",
+        "deleteDescription": "此操作无法撤销。"
+      },
+      "templateEditor": {
+        "editTemplate": "编辑模板",
+        "newTemplate": "新建模板",
+        "templateName": "模板名称",
+        "templateNamePlaceholder": "例如：双边保密协议",
+        "type": "类型",
+        "templateActive": "模板激活",
+        "customizableFields": "可自定义字段",
+        "addField": "添加字段",
+        "fieldName": "字段名称",
+        "fieldLabel": "标签",
+        "fieldTypes": {
+          "text": "文本",
+          "textarea": "文本区域",
+          "number": "数字",
+          "date": "日期",
+          "select": "选择"
+        },
+        "dynamicValuesHint": "在模板内容中使用 {{字段名}} 插入动态值。",
+        "content": "内容",
+        "contentPlaceholder": "{{language}}文档内容...\n\n使用 {{字段}} 插入动态值。",
+        "saveTemplate": "保存模板"
+      },
+      "share": {
+        "title": "分享文档",
+        "sendByEmail": "通过电子邮件发送",
+        "emailPlaceholder": "email@example.com",
+        "or": "或",
+        "copyLink": "复制链接"
+      },
+      "signature": {
+        "title": "数字签名",
+        "icpRegistered": "ICP-Brasil签名已注册！",
+        "captured": "签名已捕获！",
+        "capturedDesc": "点击\"生成已签署PDF\"完成。"
+      },
+      "submissionDetail": {
+        "title": "已填写模板详情",
+        "description": "客户/合作伙伴提交的信息",
+        "signedDocument": "已签署文档",
+        "pendingSignature": "待签名",
+        "documentSection": "📄 文档",
+        "name": "名称",
+        "sentAt": "提交于",
+        "templateId": "模板ID",
+        "signatureValidation": "签名验证",
+        "signer": "签署人",
+        "email": "电子邮件",
+        "type": "类型",
+        "drawnSignature": "数字手写",
+        "typedSignature": "键入",
+        "dateTime": "日期/时间",
+        "sha256Hash": "SHA-256哈希",
+        "filledFields": "📝 已填写字段",
+        "noFields": "无已填写字段",
+        "close": "关闭",
+        "reply": "回复",
+        "downloadPdf": "下载PDF"
+      },
+      "documentTypes": {
+        "nda": "保密协议",
+        "ndaDesc": "保密协议",
+        "ndaUnilateral": "单边保密协议",
+        "ndaUnilateralDesc": "仅一方披露",
+        "ndaBilateral": "双边保密协议",
+        "ndaBilateralDesc": "双方交换信息",
+        "ndaMultilateral": "多边保密协议",
+        "ndaMultilateralDesc": "多个合作伙伴",
+        "formLevel1": "一级表单",
+        "formLevel1Desc": "初始信息收集",
+        "formLevel2": "二级注册",
+        "formLevel2Desc": "高级注册表单",
+        "kyc": "KYC/尽职调查",
+        "kycDesc": "合规问卷",
+        "jointVenture": "合资企业",
+        "jointVentureDesc": "战略合作协议",
+        "contract": "合同",
+        "contractDesc": "一般合同",
+        "report": "ESG报告",
+        "reportDesc": "环境影响/可持续性",
+        "consent": "LGPD/GDPR",
+        "consentDesc": "数据同意表",
+        "proposal": "技术提案",
+        "proposalDesc": "项目技术提案",
+        "interactionLog": "交互日志",
+        "interactionLogDesc": "时间顺序记录",
+        "autoReply": "自动回复",
+        "autoReplyDesc": "收据确认",
+        "loi": "意向书",
+        "loiDesc": "意向书",
+        "mou": "谅解备忘录",
+        "mouDesc": "谅解备忘录"
+      },
+      "toasts": {
+        "templateSaved": "模板保存成功！",
+        "templateSaveError": "模板保存错误",
+        "templateDeleted": "模板已删除！",
+        "documentGenerated": "文档生成成功！",
+        "signedDocumentGenerated": "已签署文档生成成功！",
+        "documentGenerateError": "文档生成错误",
+        "documentSent": "文档已通过电子邮件发送！",
+        "linkCopied": "链接已复制！",
+        "linkCopiedDesc": "链接已复制到剪贴板。",
+        "signatureCaptured": "签名已捕获！",
+        "clickToFinalize": "点击'生成已签署PDF'完成。",
+        "icpSignatureRegistered": "ICP-Brasil签名已注册！"
+      },
+      "pagination": {
+        "page": "页",
+        "of": "/",
+        "previous": "上一页",
+        "next": "下一页"
+      },
+      "history": {
+        "title": "已生成文档",
+        "description": "完整文档历史",
+        "searchPlaceholder": "搜索文档...",
+        "typeFilter": "类型",
+        "noDocuments": "未找到文档",
+        "signed": "已签署",
+        "sent": "已发送",
+        "document": "文档",
+        "generatedAt": "文档生成于"
+      },
+      "signature": {
+        "digitalSignature": "数字签名",
+        "sign": "签名"
+      }
+    },
+    "statsGrid": {
+      "contacts": "联系人",
+      "new": "新",
+      "marketplace": "市场",
+      "pending": "待处理",
+      "newsletter": "新闻通讯",
+      "subscribers": "订阅者",
+      "articles": "文章",
+      "published": "已发布",
+      "press": "新闻",
+      "releases": "发布"
+    },
+    "crm": {
+      "total": "总计",
+      "initial": "初始",
+      "qualified": "已验证",
+      "projects": "项目",
+      "urgent": "紧急",
+      "overdue": "逾期",
+      "today": "今天",
+      "allTypes": "所有类型",
+      "allPriorities": "所有",
+      "allReminders": "所有",
+      "pipeline": "管道",
+      "list": "列表",
+      "stages": {
+        "initial": {
+          "label": "初步联系",
+          "description": "首次联系 / 新线索"
+        },
+        "qualified": {
+          "label": "合格合作伙伴",
+          "description": "已发送提案 / 谈判中"
+        },
+        "project": {
+          "label": "项目进行中",
+          "description": "合同已签 / 执行中"
+        }
+      },
+      "priority": {
+        "low": "低",
+        "medium": "中",
+        "high": "高",
+        "urgent": "紧急"
+      },
+      "types": {
+        "contact": "联系人",
+        "marketplace": "市场",
+        "otr": "OTR线索"
+      },
+      "docTypes": {
+        "contract": "合同",
+        "proposal": "提案",
+        "businessPlan": "商业计划",
+        "other": "其他"
+      },
+      "reminders": {
+        "overdue": "逾期",
+        "today": "今天"
+      },
+      "noLeadsInStage": "此阶段没有线索",
+      "leadUpdated": "线索级别已更新！",
+      "priorityUpdated": "优先级已更新！",
+      "followUpUpdated": "跟进已更新！",
+      "noteAdded": "备注已添加！",
+      "documentUploaded": "文档上传成功！",
+      "exportSuccess": "导出已开始！",
+      "searchPlaceholder": "搜索线索...",
+      "filterOverdue": "逾期",
+      "filterToday": "今天",
+      "filterNone": "无提醒",
+      "urgentLeads": "紧急",
+      "overdueLeads": "逾期",
+      "todayReminders": "今天"
+    },
+    "emailInbox": {
+      "total": "总计",
+      "unread": "未读",
+      "replied": "已回复",
+      "archived": "已归档",
+      "all": "全部",
+      "newEmail": "新邮件",
+      "inbox": "收件箱",
+      "noEmailFound": "未找到邮件",
+      "selectEmail": "选择邮件查看"
+    },
+    "partnerFolders": {
+      "totalPartners": "合作伙伴总数",
+      "withDocuments": "有文档",
+      "contacts": "联系人",
+      "marketplace": "市场",
+      "allTypes": "所有类型",
+      "noPartnerFound": "未找到合作伙伴"
+    },
+    "globalMap": {
+      "title": "全球线索地图",
+      "description": "点击国家查看该地区的线索",
+      "contact": "联系人",
+      "marketplace": "市场",
+      "otrLead": "OTR线索",
+      "topCountries": "热门国家",
+      "refresh": "刷新"
+    },
+    "partnerLevels": {
+      "level1": {
+        "title": "级别1 - 基础",
+        "description": "初步联系，收集基本信息"
+      },
+      "level2": {
+        "title": "级别2 - 高级",
+        "description": "完整档案，详细公司信息"
+      },
+      "level3": {
+        "title": "级别3 - 合格",
+        "description": "KYC已批准，NDA已签署，尽职调查完成"
+      },
+      "noPartnerInLevel": "此级别没有合作伙伴",
+      "totalPartners": "合作伙伴总数",
+      "searchPlaceholder": "搜索合作伙伴...",
+      "allLevels": "所有级别",
+      "kyc": {
+        "pending": "待处理",
+        "inReview": "审核中",
+        "approved": "已批准",
+        "rejected": "已拒绝"
+      },
+      "dueDiligence": {
+        "notStarted": "未开始",
+        "inProgress": "进行中",
+        "completed": "已完成",
+        "failed": "失败"
+      }
+    },
+    "workflow": {
+      "progress": "工作流程进度",
+      "leadLevel": "线索级别",
+      "hot": "热门",
+      "warm": "温和",
+      "cold": "冷淡",
+      "currentStep": "当前步骤",
+      "vsPreviousMonth": "与上月相比",
+      "marketplace": {
+        "pending": "新线索",
+        "pendingDesc": "通过表单收到的线索",
+        "contacted": "初步联系",
+        "contactedDesc": "已进行首次联系",
+        "qualified": "已验证",
+        "qualifiedDesc": "线索已准备好进行谈判",
+        "converted": "已转化",
+        "convertedDesc": "合作关系已建立"
+      },
+      "contact": {
+        "new": "新",
+        "newDesc": "收到联系",
+        "inProgress": "分析中",
+        "inProgressDesc": "正在分析请求",
+        "responded": "已回复",
+        "respondedDesc": "已发送回复",
+        "closed": "已关闭",
+        "closedDesc": "案例已结束"
+      },
+      "partner": {
+        "verificationStatus": "验证状态",
+        "completion": "完成度",
+        "basicDesc": "已收集初始数据",
+        "advancedDesc": "完整档案",
+        "verifiedDesc": "KYC已批准 + NDA已签署"
+      }
+    },
+    "status": {
+      "new": "新",
+      "pending": "待处理",
+      "contacted": "已联系",
+      "qualified": "已验证",
+      "converted": "已转化",
+      "approved": "已批准",
+      "rejected": "已拒绝",
+      "replied": "已回复"
+    },
+    "notifications": {
+      "title": "通知",
+      "new": "新",
+      "newOtrLead": "新OTR线索",
+      "newContact": "新联系人",
+      "newB2BPreRegister": "新B2B预注册",
+      "newEmail": "收到新邮件",
+      "noSubject": "无主题",
+      "disableSound": "关闭声音",
+      "enableSound": "开启声音",
+      "markAllRead": "全部标为已读",
+      "clearAll": "清除全部",
+      "noNotifications": "没有通知",
+      "willBeNotified": "您将收到新事件的通知",
+      "viewDetails": "查看详情"
+    },
+    "otrLeads": {
+      "title": "OTR线索管理",
+      "description": "OTR来源指示的审批和跟踪系统",
+      "refresh": "刷新",
+      "exportCsv": "导出CSV",
+      "allStatus": "所有状态",
+      "noLeadFound": "未找到线索",
+      "searchPlaceholder": "搜索线索...",
+      "tabs": {
+        "leads": "线索",
+        "analytics": "分析",
+        "goals": "目标",
+        "webhooks": "Webhooks"
+      },
+      "stats": {
+        "total": "总计",
+        "pending": "待处理",
+        "approved": "已批准",
+        "contacted": "已联系",
+        "negotiating": "谈判中",
+        "converted": "已转化",
+        "conversion": "转化率",
+        "rejected": "已拒绝"
+      },
+      "status": {
+        "pending": "待处理",
+        "approved": "已批准",
+        "contacted": "已联系",
+        "negotiating": "谈判中",
+        "converted": "已转化",
+        "rejected": "已拒绝"
+      },
+      "noteTypes": {
+        "note": "备注",
+        "statusChange": "状态",
+        "emailSent": "邮件",
+        "call": "电话",
+        "meeting": "会议"
+      },
+      "actions": {
+        "approve": "批准",
+        "reject": "拒绝",
+        "sendEmail": "发送邮件",
+        "generatePdf": "生成PDF",
+        "viewDetails": "查看详情",
+        "addNote": "添加备注",
+        "deleteNote": "删除备注"
+      },
+      "analytics": {
+        "filterPeriod": "按期间筛选",
+        "from": "从：",
+        "to": "至：",
+        "clear": "清除",
+        "generateReport": "生成报告",
+        "statusDistribution": "状态分布",
+        "regionDistribution": "区域分布",
+        "sourceTypes": "来源类型",
+        "monthlyTrend": "月度趋势",
+        "conversionRate": "转化率"
+      },
+      "goals": {
+        "title": "转化目标",
+        "currentMonth": "当前月份",
+        "targetLeads": "目标线索",
+        "targetConversions": "目标转化",
+        "notes": "备注",
+        "save": "保存目标",
+        "sendWeeklyReport": "发送周报"
+      },
+      "webhooks": {
+        "title": "通知Webhooks",
+        "name": "名称",
+        "url": "Webhook URL",
+        "type": "类型",
+        "events": "事件",
+        "add": "添加Webhook",
+        "active": "活跃",
+        "inactive": "非活跃"
+      },
+      "email": {
+        "subject": "主题",
+        "message": "消息",
+        "send": "发送邮件"
+      },
+      "pdf": {
+        "indicatorData": "指示人数据",
+        "sourceData": "OTR来源数据",
+        "additionalDetails": "附加详情",
+        "generatedAt": "生成于",
+        "status": "状态"
+      }
+    },
+    "marketplace": {
+      "title": "B2B市场",
+      "description": "市场预注册",
+      "exportCsv": "导出CSV",
+      "all": "全部",
+      "noRecordFound": "未找到记录。",
+      "statusPending": "待处理",
+      "statusContacted": "已联系",
+      "statusQualified": "已验证",
+      "statusConverted": "已转化"
+    },
+    "contacts": {
+      "title": "联系消息",
+      "description": "管理收到的消息",
+      "noMessages": "没有收到消息。"
+    },
+    "newsletter": {
+      "title": "新闻通讯订阅者",
+      "description": "订阅者列表",
+      "noSubscribers": "暂无订阅者。",
+      "active": "活跃",
+      "inactive": "非活跃"
+    },
+    "articlesSection": {
+      "title": "博客文章",
+      "description": "管理文章和帖子",
+      "newArticle": "新文章",
+      "noArticles": "没有注册的文章。"
+    },
+    "pressSection": {
+      "title": "新闻发布",
+      "description": "管理新闻稿",
+      "newPress": "新新闻稿",
+      "noPress": "没有注册的新闻稿。"
+    },
+    "counters": {
+      "title": "影响计数器",
+      "description": "编辑首页值",
+      "save": "保存"
+    },
+    "analytics": {
+      "title": "分析",
+      "filterPeriod": "按期间筛选",
+      "selectPeriod": "选择分析期间",
+      "from": "从：",
+      "to": "至：",
+      "clear": "清除",
+      "countries": "国家",
+      "conversion": "转化率",
+      "qualified": "已验证",
+      "total": "总计",
+      "registrationsByCountry": "按国家注册",
+      "companyType": "公司类型",
+      "mostWantedProducts": "最受欢迎产品",
+      "noData": "无数据"
+    },
+    "users": "用户"
+  },
+  "templateViewer": {
+    "notFound": "模板未找到",
+    "notFoundDescription": "请求的模板不可用或已被禁用。",
+    "backHome": "返回首页",
+    "instruction": "填写以下字段以完成文档",
+    "fillFields": "填写字段",
+    "requiredNote": "带 * 的字段为必填项",
+    "preview": "文档预览",
+    "previewNote": "填写的字段将自动显示",
+    "submit": "提交文档",
+    "submitSigned": "提交已签署文档",
+    "downloadPreview": "下载PDF预览",
+    "downloadCopy": "下载副本",
+    "backToSite": "返回网站",
+    "success": "提交成功！",
+    "successDescription": "我们已收到您填写的文档。我们的团队将尽快与您联系。",
+    "submitSuccess": "表单提交成功！",
+    "submitDescription": "我们将尽快与您联系。",
+    "submitError": "提交错误",
+    "tryAgain": "请重试。",
+    "fillRequired": "请填写必填字段",
+    "digitalSignature": "数字签名",
+    "signed": "已签署",
+    "signedBy": "签署人",
+    "dateTime": "日期/时间",
+    "removeSignature": "移除签名",
+    "addSignature": "添加数字签名",
+    "signatureNote": "使用加密验证的签名 (SHA-256)",
+    "signDocument": "签署文档",
+    "signDescription": "添加您的数字签名以验证文档。",
+    "fullName": "全名",
+    "namePlaceholder": "您的全名",
+    "signatureType": "签名类型",
+    "draw": "手写",
+    "type": "键入",
+    "drawBelow": "在下方绘制您的签名",
+    "clear": "清除",
+    "typeSignature": "输入您的签名",
+    "yourName": "您的姓名",
+    "legalNotice": "签署即表示您确认已阅读并同意本文档的条款。您的签名受SHA-256加密保护，根据巴西第14.063/2020号法律和欧盟eIDAS法规具有法律效力。",
+    "confirmSignature": "确认签名",
+    "signatureRequired": "请填写姓名和电子邮件",
+    "drawSignature": "绘制您的签名",
+    "signatureCaptured": "签名已捕获！",
+    "clickSubmit": "现在点击\"提交文档\"。"
+  }
+}

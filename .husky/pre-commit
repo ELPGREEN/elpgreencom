@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run i18n validation
+echo "🔍 Running i18n validation..."
+node scripts/validate-i18n.mjs
+
+# Run lint
+echo "🔍 Running linter..."
+npm run lint
