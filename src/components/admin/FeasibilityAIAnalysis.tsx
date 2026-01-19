@@ -124,23 +124,37 @@ export function FeasibilityAIAnalysis({ study, onAnalysisComplete }: AIAnalysisP
         });
       }
     } catch (err: any) {
-      const status = err?.status;
-      let errorMessage = err instanceof Error ? err.message : (typeof err?.message === 'string' ? err.message : 'Unknown error');
-
-      if (status === 429) {
-        errorMessage = t('admin.feasibility.ai.rateLimited', 'Rate limit reached. Please wait a bit and try again.');
-        // If user chose Pro, suggest switching to Flash
-        if (selectedModel === 'pro') {
-          setSelectedModel('flash');
-        }
+      console.error('Analysis error:', err);
+      
+      // Check for rate limit - can come from error status or error message
+      const isRateLimited = err?.status === 429 || 
+        err?.message?.includes('Rate limit') || 
+        err?.message?.includes('429');
+      
+      let errorMessage: string;
+      let recommendedModel: string | null = null;
+      
+      if (isRateLimited) {
+        errorMessage = t('admin.feasibility.ai.rateLimited', 'Rate limit reached. Please wait a moment and try again, or switch to another model.');
+        // Suggest the opposite model
+        recommendedModel = selectedModel === 'flash' ? 'pro' : 'flash';
+      } else {
+        errorMessage = err instanceof Error ? err.message : (typeof err?.message === 'string' ? err.message : 'Unknown error');
       }
 
       setError(errorMessage);
       toast({
         title: t('admin.feasibility.ai.analysisFailed'),
-        description: errorMessage,
+        description: recommendedModel 
+          ? `${errorMessage} ${t('admin.feasibility.ai.tryModel', { model: recommendedModel === 'pro' ? 'Complete (Pro)' : 'Quick (Flash)' })}`
+          : errorMessage,
         variant: 'destructive'
       });
+      
+      // Auto-switch to recommended model
+      if (recommendedModel) {
+        setSelectedModel(recommendedModel as 'flash' | 'pro');
+      }
     } finally {
       setIsAnalyzing(false);
     }
