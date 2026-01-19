@@ -39,6 +39,7 @@ import Certificates from "./pages/Certificates";
 import FAQ from "./pages/FAQ";
 import BusinessIndex from "./pages/BusinessIndex";
 import TemplateViewer from "./pages/TemplateViewer";
+import PublicSignature from "./pages/PublicSignature";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
@@ -82,6 +83,7 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/business" element={<BusinessIndex />} />
             <Route path="/documents/template/:id" element={<TemplateViewer />} />
+            <Route path="/sign" element={<PublicSignature />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />
