@@ -84,6 +84,7 @@ const App = () => (
             <Route path="/business" element={<BusinessIndex />} />
             <Route path="/documents/template/:id" element={<TemplateViewer />} />
             <Route path="/sign" element={<PublicSignature />} />
+            <Route path="/sign/:docId" element={<PublicSignature />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />
