@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useI18nDebugContext } from './I18nDebugProvider';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import { getTranslationSync, translateText } from '@/hooks/useTranslationFallback';
 
 interface TProps {
   /** Translation key */
   k: string;
-  /** Fallback text if translation is missing */
+  /** Fallback text if translation is missing (used for auto-translation) */
   fallback?: string;
   /** Interpolation values */
   values?: Record<string, string | number>;
@@ -18,13 +19,14 @@ interface TProps {
 }
 
 /**
- * Translation component with debug support
- * Highlights missing translations in debug mode
+ * Translation component with debug support and auto-translation fallback
+ * Uses MyMemory API for automatic translation when manual translation is missing
  * 
  * Usage:
  * <T k="hero.title" />
  * <T k="hero.greeting" values={{ name: "John" }} />
  * <T k="hero.title" as="h1" className="text-2xl" />
+ * <T k="new.feature" fallback="New Feature" /> // Will auto-translate if missing
  */
 export function T({ k, fallback, values, as: Element = 'span', className = '', children }: TProps) {
   const { t, i18n } = useTranslation();
@@ -33,31 +35,48 @@ export function T({ k, fallback, values, as: Element = 'span', className = '', c
   const translation = t(k, values || {});
   const isMissing = translation === k || translation === '';
   
+  const [autoTranslation, setAutoTranslation] = useState<string | null>(null);
+  
   useEffect(() => {
     if (isMissing) {
       addMissingKey(k);
+      
+      // Try auto-translation if fallback is provided
+      if (fallback && i18n.language !== 'en') {
+        const cached = getTranslationSync(k, fallback);
+        if (cached !== fallback) {
+          setAutoTranslation(cached);
+        } else {
+          // Fetch translation async
+          translateText(fallback, i18n.language, 'en').then(translated => {
+            if (translated) {
+              setAutoTranslation(translated);
+            }
+          });
+        }
+      }
     }
-  }, [k, isMissing, addMissingKey]);
+  }, [k, isMissing, addMissingKey, fallback, i18n.language]);
 
   if (isMissing && isDebugMode) {
     return (
       <Element
         className={`relative inline-block ${className}`}
-        title={`Missing translation: ${k}\nLanguage: ${i18n.language}`}
+        title={`Missing translation: ${k}\nLanguage: ${i18n.language}${autoTranslation ? `\nAuto-translated: ${autoTranslation}` : ''}`}
       >
         <span className="bg-red-500/20 border border-red-500 border-dashed px-1 rounded text-red-600 dark:text-red-400">
           <span className="text-[10px] bg-red-500 text-white px-1 rounded mr-1">MISSING</span>
-          {k}
+          {autoTranslation || fallback || k}
         </span>
         {children}
       </Element>
     );
   }
 
-  if (isMissing && fallback) {
+  if (isMissing && (autoTranslation || fallback)) {
     return (
       <Element className={className}>
-        {fallback}
+        {autoTranslation || fallback}
         {children}
       </Element>
     );
