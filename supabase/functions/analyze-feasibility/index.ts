@@ -1670,23 +1670,19 @@ serve(async (req) => {
       model?: 'flash' | 'pro';
     };
     
-    // Use Gemini for flash, Anthropic for pro
+    // Use Gemini for flash, Anthropic for pro - with automatic fallback
     const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
     const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
     
-    if (model === 'flash' && !GEMINI_API_KEY) {
-      return new Response(JSON.stringify({ error: "GEMINI_API_KEY is not configured" }), {
+    // At least one API key must be configured
+    if (!GEMINI_API_KEY && !ANTHROPIC_API_KEY) {
+      return new Response(JSON.stringify({ error: "No AI API keys configured. Please configure GEMINI_API_KEY or ANTHROPIC_API_KEY." }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
     
-    if (model === 'pro' && !ANTHROPIC_API_KEY) {
-      return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
+    console.log(`API Keys available - Gemini: ${!!GEMINI_API_KEY}, Anthropic: ${!!ANTHROPIC_API_KEY}, Requested model: ${model}`);
 
     // Calculate additional metrics
     const annualTonnage = study.daily_capacity_tons * study.operating_days_per_year * (study.utilization_rate / 100);
@@ -1982,36 +1978,64 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
     let usedModel = model;
     let didFallback = false;
 
-    if (model === 'flash') {
-      // Use Gemini API for flash analysis
-      const callGemini = async (prompt: string) => {
-        return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{ text: prompt }]
-            }],
-            generationConfig: {
-              maxOutputTokens: 8192,
-              temperature: 0.7
-            }
-          }),
-        });
-      };
+    // Helper functions for both APIs
+    const callGemini = async (prompt: string) => {
+      return await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{ text: prompt }]
+          }],
+          generationConfig: {
+            maxOutputTokens: 8192,
+            temperature: 0.7
+          }
+        }),
+      });
+    };
 
+    const callClaude = async (prompt: string) => {
+      return await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": ANTHROPIC_API_KEY!,
+          "anthropic-version": "2023-06-01",
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 16384,
+          messages: [
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+        }),
+      });
+    };
+
+    const tryWithRetries = async (
+      callFn: (prompt: string) => Promise<Response>,
+      prompt: string,
+      modelName: string
+    ): Promise<{ success: boolean; response?: Response; rateLimited?: boolean; errorText?: string }> => {
       let response: Response | null = null;
       let lastErrorText = "";
 
       for (let attempt = 0; attempt < 3; attempt++) {
-        response = await callGemini(analysisPrompt);
+        response = await callFn(prompt);
 
-        if (response.ok) break;
+        if (response.ok) {
+          return { success: true, response };
+        }
 
         if (response.status === 429) {
           const waitMs = Math.min(8000, 800 * Math.pow(2, attempt) + Math.floor(Math.random() * 250));
+          console.log(`${modelName} rate limited, waiting ${waitMs}ms before retry ${attempt + 1}/3`);
           await sleep(waitMs);
           continue;
         }
@@ -2020,8 +2044,54 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
         break;
       }
 
-      if (!response || !response.ok) {
-        if (response?.status === 429) {
+      if (response?.status === 429) {
+        return { success: false, rateLimited: true };
+      }
+
+      return { success: false, errorText: lastErrorText || "Unknown error" };
+    };
+
+    // Try primary model first, then fallback
+    if (model === 'flash') {
+      console.log("Starting with Gemini Flash...");
+      
+      if (GEMINI_API_KEY) {
+        const geminiResult = await tryWithRetries(callGemini, analysisPrompt, "Gemini");
+        
+        if (geminiResult.success && geminiResult.response) {
+          const data = await geminiResult.response.json();
+          analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+          usedModel = "flash";
+        } else if (geminiResult.rateLimited && ANTHROPIC_API_KEY) {
+          // Fallback to Claude
+          console.log("Gemini rate limited, falling back to Claude...");
+          didFallback = true;
+          
+          const claudeResult = await tryWithRetries(callClaude, analysisPrompt, "Claude");
+          
+          if (claudeResult.success && claudeResult.response) {
+            const data = await claudeResult.response.json();
+            analysis = data.content?.[0]?.text || "";
+            usedModel = "pro";
+          } else if (claudeResult.rateLimited) {
+            return new Response(
+              JSON.stringify({
+                error: "Both AI models are rate limited. Please wait a few minutes and try again.",
+                recommended_model: "pro",
+              }),
+              {
+                status: 429,
+                headers: { ...corsHeaders, "Content-Type": "application/json" },
+              }
+            );
+          } else {
+            console.error("Claude fallback error:", claudeResult.errorText);
+            return new Response(JSON.stringify({ error: "AI analysis failed", details: claudeResult.errorText }), {
+              status: 500,
+              headers: { ...corsHeaders, "Content-Type": "application/json" },
+            });
+          }
+        } else if (geminiResult.rateLimited) {
           return new Response(
             JSON.stringify({
               error: "Rate limits exceeded. Please try again in a few moments.",
@@ -2032,62 +2102,60 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
               headers: { ...corsHeaders, "Content-Type": "application/json" },
             }
           );
+        } else {
+          console.error("Gemini API error:", geminiResult.errorText);
+          return new Response(JSON.stringify({ error: "AI analysis failed", details: geminiResult.errorText }), {
+            status: 500,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
         }
-
-        const errorText = lastErrorText || (response ? await response.text() : "Unknown error");
-        console.error("Gemini API error:", response?.status, errorText);
-        return new Response(JSON.stringify({ error: "AI analysis failed", details: errorText }), {
+      } else {
+        return new Response(JSON.stringify({ error: "GEMINI_API_KEY is not configured" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
-
-      const data = await response.json();
-      analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to generate analysis.";
-
     } else {
-      // Use Anthropic Claude API for pro analysis
-      const callClaude = async (prompt: string) => {
-        return await fetch("https://api.anthropic.com/v1/messages", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": ANTHROPIC_API_KEY!,
-            "anthropic-version": "2023-06-01",
-          },
-          body: JSON.stringify({
-            model: "claude-sonnet-4-20250514",
-            max_tokens: 16384,
-            messages: [
+      // Pro model - start with Claude
+      console.log("Starting with Claude Pro...");
+      
+      if (ANTHROPIC_API_KEY) {
+        const claudeResult = await tryWithRetries(callClaude, analysisPrompt, "Claude");
+        
+        if (claudeResult.success && claudeResult.response) {
+          const data = await claudeResult.response.json();
+          analysis = data.content?.[0]?.text || "";
+          usedModel = "pro";
+        } else if (claudeResult.rateLimited && GEMINI_API_KEY) {
+          // Fallback to Gemini
+          console.log("Claude rate limited, falling back to Gemini...");
+          didFallback = true;
+          
+          const geminiResult = await tryWithRetries(callGemini, analysisPrompt, "Gemini");
+          
+          if (geminiResult.success && geminiResult.response) {
+            const data = await geminiResult.response.json();
+            analysis = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            usedModel = "flash";
+          } else if (geminiResult.rateLimited) {
+            return new Response(
+              JSON.stringify({
+                error: "Both AI models are rate limited. Please wait a few minutes and try again.",
+                recommended_model: "flash",
+              }),
               {
-                role: "user",
-                content: prompt,
-              },
-            ],
-          }),
-        });
-      };
-
-      let response: Response | null = null;
-      let lastErrorText = "";
-
-      for (let attempt = 0; attempt < 3; attempt++) {
-        response = await callClaude(analysisPrompt);
-
-        if (response.ok) break;
-
-        if (response.status === 429) {
-          const waitMs = Math.min(8000, 800 * Math.pow(2, attempt) + Math.floor(Math.random() * 250));
-          await sleep(waitMs);
-          continue;
-        }
-
-        lastErrorText = await response.text();
-        break;
-      }
-
-      if (!response || !response.ok) {
-        if (response?.status === 429) {
+                status: 429,
+                headers: { ...corsHeaders, "Content-Type": "application/json" },
+              }
+            );
+          } else {
+            console.error("Gemini fallback error:", geminiResult.errorText);
+            return new Response(JSON.stringify({ error: "AI analysis failed", details: geminiResult.errorText }), {
+              status: 500,
+              headers: { ...corsHeaders, "Content-Type": "application/json" },
+            });
+          }
+        } else if (claudeResult.rateLimited) {
           return new Response(
             JSON.stringify({
               error: "Rate limits exceeded. Please try again in a few moments.",
@@ -2098,18 +2166,26 @@ CRITICAL INSTRUCTION: Provide your COMPLETE and EXHAUSTIVE expert analysis. Cove
               headers: { ...corsHeaders, "Content-Type": "application/json" },
             }
           );
+        } else {
+          console.error("Anthropic API error:", claudeResult.errorText);
+          return new Response(JSON.stringify({ error: "AI analysis failed", details: claudeResult.errorText }), {
+            status: 500,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
         }
-
-        const errorText = lastErrorText || (response ? await response.text() : "Unknown error");
-        console.error("Anthropic API error:", response?.status, errorText);
-        return new Response(JSON.stringify({ error: "AI analysis failed", details: errorText }), {
+      } else {
+        return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY is not configured" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
+    }
 
-      const data = await response.json();
-      analysis = data.content?.[0]?.text || "Unable to generate analysis.";
+    if (!analysis) {
+      return new Response(JSON.stringify({ error: "Unable to generate analysis" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     return new Response(JSON.stringify({ 
