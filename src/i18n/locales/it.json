@@ -150,6 +150,20 @@
       "description": "Investiamo direttamente in stabilimenti all'estero. Tu porti le fonti, noi portiamo la tecnologia e il capitale.",
       "indicateNow": "Indica Fonte OTR Ora",
       "partnershipDetails": "Dettagli Partnership"
+    },
+    "globalPresence": {
+      "europe": { "region": "Europa", "city": "Milano, Italia", "role": "Partnership Locale" },
+      "germany": { "city": "Francoforte, Germania", "role": "Capitale & Regolamentazione" },
+      "southAmerica": { "region": "Sud America", "city": "São Paulo, Brasile", "role": "Operazioni & Asset", "focus": "Focus Minerario Pesante" },
+      "asia": { "region": "Asia", "city": "Shenzhen, Cina", "role": "R&S & Produzione" },
+      "oceania": { "region": "Oceania", "city": "Australia", "role": "Installazione Stabilimento OTR 2025" }
+    },
+    "certifications": {
+      "class1": "Prodotti Chimici",
+      "class7": "Macchine Industriali",
+      "class35": "Commercio",
+      "class40": "Trattamento Materiali",
+      "class42": "Ricerca e Tecnologia"
     }
   },
   "solutionsPage": {

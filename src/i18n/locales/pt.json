@@ -150,6 +150,20 @@
       "description": "Investimos diretamente em plantas overseas. Você traz as fontes, nós trazemos a tecnologia e o capital.",
       "indicateNow": "Indique Fonte OTR Agora",
       "partnershipDetails": "Detalhes da Parceria"
+    },
+    "globalPresence": {
+      "europe": { "region": "Europa", "city": "Milão, Itália", "role": "Parceria Local" },
+      "germany": { "city": "Frankfurt, Alemanha", "role": "Capital & Regulação" },
+      "southAmerica": { "region": "América do Sul", "city": "São Paulo, Brasil", "role": "Operações & Ativos", "focus": "Foco Mineração Pesada" },
+      "asia": { "region": "Ásia", "city": "Shenzhen, China", "role": "P&D & Manufatura" },
+      "oceania": { "region": "Oceania", "city": "Austrália", "role": "Instalação Planta OTR 2025" }
+    },
+    "certifications": {
+      "class1": "Produtos Químicos",
+      "class7": "Máquinas Industriais",
+      "class35": "Comércio",
+      "class40": "Tratamento de Materiais",
+      "class42": "Pesquisa e Tecnologia"
     }
   },
   "solutionsPage": {
