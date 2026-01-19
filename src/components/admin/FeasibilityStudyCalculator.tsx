@@ -215,10 +215,10 @@ export function FeasibilityStudyCalculator() {
     { value: 'marketplace', label: t('admin.feasibility.qrForms.marketplace', 'Marketplace Registration'), url: `${siteBaseUrl}/marketplace?source=pdf_feasibility` },
     { value: 'quote', label: t('admin.feasibility.qrForms.quote', 'Request Quote'), url: `${siteBaseUrl}/request-quote?source=pdf_feasibility` },
     { value: 'contact', label: t('admin.feasibility.qrForms.contact', 'Contact Form'), url: `${siteBaseUrl}/contact?source=pdf_feasibility` },
-    { value: 'template-kyc', label: t('admin.feasibility.qrForms.dueDiligenceChecklist', 'Due Diligence Checklist (KYC)'), url: `${siteBaseUrl}/documents/template/8b202afd-f0d3-44cd-a83f-b5587abcc656?source=pdf_feasibility` },
-    { value: 'template-nda', label: t('admin.feasibility.qrForms.nda', 'NDA - Confidentiality Agreement'), url: `${siteBaseUrl}/documents/template/6ecfacbb-2830-4e55-8f2d-c2f34df20fc6?source=pdf_feasibility` },
-    { value: 'template-jv', label: t('admin.feasibility.qrForms.jointVenture', 'Joint Venture Agreement'), url: `${siteBaseUrl}/documents/template/9ba74dd1-b6a4-48f1-8509-421345b9e2f2?source=pdf_feasibility` },
-    { value: 'template-lgpd', label: t('admin.feasibility.qrForms.lgpdConsent', 'LGPD/GDPR Consent'), url: `${siteBaseUrl}/documents/template/92dd0f04-f28a-4308-ac96-3863d4389c5e?source=pdf_feasibility` },
+    { value: 'template-kyc', label: t('admin.feasibility.qrForms.dueDiligenceChecklist', 'Due Diligence Checklist (KYC)'), url: `${siteBaseUrl}/documents/template/03d41162-dd8f-415f-baba-cf7e99f5a666?source=pdf_feasibility` },
+    { value: 'template-nda', label: t('admin.feasibility.qrForms.nda', 'NDA - Confidentiality Agreement'), url: `${siteBaseUrl}/documents/template/f9fa8388-e8ed-4c68-97ac-f3317a25b8e9?source=pdf_feasibility` },
+    { value: 'template-jv', label: t('admin.feasibility.qrForms.jointVenture', 'Joint Venture Agreement'), url: `${siteBaseUrl}/documents/template/8154040b-954c-4591-b432-d206ca04d9a2?source=pdf_feasibility` },
+    { value: 'template-lgpd', label: t('admin.feasibility.qrForms.lgpdConsent', 'LGPD/GDPR Consent'), url: `${siteBaseUrl}/documents/template/99bda306-c4b4-414a-b031-dee532152ecd?source=pdf_feasibility` },
     { value: 'digital-signature', label: t('admin.feasibility.qrForms.digitalSignature', 'Digital Signature Portal'), url: `${siteBaseUrl}/sign` },
     { value: 'custom', label: t('admin.feasibility.qrForms.customLink', 'Custom Link'), url: '' }
   ];

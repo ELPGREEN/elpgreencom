@@ -472,6 +472,24 @@ export default function PublicSignature() {
 
       if (logError) console.error('Error logging signature:', logError);
 
+      // Send confirmation email
+      try {
+        await supabase.functions.invoke('send-signature-confirmation', {
+          body: {
+            documentName: document.document_name,
+            signerName: formData.name,
+            signerEmail: formData.email,
+            signedAt: timestamp,
+            signatureType: signature.type,
+            signatureHash: hash,
+            documentId: document.id,
+            language: lang,
+          },
+        });
+      } catch (emailErr) {
+        console.error('Error sending confirmation email:', emailErr);
+      }
+
       setFinalSignature(signature);
       setSignatureHash(hash);
       setSignatureComplete(true);

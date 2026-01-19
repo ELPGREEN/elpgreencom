@@ -17,7 +17,8 @@ import {
   Menu,
   X,
   ChevronRight,
-  FolderOpen
+  FolderOpen,
+  FileSignature
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -44,6 +45,7 @@ const navItems: NavItem[] = [
   { id: 'email-inbox', labelKey: 'admin.nav.emailInbox', icon: Mail, categoryKey: 'admin.nav.principal' },
   { id: 'partner-folders', labelKey: 'admin.nav.partnerFolders', icon: FolderOpen, categoryKey: 'admin.nav.principal' },
   { id: 'documents', labelKey: 'admin.nav.documents', icon: FileText, categoryKey: 'admin.nav.principal' },
+  { id: 'signed-documents', labelKey: 'admin.nav.signedDocuments', icon: FileSignature, categoryKey: 'admin.nav.principal' },
   { id: 'global-map', labelKey: 'admin.nav.globalMap', icon: Globe, categoryKey: 'admin.nav.principal' },
   { id: 'partner-levels', labelKey: 'admin.nav.partnerLevels', icon: Shield, categoryKey: 'admin.nav.principal' },
   { id: 'feasibility', labelKey: 'admin.nav.feasibility', icon: BarChart3, categoryKey: 'admin.nav.tools' },
