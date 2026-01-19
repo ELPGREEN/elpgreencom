@@ -219,7 +219,7 @@ export function FeasibilityStudyCalculator() {
     { value: 'template-nda', label: t('admin.feasibility.qrForms.nda', 'NDA - Confidentiality Agreement'), url: `${siteBaseUrl}/documents/template/6ecfacbb-2830-4e55-8f2d-c2f34df20fc6?source=pdf_feasibility` },
     { value: 'template-jv', label: t('admin.feasibility.qrForms.jointVenture', 'Joint Venture Agreement'), url: `${siteBaseUrl}/documents/template/9ba74dd1-b6a4-48f1-8509-421345b9e2f2?source=pdf_feasibility` },
     { value: 'template-lgpd', label: t('admin.feasibility.qrForms.lgpdConsent', 'LGPD/GDPR Consent'), url: `${siteBaseUrl}/documents/template/92dd0f04-f28a-4308-ac96-3863d4389c5e?source=pdf_feasibility` },
-    { value: 'digital-signature', label: t('admin.feasibility.qrForms.digitalSignature', 'Digital Signature Portal'), url: `${siteBaseUrl}/admin?tab=signature` },
+    { value: 'digital-signature', label: t('admin.feasibility.qrForms.digitalSignature', 'Digital Signature Portal'), url: `${siteBaseUrl}/sign` },
     { value: 'custom', label: t('admin.feasibility.qrForms.customLink', 'Custom Link'), url: '' }
   ];
   
