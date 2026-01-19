@@ -1,1 +1,49 @@
 project_id = "zlxbntyqipdcggtfgbko"
+
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.send-marketplace-email]
+verify_jwt = false
+
+[functions.fetch-youtube-videos]
+verify_jwt = false
+
+[functions.send-reply-email]
+verify_jwt = false
+
+[functions.send-push-notification]
+verify_jwt = false
+
+[functions.get-vapid-key]
+verify_jwt = false
+
+[functions.notify-otr-approval]
+verify_jwt = false
+
+[functions.send-webhook-notification]
+verify_jwt = false
+
+[functions.send-weekly-report]
+verify_jwt = false
+
+[functions.firecrawl-scrape]
+verify_jwt = false
+
+[functions.firecrawl-map]
+verify_jwt = false
+
+[functions.generate-document-ai]
+verify_jwt = false
+
+[functions.analyze-feasibility]
+verify_jwt = false
+
+[functions.notify-template-submission]
+verify_jwt = false
+
+[functions.send-signature-confirmation]
+verify_jwt = false
+
+[functions.send-signature-reminder]
+verify_jwt = false

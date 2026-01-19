@@ -50,6 +50,7 @@ import { PartnerDocumentFolders } from '@/components/admin/PartnerDocumentFolder
 import { GlobalLeadMap } from '@/components/admin/GlobalLeadMap';
 import { PartnerLevels } from '@/components/admin/PartnerLevels';
 import { FeasibilityStudyCalculator } from '@/components/admin/FeasibilityStudyCalculator';
+import { SignedDocumentsManager } from '@/components/admin/SignedDocumentsManager';
 import { AdminHeader } from '@/components/admin/AdminHeader';
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
 import { AdminStatsGrid } from '@/components/admin/AdminStatsGrid';
@@ -633,11 +634,11 @@ export default function Admin() {
               {activeTab === 'email-inbox' && <EmailInbox />}
               {activeTab === 'partner-folders' && <PartnerDocumentFolders />}
               {activeTab === 'documents' && <DocumentGenerator />}
+              {activeTab === 'signed-documents' && <SignedDocumentsManager />}
               {activeTab === 'global-map' && <GlobalLeadMap />}
               {activeTab === 'partner-levels' && <PartnerLevels />}
               {activeTab === 'feasibility' && <FeasibilityStudyCalculator />}
               {activeTab === 'otr-leads' && <OTRLeadManagement />}
-              
               {activeTab === 'counters' && (
                 <Card>
                   <CardHeader className="pb-4">
