@@ -44,6 +44,7 @@ import logoElp from '@/assets/logo-elp.png';
 import { format } from 'date-fns';
 import SignaturePad from 'signature_pad';
 import { generateTemplateDocumentPDF, type TemplateDocumentData } from '@/lib/generateTemplateDocumentPDF';
+import { MarkdownRenderer } from '@/components/ui/markdown-renderer';
 
 interface TemplateField {
   name: string;
@@ -957,10 +958,11 @@ export default function TemplateViewer() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="bg-white text-black rounded-lg p-6 max-h-[600px] overflow-y-auto prose prose-sm max-w-none">
-                  <pre className="whitespace-pre-wrap font-sans text-sm">
-                    {previewContent || getContentByLanguage(selectedLanguage)}
-                  </pre>
+                <div className="bg-white text-black rounded-lg p-6 max-h-[600px] overflow-y-auto">
+                  <MarkdownRenderer 
+                    content={previewContent || getContentByLanguage(selectedLanguage)}
+                    className="text-gray-800"
+                  />
                 </div>
               </CardContent>
             </Card>
