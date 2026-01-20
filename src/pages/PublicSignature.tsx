@@ -362,29 +362,47 @@ export default function PublicSignature() {
   const loadDocument = async (docId: string, autoNavigate = false) => {
     setDocumentLoading(true);
     try {
-      // Try to find document by exact ID first
-      let { data, error } = await supabase
-        .from('generated_documents')
-        .select('*')
-        .eq('id', docId)
-        .single();
-
-      // If not found, try partial match (user might have copied only part of the ID)
-      if (error || !data) {
-        const { data: partialData, error: partialError } = await supabase
+      // Clean the document ID - remove any whitespace
+      const cleanDocId = docId.trim();
+      
+      // Check if it looks like a valid UUID
+      const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+      const isValidUuid = uuidRegex.test(cleanDocId);
+      
+      let data = null;
+      let error = null;
+      
+      if (isValidUuid) {
+        // Try to find document by exact ID
+        const result = await supabase
           .from('generated_documents')
           .select('*')
-          .ilike('id', `${docId}%`)
-          .limit(1)
-          .single();
+          .eq('id', cleanDocId)
+          .maybeSingle();
         
-        if (!partialError && partialData) {
-          data = partialData;
+        data = result.data;
+        error = result.error;
+      }
+
+      // If not found by exact match, try to search by partial ID (first 8 chars)
+      if (!data && cleanDocId.length >= 8) {
+        const partialId = cleanDocId.substring(0, 8);
+        const { data: searchResults, error: searchError } = await supabase
+          .from('generated_documents')
+          .select('*')
+          .or(`id.ilike.${partialId}%`)
+          .limit(5);
+        
+        if (!searchError && searchResults && searchResults.length > 0) {
+          // Find exact or closest match
+          const exactMatch = searchResults.find(d => d.id === cleanDocId);
+          data = exactMatch || searchResults[0];
           error = null;
         }
       }
 
       if (error || !data) {
+        console.error('Document not found:', { cleanDocId, error });
         toast({
           title: t.noDocument,
           description: t.noDocumentDesc,

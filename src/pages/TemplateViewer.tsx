@@ -340,7 +340,7 @@ export default function TemplateViewer() {
         });
       }
 
-      // Send notification email
+      // Send notification email to admin
       await supabase.functions.invoke('notify-template-submission', {
         body: {
           documentId: insertedDoc?.id,
@@ -355,6 +355,34 @@ export default function TemplateViewer() {
           signerEmail: signatureData?.signerEmail,
         },
       });
+
+      // Send automatic email with signature link if document is NOT signed yet
+      // Get recipient info from field values
+      const recipientEmail = fieldValues.email || fieldValues.contact_email || signatureData?.signerEmail;
+      const recipientName = fieldValues.representante || fieldValues.contact_name || fieldValues.nome || signatureData?.signerName || 'Partner';
+      const companyName = fieldValues.razao_social || fieldValues.company_name || fieldValues.empresa;
+      
+      if (recipientEmail && insertedDoc && !signatureData) {
+        console.log('Sending signature link email to:', recipientEmail);
+        try {
+          await supabase.functions.invoke('send-document-signature-link', {
+            body: {
+              documentId: insertedDoc.id,
+              documentName: `${template.name} - ${companyName || 'Document'}`,
+              templateType: template.type,
+              recipientEmail,
+              recipientName,
+              companyName,
+              language: selectedLanguage,
+              fieldValues,
+            },
+          });
+          console.log('Signature link email sent successfully');
+        } catch (emailError) {
+          console.error('Error sending signature link email:', emailError);
+          // Don't fail the submission if email fails
+        }
+      }
 
       // Generate PDF
       await generatePDF(signatureData, signatureHash || undefined);
