@@ -61,7 +61,7 @@ const colors = {
 const translations: Record<string, Translations> = {
   pt: {
     confidential: "CONFIDENCIAL",
-    page: "PÃ¡gina",
+    page: "Página",
     of: "de",
     digitalSignature: "ASSINATURA DIGITAL",
     signedDocument: "DOCUMENTO ASSINADO DIGITALMENTE",
@@ -71,14 +71,14 @@ const translations: Record<string, Translations> = {
     signatureType: "Tipo",
     drawnSignature: "Manuscrita Digital",
     typedSignature: "Digitada",
-    verificationHash: "Hash de VerificaÃ§Ã£o SHA-256",
+    verificationHash: "Hash de Verificação SHA-256",
     attachedFiles: "Documentos Anexados",
     documentGenerated: "Documento gerado em",
-    legalNotice: "Documento gerado eletronicamente - vÃ¡lido conforme Lei 14.063/2020 | eIDAS (UE)",
+    legalNotice: "Documento gerado eletronicamente - válido conforme Lei 14.063/2020 | eIDAS (UE)",
     documentChecklist: "Checklist de Documentos",
     verified: "Verificado",
     pending: "Pendente",
-    filledInfo: "INFORMAÃ‡Ã•ES DO DOCUMENTO",
+    filledInfo: "INFORMAÇÕES DO DOCUMENTO",
   },
   en: {
     confidential: "CONFIDENTIAL",
@@ -103,7 +103,7 @@ const translations: Record<string, Translations> = {
   },
   es: {
     confidential: "CONFIDENCIAL",
-    page: "PÃ¡gina",
+    page: "Página",
     of: "de",
     digitalSignature: "FIRMA DIGITAL",
     signedDocument: "DOCUMENTO FIRMADO DIGITALMENTE",
@@ -113,35 +113,35 @@ const translations: Record<string, Translations> = {
     signatureType: "Tipo",
     drawnSignature: "Manuscrita Digital",
     typedSignature: "Digitada",
-    verificationHash: "Hash de VerificaciÃ³n SHA-256",
+    verificationHash: "Hash de Verificación SHA-256",
     attachedFiles: "Documentos Adjuntos",
     documentGenerated: "Documento generado el",
-    legalNotice: "Documento generado electrÃ³nicamente - vÃ¡lido conforme Ley 14.063/2020 | eIDAS (UE)",
+    legalNotice: "Documento generado electrónicamente - válido conforme Ley 14.063/2020 | eIDAS (UE)",
     documentChecklist: "Lista de Documentos",
     verified: "Verificado",
     pending: "Pendiente",
-    filledInfo: "INFORMACIÃ“N DEL DOCUMENTO",
+    filledInfo: "INFORMACIÓN DEL DOCUMENTO",
   },
   zh: {
-    confidential: "æœºå¯†",
-    page: "é¡µ",
+    confidential: "机密",
+    page: "页",
     of: "/",
-    digitalSignature: "æ•°å­—ç­¾å",
-    signedDocument: "æ•°å­—ç­¾åæ–‡ä»¶",
-    signedBy: "ç­¾ç½²äºº",
-    email: "ç”µå­é‚®ä»¶",
-    date: "æ—¥æœŸ",
-    signatureType: "ç±»åž‹",
-    drawnSignature: "æ‰‹å†™æ•°å­—ç­¾å",
-    typedSignature: "é”®å…¥ç­¾å",
-    verificationHash: "SHA-256éªŒè¯å“ˆå¸Œ",
-    attachedFiles: "é™„ä»¶æ–‡æ¡£",
-    documentGenerated: "æ–‡ä»¶ç”ŸæˆäºŽ",
-    legalNotice: "ç”µå­ç”Ÿæˆæ–‡ä»¶ - æ ¹æ®14.063/2020æ³•å¾‹æœ‰æ•ˆ | eIDAS (æ¬§ç›Ÿ)",
-    documentChecklist: "æ–‡ä»¶æ¸…å•",
-    verified: "å·²éªŒè¯",
-    pending: "å¾…å¤„ç†",
-    filledInfo: "æ–‡ä»¶ä¿¡æ¯",
+    digitalSignature: "数字签名",
+    signedDocument: "数字签名文件",
+    signedBy: "签署人",
+    email: "电子邮件",
+    date: "日期",
+    signatureType: "类型",
+    drawnSignature: "手写数字签名",
+    typedSignature: "键入签名",
+    verificationHash: "SHA-256验证哈希",
+    attachedFiles: "附件文档",
+    documentGenerated: "文件生成于",
+    legalNotice: "电子生成文件 - 根据14.063/2020法律有效 | eIDAS (欧盟)",
+    documentChecklist: "文件清单",
+    verified: "已验证",
+    pending: "待处理",
+    filledInfo: "文件信息",
   },
   it: {
     confidential: "RISERVATO",
@@ -418,7 +418,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(8);
         doc.setFont("helvetica", "bold");
-        doc.text("âœ“", xPos + 1.5, rowY + 1.5);
+        doc.text("✓", xPos + 1.5, rowY + 1.5);
       } else {
         doc.setDrawColor(colors.border.r, colors.border.g, colors.border.b);
         doc.setLineWidth(0.5);
@@ -463,7 +463,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
     doc.setFont("helvetica", "normal");
 
     data.uploadedFiles.forEach((fileName) => {
-      doc.text("ðŸ“„ " + fileName, margin + 8, yPos);
+      doc.text("📄 " + fileName, margin + 8, yPos);
       yPos += 7;
     });
 
@@ -497,7 +497,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
 
   // Also handle common automatic replacements
   const currentDate = format(new Date(), "dd/MM/yyyy", { locale: getDateLocale(data.language) });
-  const currentDateTime = format(new Date(), "dd/MM/yyyy 'Ã s' HH:mm", { locale: getDateLocale(data.language) });
+  const currentDateTime = format(new Date(), "dd/MM/yyyy 'às' HH:mm", { locale: getDateLocale(data.language) });
 
   // Replace date placeholders
   processedContent = processedContent.replace(/\{\{\s*date\s*\}\}/gi, currentDate);
@@ -523,7 +523,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
   });
 
   // Remove any remaining unfilled placeholders or show N/A
-  processedContent = processedContent.replace(/\{\{[^}]+\}\}/g, "â€”");
+  processedContent = processedContent.replace(/\{\{[^}]+\}\}/g, "—");
 
   const lines = processedContent.split("\n");
   const maxY = pageHeight - 30;
@@ -582,7 +582,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
         doc.text(wl, margin, yPos);
         yPos += 5;
       });
-    } else if (trimmedLine.startsWith("- ") || trimmedLine.startsWith("â€¢ ")) {
+    } else if (trimmedLine.startsWith("- ") || trimmedLine.startsWith("• ")) {
       doc.setTextColor(colors.text.r, colors.text.g, colors.text.b);
       doc.setFontSize(10);
       doc.setFont("helvetica", "normal");
@@ -591,7 +591,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
       doc.setFillColor(colors.secondary.r, colors.secondary.g, colors.secondary.b);
       doc.circle(margin + 2, yPos - 1.5, 1.2, "F");
 
-      const text = trimmedLine.replace(/^[-â€¢]\s*/, "");
+      const text = trimmedLine.replace(/^[-•]\s*/, "");
       const wrappedLines = doc.splitTextToSize(text, contentWidth - 10);
       wrappedLines.forEach((wl: string, idx: number) => {
         if (yPos > maxY) {
@@ -648,7 +648,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(12);
     doc.setFont("helvetica", "bold");
-    doc.text(`âœ ${t.digitalSignature}`, margin + 10, yPos + 9);
+    doc.text(`✍ ${t.digitalSignature}`, margin + 10, yPos + 9);
 
     yPos += 25;
 
@@ -665,7 +665,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(8);
     doc.setFont("helvetica", "bold");
-    doc.text(`âœ“ ${t.signedDocument}`, margin + 45, yPos + 14, { align: "center" });
+    doc.text(`✓ ${t.signedDocument}`, margin + 45, yPos + 14, { align: "center" });
 
     // Signature image
     try {
@@ -695,7 +695,7 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
     addSignatureDetail(t.email + ":", data.signatureData.signerEmail);
     addSignatureDetail(
       t.date + ":",
-      format(new Date(data.signatureData.timestamp), "dd/MM/yyyy 'Ã s' HH:mm:ss", {
+      format(new Date(data.signatureData.timestamp), "dd/MM/yyyy 'às' HH:mm:ss", {
         locale: getDateLocale(data.language),
       }),
     );
