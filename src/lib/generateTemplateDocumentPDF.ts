@@ -482,7 +482,50 @@ export async function generateTemplateDocumentPDF(data: TemplateDocumentData): P
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
 
-  const lines = data.content.split("\n");
+  // Replace all {{variable}} placeholders with actual values from fieldValues
+  let processedContent = data.content;
+
+  // First, replace with fieldValues
+  Object.entries(data.fieldValues).forEach(([key, value]) => {
+    if (value) {
+      // Handle different placeholder formats: {{key}}, {{key|subkey}}, etc.
+      const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp(`\\{\\{\\s*${escapedKey}\\s*\\}\\}`, "gi");
+      processedContent = processedContent.replace(regex, String(value));
+    }
+  });
+
+  // Also handle common automatic replacements
+  const currentDate = format(new Date(), "dd/MM/yyyy", { locale: getDateLocale(data.language) });
+  const currentDateTime = format(new Date(), "dd/MM/yyyy 'às' HH:mm", { locale: getDateLocale(data.language) });
+
+  // Replace date placeholders
+  processedContent = processedContent.replace(/\{\{\s*date\s*\}\}/gi, currentDate);
+  processedContent = processedContent.replace(/\{\{\s*data\s*\}\}/gi, currentDate);
+  processedContent = processedContent.replace(/\{\{\s*datetime\s*\}\}/gi, currentDateTime);
+
+  // Handle nested field patterns like {{company|name}} by trying to match partial keys
+  const remainingPlaceholders = processedContent.match(/\{\{[^}]+\}\}/g) || [];
+  remainingPlaceholders.forEach((placeholder) => {
+    const key = placeholder.replace(/[{}]/g, "").trim().toLowerCase();
+    const keyParts = key.split(/[|_\s]/);
+
+    // Try to find a matching field value
+    for (const [fieldKey, fieldValue] of Object.entries(data.fieldValues)) {
+      if (
+        fieldValue &&
+        (fieldKey.toLowerCase().includes(keyParts[0]) || keyParts.some((part) => fieldKey.toLowerCase().includes(part)))
+      ) {
+        processedContent = processedContent.replace(placeholder, String(fieldValue));
+        break;
+      }
+    }
+  });
+
+  // Remove any remaining unfilled placeholders or show N/A
+  processedContent = processedContent.replace(/\{\{[^}]+\}\}/g, "—");
+
+  const lines = processedContent.split("\n");
   const maxY = pageHeight - 30;
 
   lines.forEach((line) => {
